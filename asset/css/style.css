@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.bg-header {
+  margin: auto;
+  padding: 5px;
+  background-color: #332f2f;
+}
+
+.fondo {
+  min-height: 100vh;
+}
+
+.fondo_menu {
+  background-color: #6badee;
+
+}
+
+.boton_nav-login {
+  color: white;
+  /* border: 1px solid #ffffff; */
+  margin-left: -7.5px;
+  text-decoration: none;
+  padding: 7px 7px;
+  border-radius: 6px;
+  transition: 0.2s;
+  background-color: #17874f;
+}
+
+.user{
+  color: white;
+  /* border: 1px solid #ffffff; */
+  margin-right: 15px;
+  text-decoration: none;
+  padding: 7px 7px;
+  border-radius: 6px;
+  transition: 0.2s;
+  background-color: #17874f;
+}
+
+.boton_nav-signup {
+  color: white;
+  /* border: 1px solid #ffffff; */
+  margin-left: 10px;
+  text-decoration: none;
+  padding: 7px 7px;
+  border-radius: 6px;
+  transition: 0.2s;
+  background-color: #0d6dff;
+}
+
+.boton_nav-login:hover {
+  border: 2px solid #17874f;
+  color: #000;
+  font-weight: 700;
+  background-color: #ffffff;
+}
+
+.boton_nav-signup:hover {
+  border: 2px solid #0d6dff;
+  color: #000;
+  font-weight: 700;
+  background-color: #ffffff;
+}
+
+.fondo_login {
+  background-color: #000000e6; 
+  min-height: 100vh;
+  padding-top: 50px;
+}
+
+.fondo_login2 {
+  background-color: #55a6f2; 
+  min-height: 100vh;
+}
+
+
+
+
+.login {
+  color: white;
+  margin: auto;
+  border: 1px solid #808080;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: #332f2f;
+}
+
+.icono,
+.titulo {
+  text-align: center;
+  color: #ffffff;
+}
+.titulo {
+  margin-bottom: 10px;
+}
+
+.icono,
+.icono_login {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: #5dbefb;
+}
+
+.icono_footer {
+  font-size: 15px;
+  margin-bottom: 10px;
+  color: #5dbefb;
+}
+
+
+.icono_index {
+  font-size: 50px;
+  text-align: center;
+}
+
+.ojoVisor {
+  position: relative;
+}
+
+.ojoVisor button {
+  border: none;
+  position: absolute;
+}
+
+.changePass {
+  position: absolute;
+  top: 12px;
+  display: flex;
+  left: 270px;
+  color: #5dbefb;
+  cursor: pointer;
+}
+
+.gestion {
+  font-weight: 700;
+}
+
+
+
+
+
+
+
+.btn-edit{
+  background-color: #ffff0b;
+}
+
+.btn-del{
+  background-color: #930000;
+}
+
+.btn-add{
+  background-color: #00623d;
+}
+
+.confirm {
+  background-color: rgba(43, 165, 137, 0.45);
+}
+
+.swal-modal {
+  background-color: rgba(63,255,106,0.69);
+  border: 3px solid white;
+}
