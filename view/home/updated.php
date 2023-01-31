@@ -1,6 +1,6 @@
 <?php
-    require_once("C://wamp64/www/login/controller/homeController.php");
-    //include("../controller/homeController.php");
+    //require_once("C://wamp64/www/login/controller/homeController.php");
+    include("../../controller/homeController.php");
 
     $obj = new homeController();
     $dni = $_POST['dni'];

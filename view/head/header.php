@@ -1,6 +1,5 @@
-<?php include("head.php"); 
-?>
-<!-- <div class="fondo_menu"> -->
+<?php include("head.php"); ?>
+
 <div class="fondo_menu" >
     <div>
         <nav class="navbar navbar-expand-lg bg-dark  navbar-dark">
@@ -57,14 +56,14 @@
                         </li>
                     </ul>
 
-                    <!-- <ul class="navbar-nav">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
                             <a class="nav-link text-warning mt-1" 
                                 href="/login/secciones/vista_actividades.php">
                                 ACTIVIDADES
                             </a>
                         </li>
-                    </ul> -->
+                    </ul>
 
                     <ul class="navbar-nav me-auto mb-lg-0"></ul>
 

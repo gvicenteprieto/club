@@ -3,7 +3,7 @@
 <?php include('../secciones/usuarios.php');
 
 $id = isset($_POST['id']) ? $_POST['id'] : "";
-if ($id ) {
+if ($id) {
     $sql = "SELECT * FROM usuarios WHERE id=:id";
     $query = $conexionDB->prepare($sql);
     $query->bindParam(':id', $id);
@@ -17,7 +17,6 @@ if ($id ) {
         $email = $user['email'];
     }
 }
-
 ?>
 
 <div class="container-fluid p-5">
@@ -38,13 +37,15 @@ if ($id ) {
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="dni" class="form-label text-secondary">DNI</label>
-                                    <input type="text" class="form-control" name="dni" id="dni" readonly=true 
-                                        value="<?php echo $dni; ?>" placeholder="Documento Nacional de Identidad">
+                                    <input type="text" class="form-control" name="dni" id="dni" 
+                                        readonly=true value="<?php echo $dni; ?>" 
+                                        placeholder="Documento Nacional de Identidad">
                                 </div>
                                 <div class="mb-3">
                                     <label for="usuario" class="form-label">Usuario</label>
                                     <input type="text" class="form-control text-primary fw-bold fs-5" 
-                                        name="usuario" id="usuario" value="<?php echo $usuario; ?>" placeholder="Usuario">
+                                        name="usuario" id="usuario" value="<?php echo $usuario; ?>" 
+                                        placeholder="Usuario">
                                 </div>
                                 <div class="mb-3">
                                     <label for="apellidos" class="form-label text-secondary">Apellidos</label>
@@ -62,17 +63,46 @@ if ($id ) {
                                         value="<?php echo $email; ?>" placeholder="Correo Electrónico">
                                 </div>
                                 <div class="mb-3"></div>
+
+                                <!-- ACTIVIDADES -->
+                                <!-- <div class="mb-3">
+                                    <label for="" class="form-label">Actividades del Usuario</label>
+
+                                    <select multiple class="form-control" name="actividades[]" id="listaActividades">
+                                        <?php foreach ($actividades as $actividad) { ?>
+                                            <option <?php
+                                                    if (!empty($arrayActividades)) :
+                                                        if (in_array($actividad['id'], $arrayActividades)) :
+                                                            echo "selected";
+                                                        endif;
+
+                                                    endif;
+                                                    ?> value="<?php echo $actividad['id']; ?>">
+                                                <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
+                                            </option>
+                                        <?php } ?>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="btn-group d-flex " role="group" aria-label="Button group name">
+                                    <button type="submit" name="accion" value="agregar" class="btn btn-success">AGREGA</button>
+                                    <button type="submit" name="accion" value="editar" class="btn btn-warning">EDITA</button>
+                                    <button type="submit" name="accion" value="borrar" class="btn btn-danger">BORRA</button>
+                                </div> -->
+
                                 <div class="btn-group d-flex " role="group" aria-label="Button group name">
                                     <button onclick="return confirmEdit();" type="submit" name="accion" 
-                                        value="editar" class="btn btn-warning fw-bold">EDITAR USUARIO</button>
+                                        value="editar" class="btn btn-warning fw-bold">EDITAR USUARIO
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </form>
 
                     <div class="btn-group d-flex " role="group" aria-label="Button group name">
-                        <button class="btn btn-success" 
-                            onclick='document.getElementById("dni").removeAttribute("readonly", false)'>
+                        <button class="btn btn-success" onclick='document.getElementById("dni").removeAttribute("readonly", false)'>
                             Permitir Edición DNI
                         </button>
                         <!-- <button class="btn btn-info" 

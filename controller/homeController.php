@@ -4,7 +4,6 @@ class homeController
 {
     private $MODEL;
     public function __construct() {
-        //require_once("c://wamp64/www/login/model/homeModel.php");
         include("../../model/homeModel.php");
         //accedemos al valor del modelo:generamos el objeto con el atributo privado MODEL
         $this->MODEL = new HomeModel();
@@ -82,6 +81,5 @@ class homeController
         $keydb = $this->MODEL->obtenerClave($usuario);
         return (password_verify($pass, $keydb)) ? true : false;
     }
-
 }
 ?>

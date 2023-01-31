@@ -1,5 +1,4 @@
 <?php
-    //require_once("C://wamp64/www/login/view/head/head.php");
     include("../home/panelControl.php");
     if (!empty($_SESSION['usuario'])) {
         header("Location:panelControl.php");
@@ -21,36 +20,36 @@
     <div class="mb-3">
             <label for="dni" class="form-label">dni:</label>
             <input type="text" class="form-control" id="dni" name="dni" 
-                value="<?= (!empty($_GET['dni'])) ? $_GET['dni'] : "" ?>" aria-describedby="dni">
+                value="<?= (!empty($_GET['dni'])) ? $_GET['dni'] : "" ?>" 
+                aria-describedby="dni">
         </div>
 
         <div class="mb-3">
             <label for="usuario" class="form-label">Usuario:</label>
             <input type="text" class="form-control" id="usuario" name="usuario" 
-                value="<?= (!empty($_GET['usuario'])) ? $_GET['usuario'] : "" ?>" aria-describedby="usuario">
+                value="<?= (!empty($_GET['usuario'])) ? $_GET['usuario'] : "" ?>" 
+                aria-describedby="usuario">
         </div>
 
         <div class="mb-3">
             <label for="apellidos" class="form-label">Apellidos:</label>
             <input type="text" class="form-control" id="apellidos" name="apellidos" 
-                value="<?= (!empty($_GET['apellidos'])) ? $_GET['apellidos'] : "" ?>" aria-describedby="apellidos">
+                value="<?= (!empty($_GET['apellidos'])) ? $_GET['apellidos'] : "" ?>" 
+                aria-describedby="apellidos">
         </div>
 
         <div class="mb-3">
             <label for="nombres" class="form-label">Nombres:</label>
             <input type="text" class="form-control" id="nombres" name="nombres" 
-                value="<?= (!empty($_GET['nombres'])) ? $_GET['nombres'] : "" ?>" aria-describedby="nombres">
+                value="<?= (!empty($_GET['nombres'])) ? $_GET['nombres'] : "" ?>" 
+                aria-describedby="nombres">
         </div>
-
-        <!-- <div class="mb-3">
-            <label for="primera_vez" class="form-label">Primera Vez:</label>
-            <input type="text" class="form-control" id="primera_vez" name="primera_vez" aria-describedby="primera_vez">
-        </div> -->
 
         <div class="mb-3">
             <label for="email" class="form-label">Email:</label>
             <input type="email" class="form-control" id="email" name="email" 
-                value="<?= (!empty($_GET['email'])) ? $_GET['email'] : "" ?>" aria-describedby="emailHelp">
+                value="<?= (!empty($_GET['email'])) ? $_GET['email'] : "" ?>" 
+                aria-describedby="emailHelp">
         </div>
 
         <div class="mb-3">
@@ -90,7 +89,8 @@
     <div class="login titulo col-3 mt-1 col-4">
         ¿Ya posee cuenta? 
         <div class="d-grid gap-2">
-        <a href="./login.php" class="text-success" style="text-decoration:none; font-weight: 700">Iniciar Sesión</a>
+        <a href="./login.php" class="text-success" 
+            style="text-decoration:none; font-weight: 700">Iniciar Sesión</a>
         </div>
     </div>
 

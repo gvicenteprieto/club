@@ -1,7 +1,4 @@
 <?php
-
-   //require_once("c://wamp64/www/login/config/db.php");
-
    include("../../config/db.php");
 
     session_start();

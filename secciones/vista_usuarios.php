@@ -18,13 +18,12 @@
                     <div class="card card-background p-1 mb-3">
                         <br>
                         <div class="card card-header bg-secondary text-light fs-5">
-                            <a class="nav-link text-center mt-1" 
-                                href="/login/secciones/vista_usuarios.php">
+                            <a class="nav-link text-center mt-1" href="/login/secciones/vista_usuarios.php">
                                 Listado de Usuarios
                             </a>
                         </div>
 
-                       <div class="text-center row">
+                        <div class="text-center row">
                             <div class="col-md-6">
                                 <button class="btn bg-success text-light mt-2 ">
                                     <a class="nav-link text-center" 
@@ -33,8 +32,7 @@
                                     </a>
                                 </button>
                             </div>
-   
-               
+
                             <div class="col-md-6">
                                 <form action="vista_usuarios.php" method="post">
                                     <input type="text" name="buscar" 
@@ -43,18 +41,18 @@
                                     <input type="submit" value="Buscar" class="btn btn-primary">
                                 </form>
                             </div>
-                       </div> 
+                        </div>
 
                         <div class="table-responsive card-body card-background ">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th >DNI</th>
-                                        <th >Usuario</th>
-                                        <th >Apellidos</th>
-                                        <th >Nombres</th>
-                                        <th >Email</th>
-                                        <th >Edición Registro Usuario</th>
+                                        <th>DNI</th>
+                                        <th>Usuario</th>
+                                        <th>Apellidos</th>
+                                        <th>Nombres</th>
+                                        <th>Email</th>
+                                        <th>Edición Registro Usuario</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,14 +66,11 @@
                                                 <td><?= $response['email'];  ?></td>
                                                 <td>
                                                     <form action="/login/secciones/vista_usuarios-edit.php" method="post">
-                                                        <input type="hidden" name="dni" id="dni" 
-                                                        value="<?php echo $response['dni']; ?>"> 
-                                                         <!-- <input type="submit" value="seleccionar" 
+                                                        <input type="hidden" name="dni" id="dni" value="<?php echo $response['dni']; ?>">
+                                                        <!-- <input type="submit" value="seleccionar" 
                                                             name="accion" class="btn btn-warning"> -->
-                                                        <button onclick="return confirmEdit();" 
-                                                            type="submit" class="btn btn-warning">
-                                                            <input type="hidden" value="seleccionar" 
-                                                                name="accion">EDITAR REGISTRO
+                                                        <button onclick="return confirmEdit();" type="submit" class="btn btn-warning">
+                                                            <input type="hidden" value="seleccionar" name="accion">EDITAR REGISTRO
                                                         </button>
                                                         <button onclick="return confirmDelete();" 
                                                             type="submit" name="accion" value="borrar" 
@@ -95,23 +90,15 @@
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td>
                                                     <form action="/login/secciones/vista_usuarios-edit.php" method="post">
-                                                        <input type="hidden" name="id" id="id" 
-                                                            value="<?php echo $usuario['id'];  ?>">
-                                                        <button onclick="return confirmEdit();" 
-                                                            type="submit" name="accion" value="editar" 
-                                                            class="btn btn-warning">EDITAR REGISTRO
+                                                        <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                        <button onclick="return confirmEdit();" type="submit" name="accion" 
+                                                            value="editar" class="btn btn-warning m-1">EDITAR
                                                         </button>
-
-                                                                                                            
-                                                       <button onclick="return confirmDelete();" 
-                                                            type="submit" name="accion" value="borrar" 
-                                                            class="btn btn-danger">BORRAR REGISTRO
+                                                        <button onclick="return confirmDelete();" type="submit" name="accion" 
+                                                            value="borrar" class="btn btn-danger m-1">QUITAR
                                                         </button>
-
                                                     </form>
-                                          
                                                 </td>
-
                                             </tr>
                                         <?php endforeach;  ?>
                                     <?php } ?>
@@ -127,7 +114,7 @@
 
 <script type="text/javascript">
     function confirmDelete() {
-        let confirmar = confirm("¿Confirma la eliminación de éste registro?" );
+        let confirmar = confirm("¿Confirma la eliminación de éste registro?");
         if (confirmar) {
             return true;
         } else {
@@ -135,6 +122,23 @@
         }
     }
 
+    // Swal.fire({
+    //     title: 'Are you sure?',
+    //     text: "You won't be able to revert this!",
+    //     icon: 'warning',
+    //     showCancelButton: true,
+    //     confirmButtonColor: '#3085d6',
+    //     cancelButtonColor: '#d33',
+    //     confirmButtonText: 'Yes, delete it!'
+    // }).then((result) => {
+    //     if (result.isConfirmed) {
+    //         Swal.fire(
+    //             'Deleted!',
+    //             'Your file has been deleted.',
+    //             'success'
+    //         )
+    //     }
+    // })
     function confirmEdit() {
         let confirmar = confirm("¿Desea editar éste usuario?");
         if (confirmar) {
@@ -143,10 +147,6 @@
             return false;
         }
     }
-
-
 </script>
-
-
 
 <?php include("../view/head/footer.php"); ?>

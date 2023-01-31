@@ -1,7 +1,6 @@
-<?php include("../head/header.php"); //require_once("C://wamp64/www/login/view/head/header.php");
-?>
+<?php include("../head/header.php"); ?>
 
-<?php include("../../config/db.php"); //require_once("C://xampp3/htdocs/login/config/db.php");
+<?php include("../../config/db.php"); 
 
 $conexionDB = database::crearInstancia();
 

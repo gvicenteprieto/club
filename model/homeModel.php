@@ -3,7 +3,6 @@
         private $PDO;
         public function __construct() {
         //ENLAZANDO A LA BASE DE DATOS
-        //require_once ("c://wamp64/www/login/config/db.php");
         include("../../config/db.php");
 
         //CREANDO OBJETO Y ACCEDIENDO A LA CONEXIÓN EN EL ATRIBUTO PDO

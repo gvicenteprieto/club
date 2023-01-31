@@ -1,7 +1,4 @@
 <?php
-    //para mostar los distintos mensajes que puede manejar el formulario
-    //require_once("c://wamp64/www/login/controller/homeController.php");
-
     include("../../controller/homeController.php");
     
     $obj = new homeController();

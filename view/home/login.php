@@ -1,5 +1,4 @@
-<?php include("../head/head.php"); //require_once("C://xampp3/htdocs/login/view/head/head.php");
-
+<?php include("../head/head.php");
 if (!empty($_SESSION['usuario'])) {
     header("Location:panelControl.php");
 }
@@ -50,4 +49,3 @@ if (!empty($_SESSION['usuario'])) {
         </div>
     </div>
 </div>
-

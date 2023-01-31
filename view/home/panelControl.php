@@ -1,4 +1,4 @@
-<?php include("../head/header.php"); //require_once("C://wamp64/www/login/view/head/header.php");
+<?php include("../head/header.php"); 
 
 if (empty($_SESSION['usuario'])) {
     header("Location:login.php");
@@ -6,13 +6,12 @@ if (empty($_SESSION['usuario'])) {
 ?>
 
 <div class="fondo_login2">
-
     <?php if ($_SESSION['usuario'] == "root") : ?>
         <div class="container p-5">
             <div class="row">
                 <div class="col-12">
-                    <h5 class="p-2 text-center text-success card bg-light mb-3">Primer acceso, por favor ingrese sus datos</h5>
-                    <!-- <h5 class="text-center mb-4"><i>Por favor ingrese sus datos</i></h5> -->
+                    <h5 class="p-2 text-center text-success card bg-light mb-3">
+                        Primer acceso, por favor ingrese sus datos</h5>
                     <div class="row mt-5">
                         <div>
                             <form action="store.php" method="post" class="row g-3" autocomplete="off">
@@ -28,7 +27,8 @@ if (empty($_SESSION['usuario'])) {
                                             value="" 
                                             aria-describedby="usuario" required 
                                             aria-label="usuario">
-                                        <p class="form-text text-center text-light">Elija un nombre de usuario</p>
+                                        <p class="form-text text-center text-light">
+                                            Elija un nombre de usuario</p>
                                     </div>
                                 </div>
                                 <div class="mb-3  col-sm-6">
@@ -36,7 +36,8 @@ if (empty($_SESSION['usuario'])) {
                                     <input type="text" class="form-control" id="dni" 
                                         name="dni" value="<?= (!empty($_GET['dni'])) ? $_GET['dni'] : "" ?>" 
                                         aria-describedby="dni">
-                                    <small class="form-text text-light">Ingrese su número de DNI, sólo número, sin puntos</small>
+                                    <small class="form-text text-light">
+                                        Ingrese su número de DNI, sólo número, sin puntos</small>
                                 </div>
                                 <div class="mb-3 col-sm-6">
                                     <label for="apellidos" class="form-label">Apellidos:</label>

@@ -139,12 +139,6 @@
   font-weight: 700;
 }
 
-
-
-
-
-
-
 .btn-edit{
   background-color: #ffff0b;
 }
@@ -164,4 +158,12 @@
 .swal-modal {
   background-color: rgba(63,255,106,0.69);
   border: 3px solid white;
+}
+
+/* calendar */
+
+.wrapper {
+  width: 90%;
+  height: 650px;
+  margin: 0 auto;
 }

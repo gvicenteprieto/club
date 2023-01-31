@@ -2,12 +2,10 @@
 
 <?php include('../secciones/actividades.php');  ?>
 
-
 <div class="container-fluid p-5">
     <div class="row">
         <div class="col-12">
             <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">ACTIVIDADES</h5>
-
             <div class="row">
                 <div class="col-md-4 mb-3">
                     <form action="" method="post">
@@ -41,9 +39,12 @@
                                 <div class="btn-group d-flex " role="group" aria-label="Button group name">
                                     <!-- <div class="d-flex p-3"> -->
                                     <button type="submit" name="accion" 
-                                    value="agregar" class="btn btn-success" style="background-color: #00623d">AGREGA</button>
+                                        value="agregar" class="btn btn-success" 
+                                        style="background-color: #00623d">AGREGA
+                                    </button>
                                     <button type="submit" name="accion" 
-                                    value="editar" class="btn btn-warning">EDITA</button>
+                                        value="editar" class="btn btn-warning">EDITA
+                                    </button>
                                     <button type="submit" name="accion" 
                                     value="borrar" class="btn btn-danger">BORRA</button>
                                     <!-- </div> -->
@@ -108,8 +109,6 @@
                                     <?php } else {?> 
 
 
-
-
                                     <!-- 0. 1. foreach para recorrer el listado y poder mostrar cda axctividad -->
                                     <?php foreach ($listaActividades as $actividad) { ?>
                                         <tr>
@@ -131,9 +130,7 @@
                             </table>
                         </div>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </div>
