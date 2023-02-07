@@ -51,4 +51,10 @@ echo json_encode($eventos, JSON_UNESCAPED_UNICODE);
 
 
 //INSERT INTO `eventos` (`id`, `evento`, `description`, `start`, `color`, `textColor`, `end`) VALUES ('1', 'Evento 1', 'Descripción de EVENTO 1', '2023-01-25 12:12:18.000000', '#00623d', '#930000', '2023-01-25 13:12:18.000000');
+
+switch($_GET['accion']) {
+    case 'agregar':
+        $sql = "INSERT INTO `eventos` (`id`, `evento`, `description`, `start`, `color`, `textColor`, `end`) VALUES ('1', 'Evento 1', 'Descripción de EVENTO 1', '2023-01-25 12:12:18.000000', '#00623d', '#930000', '2023-01-25 13:12:18.000000')";
+        break;
+}
 ?>

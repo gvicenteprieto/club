@@ -26,5 +26,30 @@ echo json_encode($eventos, JSON_UNESCAPED_UNICODE);
 // }
 // echo json_encode($eventsArr);
 
+$accion=isset($_POST['accion'])?$_POST['accion']:"";
+$title = isset($_POST['evento']) ? $_POST['evento'] : "";
+$description = isset($_POST['description']) ? $_POST['description'] : "";
+$start = isset($_POST['start']) ? $_POST['start'] : "";
+$end = isset($_POST['end']) ? $_POST['end'] : "";
+
+print_r($accion);
+
+if($accion!="") {
+    switch($accion){
+       case "agregar":
+        $sql = "INSERT INTO eventos (title, description, start, end) 
+        VALUES (:title, :description, :start, :end)";
+        $query = $conexionDB->prepare($sql);
+        //$query->bindParam(':id',$id);
+        $query->bindParam(':title', $title);
+        $query->bindParam(':description', $description);
+        $query->bindParam(':start', $start);
+        $query->bindParam(':end', $end);
+        $query->execute();
+        echo json_encode($query, JSON_UNESCAPED_UNICODE);
+        break;
+    }
+
+ }
 
 ?>
