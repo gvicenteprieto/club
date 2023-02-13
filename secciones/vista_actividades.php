@@ -1,5 +1,4 @@
 <?php include('../view/head/header.php'); ?>
-
 <?php include('../secciones/actividades.php');  ?>
 
 <div class="container-fluid p-5">
@@ -7,7 +6,7 @@
         <div class="col-12">
             <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">ACTIVIDADES</h5>
             <div class="row">
-                <div class="col-md-4 mb-3">
+                <div class="col-md-5 mb-3">
                     <form action="" method="post">
                         <div class="card card-background p-1">
                             <br>
@@ -16,11 +15,11 @@
                             </div>
                             <div class="card-body">
 
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="" class="form-label">CODIGO ACTIVIDAD</label>
                                     <input type="text" class="form-control" name="id" id="id" 
                                     value="<?php echo $id; ?>" placeholder="ID Actividad">
-                                </div>
+                                </div> -->
 
                                 <div class="mb-3">
                                     <label for="nombre_actividad" class="form-label">Nombre</label>
@@ -55,7 +54,7 @@
                     </form>
                 </div>
 
-                <div class="col-md-8">
+                <div class="col-md-7">
                     <div class="card card-background p-1 mb-3">
                         <br>
                         <div class="card card-header bg-secondary text-light">

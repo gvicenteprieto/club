@@ -2,7 +2,7 @@
 $conexionDB = database::crearInstancia();
 
 $buscar = isset($_POST['buscar']) ? $_POST['buscar'] : "";
-$sql_search = "SELECT dni, usuario, apellidos, nombres, email 
+$sql_search = "SELECT id, dni, usuario, apellidos, nombres, email 
                 FROM usuarios where usuario like '%".$buscar."%' 
                 OR dni like '%".$buscar."%'
                 OR apellidos like '%".$buscar."%'
@@ -11,7 +11,7 @@ $sql_search = "SELECT dni, usuario, apellidos, nombres, email
 
 $sql_query=$conexionDB->prepare($sql_search);
 $sql_query->execute();
-$sql_response = $sql_query->fetchAll();
+$sql_response=$sql_query->fetchAll(); ///////ver! fetch(PDO::FETCH_ASSOC); 
 
 //validación de info de llegada:
 //usuarios
@@ -44,6 +44,17 @@ if ($accion != "") {
             $query->bindParam(':email', $email);
             $query->bindParam(':pass', $pass);
             $query->execute();
+
+            $idUser=$conexionDB->lastInsertId();
+
+            foreach($actividades as $actividad) {
+                //INSERT INTO `usuarios_actividades` (`id`, `idUsuario`, `idActividad`) VALUES (NULL, '72', '3');
+                $sql="INSERT INTO usuarios_actividades (id, idUsuario, idActividad) VALUES (null, :idUsuario, :idActividad)";
+                $query=$conexionDB->prepare($sql);
+                $query->bindParam(':idUsuario',$idUser);
+                $query->bindParam(':idActividad',$actividad);
+                $query->execute();
+            };
             header("Location:vista_usuarios.php");
         break;
 
@@ -85,7 +96,81 @@ if ($accion != "") {
             $query->bindParam(':nombres', $nombres);
             $query->bindParam(':email', $email);
             $query->execute();
+
             //header("Location:vista_usuarios.php");
+        break;
+
+        case "agregarAct":
+            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
+            $query = $conexionDB->prepare($sql);
+            $query->bindParam(':id', $id);
+            $query->bindParam(':dni', $dni);
+            $query->execute();
+            $user=$query->fetch(PDO::FETCH_ASSOC);
+                $id=$user['id'];
+                $dni=$user['dni'];
+                $usuario=$user['usuario'];
+                $apellidos=$user['apellidos'];
+                $nombres=$user['nombres'];
+                $email=$user['email'];
+          
+            foreach($actividades as $actividad) {
+                //INSERT INTO `usuarios_actividades` (`id`, `idUsuario`, `idActividad`) VALUES (NULL, '72', '3');
+                $sql="INSERT INTO usuarios_actividades (id, idUsuario, idActividad) VALUES (null, :idUsuario, :idActividad)";
+                $query=$conexionDB->prepare($sql);
+                $query->bindParam(':idUsuario',$id);
+                $query->bindParam(':idActividad',$actividad);
+                $query->execute();
+            };
+        break;
+
+        case "editarAct":
+            foreach($usuarios as $clave => $usuario) {
+                $sql="SELECT * FROM actividades 
+                WHERE id IN (SELECT idActividad FROM usuarios_actividades WHERE idUsuario = :idUsuario)";
+                $query = $conexionDB->prepare($sql);
+                $query->bindParam(':idUsuario', $usuario['id']);
+                $query->execute();
+                $actividadesUsuario=$query->fetchAll();
+                $usuarios[$clave]['actividades'] = $actividadesUsuario;
+            };
+            print_r($usuarios);
+        break;
+
+        case "borrarAct":
+            // $sql = "DELETE FROM usuarios WHERE dni=:dni or id=:id";
+            // $query = $conexionDB->prepare($sql);
+            // $query->bindParam(':id', $id);
+            // $query->bindParam(':dni', $dni);
+            // $query->execute();
+            // header("Location:vista_usuarios.php");
+            // echo "hola mundo";
+            // //print_r("hi");
+
+            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
+            $query = $conexionDB->prepare($sql);
+            $query->bindParam(':id', $id);
+            $query->bindParam(':dni', $dni);
+            $query->execute();
+            $user=$query->fetch(PDO::FETCH_ASSOC);
+                $id=$user['id'];
+                $dni=$user['dni'];
+                $usuario=$user['usuario'];
+                $apellidos=$user['apellidos'];
+                $nombres=$user['nombres'];
+                $email=$user['email'];
+
+                //"DELETE FROM usuarios_actividades WHERE `usuarios_actividades`.`id` = 64"?
+          
+            foreach($actividades as $actividad) {
+                //INSERT INTO `usuarios_actividades` (`id`, `idUsuario`, `idActividad`) VALUES (NULL, '72', '3');
+                // $sql="INSERT INTO usuarios_actividades (id, idUsuario, idActividad) VALUES (null, :idUsuario, :idActividad)";
+                $sql="DELETE FROM usuarios_actividades WHERE `usuarios_actividades`.`id` = :idActividad";
+                $query=$conexionDB->prepare($sql);
+                $query->bindParam(':idUsuario',$id);
+                $query->bindParam(':idActividad',$actividad);
+                $query->execute();
+            };
         break;
 
     }
@@ -95,4 +180,23 @@ if ($accion != "") {
 $sql = "SELECT * FROM usuarios where usuario != 'admin' and usuario != 'root'";
 $listaUsuarios = $conexionDB->query($sql);
 $usuarios = $listaUsuarios->fetchAll();
+
+//actividades de cada usuario
+foreach($usuarios as $clave => $usuario) {
+    $sql="SELECT * FROM actividades 
+    WHERE id IN (SELECT idActividad FROM usuarios_actividades WHERE idUsuario = :idUsuario)";
+    $query = $conexionDB->prepare($sql);
+    $query->bindParam(':idUsuario', $usuario['id']);
+    $query->execute();
+    $actividadesUsuario=$query->fetchAll();
+    $usuarios[$clave]['actividades'] = $actividadesUsuario;
+};
+//print_r($usuarios);
+
+//actividades disponibles:
+$sql ="SELECT * FROM actividades";
+$listadoActividades = $conexionDB->query($sql);
+$actividades=$listadoActividades->fetchAll();
+
+
 ?>

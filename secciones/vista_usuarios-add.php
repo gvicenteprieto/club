@@ -26,7 +26,7 @@
                                 <div class="mb-3">
                                     <label for="usuario" class="form-label">Usuario</label>
                                     <input type="text" class="form-control text-primary fw-bold fs-5" 
-                                        name="usuario" id="usuario" value="<?php echo $usuario; ?>" placeholder="Usuario">
+                                        name="usuario" id="usuario"  placeholder="Usuario">
                                 </div>
                                 <div class="mb-3">
                                     <label for="apellidos" class="form-label text-secondary">Apellidos</label>
@@ -46,10 +46,11 @@
                                 <div class="mb-3"></div>
 
                                 <!-- ACTIVIDADES -->
-                                <!-- <div class="mb-3">
-                                    <label for="" class="form-label">Actividades del Usuario</label>
-                                    
+                                 <div class="mb-3">
+                                    <label for="" class="form-label">Seleccione actividad disponible para vincular al usuario: </label>
+
                                     <select multiple class="form-control" name="actividades[]" id="listaActividades">
+                                    <!-- <option value="">Seleccione actividad:</option>  -->
                                         <?php foreach($actividades as $actividad){ ?>
                                             <option
                                                 <?php
@@ -66,7 +67,7 @@
                                         <?php } ?>
                                         
                                     </select>
-                                </div> -->
+                                </div> 
 
                                 <div class="btn-group d-flex " role="group" aria-label="Button group name">
                                     <button type="submit" name="accion" value="agregar" 
@@ -82,5 +83,12 @@
         </div>
     </div>
 </div>
-
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script>
+    new TomSelect("#listaActividades",{
+		plugins: ['remove_button'],
+	});
+	
+</script> 
 <?php include("../view/head/footer.php"); ?>

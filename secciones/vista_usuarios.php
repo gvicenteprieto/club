@@ -26,8 +26,7 @@
                         <div class="text-center row">
                             <div class="col-md-6">
                                 <button class="btn bg-success text-light mt-2 ">
-                                    <a class="nav-link text-center" 
-                                        href="/login/secciones/vista_usuarios-add.php">
+                                    <a class="nav-link text-center" href="/login/secciones/vista_usuarios-add.php">
                                         Agregar nuevo usuario
                                     </a>
                                 </button>
@@ -35,9 +34,7 @@
 
                             <div class="col-md-6">
                                 <form action="vista_usuarios.php" method="post">
-                                    <input type="text" name="buscar" 
-                                        class="btn fw-bold fs-6 text-center mb-2 mt-2" 
-                                        style="background-color: #a6c3de">
+                                    <input type="text" name="buscar" class="btn fw-bold fs-6 text-center mb-2 mt-2" style="background-color: #a6c3de">
                                     <input type="submit" value="Buscar" class="btn btn-primary">
                                 </form>
                             </div>
@@ -66,17 +63,31 @@
                                                 <td><?= $response['email'];  ?></td>
                                                 <td>
                                                     <form action="/login/secciones/vista_usuarios-edit.php" method="post">
-                                                        <input type="hidden" name="dni" id="dni" value="<?php echo $response['dni']; ?>">
+                                                    <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                       <!-- <input type="hidden" name="dni" id="dni" value="<?php echo $response['dni']; ?>"> -->
                                                         <!-- <input type="submit" value="seleccionar" 
                                                             name="accion" class="btn btn-warning"> -->
-                                                        <button onclick="return confirmEdit();" type="submit" class="btn btn-warning">
-                                                            <input type="hidden" value="seleccionar" name="accion">EDITAR REGISTRO
+                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning">
+                                                            <!-- <input type="hidden" value="seleccionar" name="accion"> -->
+                                                            EDITAR REGISTRO
                                                         </button>
-                                                        <button onclick="return confirmDelete();" 
-                                                            type="submit" name="accion" value="borrar" 
-                                                            class="btn btn-danger">BORRAR REGISTRO
+                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger">BORRAR REGISTRO
                                                         </button>
                                                     </form>
+
+
+
+
+
+
+                                                    <!-- <form action="/login/secciones/vista_usuarios-edit.php" method="post">
+                                                        <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
+                                                        </button>
+                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
+                                                        </button>
+                                                    </form> -->
+
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -84,18 +95,29 @@
                                         <?php foreach ($usuarios as $usuario) : ?>
                                             <tr>
                                                 <td><?php echo $usuario['dni']; ?></td>
-                                                <td class="text-primary fw-bold"><?php echo $usuario['usuario']; ?></td>
+                                                <td class="text-primary fw-bold"><?php echo $usuario['usuario']; ?>
+                                                    <?php
+                                                    foreach ($usuario["actividades"] as $actividad) { ?>
+ <!-- <select  id="activity"> -->
+                                                        <br>🟠<a class="text-secondary" href="#" id="listaActividades"><?php echo $actividad['nombre_actividad']; ?> </a>
+                                                        <!-- <form action="/login/secciones/vista_usuarios.php" method="post">
+                                                            <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                            <button type="submit" name="accion" value="borrarAct">❌
+                                                            </button>
+                                                        </form> -->
+                                                        
+                                                    <?php } ?>
+<!-- </select> -->
+                                                </td>
                                                 <td><?php echo $usuario['apellidos']; ?></td>
                                                 <td><?php echo $usuario['nombres']; ?></td>
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td>
                                                     <form action="/login/secciones/vista_usuarios-edit.php" method="post">
                                                         <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
-                                                        <button onclick="return confirmEdit();" type="submit" name="accion" 
-                                                            value="editar" class="btn btn-warning m-1">EDITAR
+                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
                                                         </button>
-                                                        <button onclick="return confirmDelete();" type="submit" name="accion" 
-                                                            value="borrar" class="btn btn-danger m-1">QUITAR
+                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
                                                         </button>
                                                     </form>
                                                 </td>
@@ -112,6 +134,21 @@
     </div>
 </div>
 
+ <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script>
+    //new TomSelect('#listaActividades');
+
+    new TomSelect("#listaActividades",{
+		plugins: ['remove_button'],
+	});
+
+    new TomSelect("#activity",{
+		plugins: ['remove_button'],
+	});
+	
+</script> 
+
 <script type="text/javascript">
     function confirmDelete() {
         let confirmar = confirm("¿Confirma la eliminación de éste registro?");
@@ -122,23 +159,6 @@
         }
     }
 
-    // Swal.fire({
-    //     title: 'Are you sure?',
-    //     text: "You won't be able to revert this!",
-    //     icon: 'warning',
-    //     showCancelButton: true,
-    //     confirmButtonColor: '#3085d6',
-    //     cancelButtonColor: '#d33',
-    //     confirmButtonText: 'Yes, delete it!'
-    // }).then((result) => {
-    //     if (result.isConfirmed) {
-    //         Swal.fire(
-    //             'Deleted!',
-    //             'Your file has been deleted.',
-    //             'success'
-    //         )
-    //     }
-    // })
     function confirmEdit() {
         let confirmar = confirm("¿Desea editar éste usuario?");
         if (confirmar) {

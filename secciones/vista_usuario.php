@@ -17,28 +17,62 @@ if ($_SESSION['usuario']) {
         $apellidos = $user['apellidos'];
         $nombres = $user['nombres'];
         $email = $user['email'];
+    };
+    $sqlx = "SELECT * FROM actividades 
+    WHERE id IN (SELECT idActividad FROM usuarios_actividades WHERE idUsuario = :idUsuario)";
+    $query = $conexionDB->prepare($sqlx);
+    $query->bindParam(':idUsuario', $id);
+    $query->execute();
+    $actividad = $query->fetchAll();
+}
+
+?>
+<style>
+    #customers {
+        border-collapse: collapse;
+        width: 100%;
     }
 
-}
-?>
+    #customers td,
+    #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
 
+    #customers tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    #customers tr:hover {
+        background-color: #ddd;
+    }
+
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #04AA6D;
+        color: white;
+    }
+</style>
 <div class="container p-5">
     <div class="row">
         <div class="col-12">
             <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">
-                Perfil de Usuario:
+                Perfil de Usuario
             </h5>
             <div class="row">
                 <div>
-                    <div class="card p-1">
+                    <div class="card p-3">
                         <br>
                         <div class="card card-header bg-secondary text-light">
-                            <h5 class="fs-4 text-center ">
+                            <h5 class="fs-4 text-center text-warning">
                                 <i>
                                     <?php echo  $_SESSION['usuario']; ?>
                                 </i>
                             </h5>
                         </div>
+
                         <div class="card-body">
                             <div class="table-responsive card-background">
                                 <table class="table">
@@ -65,17 +99,62 @@ if ($_SESSION['usuario']) {
                                 </table>
                             </div>
                         </div>
+
+                        <?php if ($actividad) : ?>
+
+                            <div >
+                                <h5 class="fs-5 text-center">
+                                    Actividades
+                                </h5>
+                            </div>
+
+                            <div class="table-responsive card-background">
+                                <table class="table" id="customers">
+                                    <thead>
+                                        <tr>
+                                            <th class="bg-secondary text-warning">ACTIVIDAD</th>
+                                            <th class="bg-secondary text-warning">LUGAR DE DESARROLLO</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <?php
+                                                foreach ($actividad as $activ) { ?>
+                                                    <li class="list-group-item p-2">
+                                                        🟠<?php echo $activ['nombre_actividad']; ?>
+                                                    </li>
+                                                <?php } ?>
+                                            </td>
+                                            <td>
+                                                <?php
+                                                foreach ($actividad as $activ) { ?>
+                                                    <li class="list-group-item p-2">
+                                                        🟫<?php echo $activ['lugar']; ?>
+                                                    </li>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
-            <!-- <h4><?php echo $nombre_actividad; ?> </h4> -->
         </div>
     </div>
 </div>
 
-<!-- <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 <script>
-    new TomSelect('#listaActividades');
-</script> -->
+    //new TomSelect('#listaActividades');
+
+    new TomSelect("#listaActividades",{
+		plugins: ['remove_button'],
+	});
+	
+</script> 
 <?php include("../view/head/footer.php"); ?>
