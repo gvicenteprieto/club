@@ -4,13 +4,13 @@ class homeController
 {
     private $MODEL;
     public function __construct() {
+        //require_once("c://wamp64/www/login/model/homeModel.php");
         include("../../model/homeModel.php");
         //accedemos al valor del modelo:generamos el objeto con el atributo privado MODEL
         $this->MODEL = new HomeModel();
     }
 
-    public function guardarUsuario($dni, $usuario, $apellidos, 
-                                    $nombres, $email, $pass, $primera_vez, $perfil) {
+    public function guardarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass) {
         $valor = $this->MODEL->agregarUsuario(
             $this->limpiarCadena($dni),
             $this->limpiarCadena($usuario),
@@ -19,14 +19,13 @@ class homeController
             $this->limpiarCorreo($email),
             //se almacena la contraseña ya encriptada
             $this->encriptarPass($this->limpiarCadena($pass)),
-            $this->limpiarCadena($primera_vez),
-            $this->limpiarCadena($perfil)
+            // $this->limpiarCadena($primera_vez),
+            // $this->limpiarCadena($perfil)
         );
         return $valor;
     }
 
-    public function editarUsuario($dni, $usuario, $apellidos, 
-                                    $nombres, $email, $pass, $primera_vez=1) {
+    public function editarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass, $primera_vez=1) {
         $valor = $this->MODEL->modificarUsuario(
             $this->limpiarCadena($dni),
             $this->limpiarCadena($usuario),
@@ -81,5 +80,6 @@ class homeController
         $keydb = $this->MODEL->obtenerClave($usuario);
         return (password_verify($pass, $keydb)) ? true : false;
     }
+
 }
 ?>

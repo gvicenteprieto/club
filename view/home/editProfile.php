@@ -18,8 +18,10 @@ if ($_SESSION['usuario']) {
         $apellidos = $user['apellidos'];
         $nombres = $user['nombres'];
         $email = $user['email'];
+        $foto = $user['foto'];
     }
-}
+};
+
 ?>
 
 <!-- <div class="fondo_login"> -->
@@ -30,7 +32,7 @@ if ($_SESSION['usuario']) {
                 <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">Editar Perfil</h5>
                 <div class="row mt-5">
                     <div>
-                        <form action="updated.php" method="post" class="row g-3" autocomplete="off">
+                        <form action="updated.php" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
                             <div class="col-sm-3 text-center">
                                 <label for="usuario" 
                                 class="form-label m-1 fw-bold fs-5 p-2">Usuario:</label>
@@ -86,6 +88,12 @@ if ($_SESSION['usuario']) {
                                     <?= !empty($_GET['error']) ? ($_GET['error']) : "" ?>
                                 </div>
                             <?php endif; ?>
+
+                            <div>
+                                <label for="foto">Subir imágen para agregar al perfil</label>
+                                <input type="file" class="form-control-file btn btn-warning" name="foto" id="foto" />
+                            </div>
+
                             <div class="col-sm-12 d-grid gap-2">
                                 <button type="submit" class="btn btn-success fw-bold">
                                     Actualizar

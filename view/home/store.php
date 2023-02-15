@@ -1,4 +1,7 @@
 <?php
+    //para mostar los distintos mensajes que puede manejar el formulario
+    //require_once("c://wamp64/www/login/controller/homeController.php");
+
     include("../../controller/homeController.php");
     
     $obj = new homeController();
@@ -11,6 +14,7 @@
     $confirmPass = $_POST['confirmPass'];
     $primera_vez= 1;
     $perfil= 1;
+    $foto=$_FILES['foto'];
 
     //verificaciones, si algún campo está vacío se regresa a signup con advertencia:
     $error = "";
@@ -21,10 +25,10 @@
         //verificando que las contraseñas coincidan
         if ($confirmPass == $pass) {
             //si coinciden, se reutiliza el objeto que almacena el home controller para acceder a la función guardarUsuario() y se dirige a login; aunque hay otra valicación más ya que el correo debe ser único
-            if ($obj->guardarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass, $primera_vez, $perfil) == false) {
+            if ($obj->guardarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass, $foto) == false) {
                 //validación, si hay error por ejemplo mismo correo que tiene tipo unique
                 $error .= "<li>Correo ya registrado</li>";
-                header("Location:panelControl.php?error=" . $error . "&&dni=" . $dni."&&usuario=" . $usuario . "&&apellidos=" . $apellidos . "&&nombres=" . $nombres . "&&email=" . $email . "&&pass=" . $pass . "&&confirmPass=" . $confirmPass);
+                header("Location:panelControl.php?error=" . $error . "&&dni=" . $dni."&&usuario=" . $usuario . "&&apellidos=" . $apellidos . "&&nombres=" . $nombres . "&&email=" . $email . "&&pass=" . $pass . "&&foto=" . $foto ."&&confirmPass=" . $confirmPass);
             } else {
                 header("Location:logout.php");
             }

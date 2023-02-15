@@ -23,6 +23,16 @@ if ($id) {
     $query->bindParam(':idUsuario', $id);
     $query->execute();
     $actividad = $query->fetchAll();
+
+    // foreach ($actividad as $activ) {
+    //     $sqlDel="DELETE FROM usuarios_actividades WHERE usuarios_actividades.idActividad = :idActividad";
+    //     $query = $conexionDB->prepare($sqlDel);
+    //     $query ->bindParam(':idActividad', $actividad);
+    //     $query->execute();
+    //     print_r("query: ".$query);
+    // };
+
+
 }
 ?>
 
@@ -79,6 +89,7 @@ if ($id) {
                                                 <tr>
                                                     <th class="bg-secondary text-warning">ACTIVIDAD</th>
                                                     <th class="bg-secondary text-warning">LUGAR DE DESARROLLO</th>
+                                                    <th class="bg-secondary text-warning">EDICION</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -99,12 +110,49 @@ if ($id) {
                                                             </li>
                                                         <?php } ?>
                                                     </td>
+                                                    <td>
+                                                    <?php
+                                                        foreach ($actividad as $activ) { ?>
+                                                            <li class="list-group-item p-2">
+                                                            <button type="submit" name="accion" value="borrarAct" class="btn btn-danger"> Quitar</button>
+                                                            </li>
+                                                        <?php } ?>
+                                                    
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
 
                                 <?php endif; ?>
+
+                                <br>
+                                <hr>
+                                <!-- ACTIVIDADES del usuario version 2 -->
+                                <div class="mb-3">
+                                    <label for="" class="form-label">Actividades vinculadas:</label>
+
+
+                                    <select multiple class="form-control" name="actividades[]" id="arrayActividadesUsuarios">
+
+                                        <?php foreach ($actividadesUsuario as $actividadUsuario) { ?>
+                                            <option <?php
+                                                    if (!empty($arrayActividadesUsuarios)) :
+                                                        if (in_array($actividadUsuario['id'], $arrayActividadesUsuarios)) :
+                                                            echo "seleccionado";
+                                                        endif;
+                                                    endif;
+                                                    ?> value="<?php echo $actividadUsuario['id']; ?>">
+                                                <?php echo $actividadUsuario['id']; ?> - <?php echo $actividadUsuario['nombre_actividad']; ?>
+                                                
+                                            </option>
+                                        <?php } ?>
+
+                                    </select>
+                                </div>
+
+
+                                <hr>
 
                                 <!-- ACTIVIDADES -->
                                 <div class="mb-3">
@@ -162,7 +210,7 @@ if ($id) {
 <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 <script>
-    new TomSelect("#listaActividades", {
+    new TomSelect("#arrayActividadesUsuarios", {
         plugins: ['remove_button'],
     });
 </script>

@@ -3,22 +3,25 @@
         private $PDO;
         public function __construct() {
         //ENLAZANDO A LA BASE DE DATOS
+        //require_once ("c://wamp64/www/login/config/db.php");
         include("../../config/db.php");
 
         //CREANDO OBJETO Y ACCEDIENDO A LA CONEXIÓN EN EL ATRIBUTO PDO
         $pdo = new db();
         $this->PDO = $pdo->conexion();
         }
-        public function agregarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass, $primera_vez){
-            $statement = $this->PDO-> prepare("INSERT INTO usuarios 
-                values (null, :dni, :usuario, :apellidos, :nombres, :email, :pass, :primera_vez)");
+
+        public function agregarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass){
+            $statement = $this->PDO-> prepare("INSERT INTO usuarios (dni, usuario, apellidos, nombres, email, pass)
+                values (:dni, :usuario, :apellidos, :nombres, :email, :pass)");
             $statement->bindParam(":dni",$dni);
             $statement->bindParam(":usuario",$usuario);
             $statement->bindParam(":apellidos",$apellidos);
             $statement->bindParam(":nombres",$nombres);
             $statement->bindParam(":email",$email);    
-            $statement->bindParam(":pass" , $pass);
-            $statement ->bindParam(":primera_vez" , $primera_vez);
+            $statement->bindParam(":pass",$pass);
+            // $statement ->bindParam(":primera_vez",$primera_vez);
+            // $statement ->bindParam(":perfil",$perfil);
             //try catch para terminar la función: si se ejecuta bien: true, sino si hay error return false:
             try {
                 $statement->execute();
@@ -30,14 +33,14 @@
 
         public function modificarUsuario($dni, $usuario, $apellidos, $nombres, $email, $pass){
             $statement = $this->PDO-> prepare("UPDATE usuarios 
-                SET dni=:dni , usuario=:usuario, apellidos=:apellidos, nombres=:nombres, email=:email, pass=:pass 
+                SET dni=:dni, usuario=:usuario, apellidos=:apellidos, nombres=:nombres, email=:email, pass=:pass 
                 WHERE usuario=:usuario");
             $statement->bindParam(":dni",$dni);
             $statement->bindParam(":usuario",$usuario);
             $statement->bindParam(":apellidos",$apellidos);
             $statement->bindParam(":nombres",$nombres);
             $statement->bindParam(":email",$email);    
-            $statement->bindParam(":pass" , $pass);
+            $statement->bindParam(":pass",$pass);
             // $statement ->bindParam(":primera_vez" , $primera_vez);
             // $statement ->bindParam(":perfil" , $perfil);
             try {

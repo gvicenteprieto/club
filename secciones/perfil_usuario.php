@@ -2,14 +2,14 @@
 
 <?php include('../secciones/usuarios.php');
 
-if ($_SESSION['usuario']) {
-    $usuario = $_SESSION['usuario'];
-    $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
+
+$id = isset($_POST['id']) ? $_POST['id'] : "";
+if ($id) {
+    $sql = "SELECT * FROM usuarios WHERE id=:id";
     $query = $conexionDB->prepare($sql);
-    $query->bindParam(':usuario', $usuario);
+    $query->bindParam(':id', $id);
     $query->execute();
     $users = $query->fetchAll(PDO::FETCH_ASSOC);
-
     foreach ($users as $user) {
         $id = $user['id'];
         $dni = $user['dni'];
@@ -25,6 +25,16 @@ if ($_SESSION['usuario']) {
     $query->bindParam(':idUsuario', $id);
     $query->execute();
     $actividad = $query->fetchAll();
+
+    // foreach ($actividad as $activ) {
+    //     $sqlDel="DELETE FROM usuarios_actividades WHERE usuarios_actividades.idActividad = :idActividad";
+    //     $query = $conexionDB->prepare($sqlDel);
+    //     $query ->bindParam(':idActividad', $actividad);
+    //     $query->execute();
+    //     print_r("query: ".$query);
+    // };
+
+
 }
 
 ?>
@@ -69,17 +79,14 @@ if ($_SESSION['usuario']) {
                         <div class="card card-header bg-secondary text-light">
                             <h5 class="fs-4 text-center text-warning">
                                 <i>
-                                    <?php echo  $_SESSION['usuario']; ?>
+                                    <?php echo  $usuario; ?>
                                 </i>
                             </h5>
-
-
                             <?php if ($foto) : ?>
                                 <div class="text-center">
                                     <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
                                 </div>
                             <?php endif; ?>
-
                         </div>
 
                         <div class="card-body">
@@ -88,7 +95,6 @@ if ($_SESSION['usuario']) {
                                     <thead>
                                         <tr>
                                             <!-- <th scope="col">ID</th> -->
-                                            <!-- <th scope="col">Imágen</th> -->
                                             <th scope="col">DNI</th>
                                             <!-- <th scope="col">Usuario</th> -->
                                             <th scope="col">Apellidos</th>
@@ -99,7 +105,6 @@ if ($_SESSION['usuario']) {
                                     <tbody>
                                         <tr>
                                             <!-- <td><?php echo $id; ?></td> -->
-                                            <!-- <td><img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo  $_SESSION['usuario']; ?>"/></td> -->
                                             <td><?php echo $dni; ?></td>
                                             <!-- <td><?php echo $usuario; ?></td> -->
                                             <td><?php echo $apellidos; ?></td>
