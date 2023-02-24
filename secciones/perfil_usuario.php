@@ -33,8 +33,6 @@ if ($id) {
     //     $query->execute();
     //     print_r("query: ".$query);
     // };
-
-
 }
 
 ?>

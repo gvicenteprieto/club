@@ -22,17 +22,11 @@ if ($id) {
     $query = $conexionDB->prepare($sqlx);
     $query->bindParam(':idUsuario', $id);
     $query->execute();
-    $actividad = $query->fetchAll();
+    $actividad = $query->fetchAll(PDO::FETCH_ASSOC);
 
-    // foreach ($actividad as $activ) {
-    //     $sqlDel="DELETE FROM usuarios_actividades WHERE usuarios_actividades.idActividad = :idActividad";
-    //     $query = $conexionDB->prepare($sqlDel);
-    //     $query ->bindParam(':idActividad', $actividad);
-    //     $query->execute();
-    //     print_r("query: ".$query);
-    // };
-
-
+    foreach ($actividad as $activi) {
+        $ac = $activi;
+    }
 }
 ?>
 
@@ -111,14 +105,23 @@ if ($id) {
                                                         <?php } ?>
                                                     </td>
                                                     <td>
-                                                    <?php
+                                                        <?php
                                                         foreach ($actividad as $activ) { ?>
                                                             <li class="list-group-item p-2">
-                                                            <button type="submit" name="accion" value="borrarAct" class="btn btn-danger"> Quitar</button>
+                                                                <input type="hidden" name="idAct" id="idAct" ?>
+                                                                <button type="submit" name="accion" value="borrarAct" class="btn btn-danger"> Quitar</button>
                                                             </li>
                                                         <?php } ?>
-                                                    
                                                     </td>
+                                                    <!-- <td>
+                                                        <?php
+                                                        foreach ($actividad as $activ) { ?>
+                                                            <li class="list-group-item p-2">
+                                                                <input type="hidden" name="idAct" id="idAct">
+                                                                <button type="submit" name="accion" value="editarAct" class="btn btn-success">editar</button>
+                                                            </li>
+                                                        <?php } ?>
+                                                    </td> -->
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -126,42 +129,103 @@ if ($id) {
 
                                 <?php endif; ?>
 
-                                <br>
-                                <hr>
-                                <!-- ACTIVIDADES del usuario version 2 -->
-                                <div class="mb-3">
-                                    <label for="" class="form-label">Actividades vinculadas:</label>
+                                <!-- PRUEBAS -->
+                                <!-- <hr>
+
+                                <tbody>
+                                    <?php foreach ($actividad as $activ) { ?>
+                                        <tr>
+                                            <td>
+                                                <li class="list-group-item p-2">
+                                                    🟠<?php echo $activ['nombre_actividad']; ?>
+                                                </li>
+                                            </td>
+
+                                            <td>
+                                                <li class="list-group-item p-2">
+                                                    🟫<?php echo $activ['lugar']; ?>
+                                                </li>
+                                            </td>
+
+                                            <td>
+                                                <li class="list-group-item p-2">
+                                                    🟫<?php echo $activ ?>
+                                                </li>
+                                            </td>
+
+                                            <td>
+                                                <li class="list-group-item p-2">
+                                                    🟫<?php echo $id ?>
+                                                </li>
+                                            </td>
+
+                                            <td>
+                                                <li class="list-group-item p-2">
+                                                    <input type="hidden" name="idAct" id="idAct" ?>
+                                                    <button type="submit" name="accion" value="borrarAct" class="btn btn-danger"> Quitar</button>
+                                                </li>
+                                            </td>
+
+                                            <td>
+                                                <li class="list-group-item p-2">
+                                                    <input type="hidden" name="idAct" id="idAct">
+                                                    <button type="submit" name="accion" value="editarAct" class="btn btn-success">editar</button>
+                                                </li>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
+                                </tbody>
+
+                                <hr> -->
+                                <!-- FIN PRUEBAS -->
+
+                                <!-- <?php foreach ($usuarios as $usuario) : ?>
+                                    <tr>
+                                        <td class="text-primary fw-bold">
+                                            <h1>asdasdsadadasdasdasdasd</h1>
+                                            <?php echo $usuario['usuario']; ?>
+                                            <?php
+                                            foreach ($usuario["actividades"] as $actividad) { ?>
+                                                <br>🟠<a class="text-secondary" href="#" id="listaActividades"><?php echo $actividad['nombre_actividad']; ?> </a>
+                                            <?php } ?>
+                                        </td>
+
+                                        <td>
+                                            <div class="d-flex ">
+                                                <form action="/login/secciones/vista_usuarios-edit.php" method="post">
+                                                    <div role="group" aria-label="Button group name">
+                                                        <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
+                                                        </button>
+                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
+                                                        </button>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <form action="/login/secciones/perfil_usuario.php" method="post">
+                                                <div role="group" aria-label="Button group name">
+                                                    <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                    <button type="submit" name="accion" value="editar" class="btn btn-secondary m-1">VER PERFIL
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                <?php endforeach;  ?> -->
 
 
-                                    <select multiple class="form-control" name="actividades[]" id="arrayActividadesUsuarios">
-
-                                        <?php foreach ($actividadesUsuario as $actividadUsuario) { ?>
-                                            <option <?php
-                                                    if (!empty($arrayActividadesUsuarios)) :
-                                                        if (in_array($actividadUsuario['id'], $arrayActividadesUsuarios)) :
-                                                            echo "seleccionado";
-                                                        endif;
-                                                    endif;
-                                                    ?> value="<?php echo $actividadUsuario['id']; ?>">
-                                                <?php echo $actividadUsuario['id']; ?> - <?php echo $actividadUsuario['nombre_actividad']; ?>
-                                                
-                                            </option>
-                                        <?php } ?>
-
-                                    </select>
-                                </div>
 
 
-                                <hr>
+
+
 
                                 <!-- ACTIVIDADES -->
                                 <div class="mb-3">
                                     <label for="" class="form-label">Agregar Actividades:</label>
-
-
                                     <select multiple class="form-control" name="actividades[]" id="listaActividades">
                                         <!-- <option value="">Seleccione actividad:</option> -->
-
                                         <?php foreach ($actividades as $actividad) { ?>
                                             <option <?php
                                                     if (!empty($arrayActividades)) :
@@ -170,10 +234,12 @@ if ($id) {
                                                         endif;
                                                     endif;
                                                     ?> value="<?php echo $actividad['id']; ?>">
-                                                <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
-                                            </option>
-                                        <?php } ?>
 
+                                                <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
+
+                                            </option>
+
+                                        <?php } ?>
                                     </select>
                                 </div>
                                 <!-- <div class="btn-group d-flex " role="group" aria-label="Button group name"> -->
@@ -211,6 +277,10 @@ if ($id) {
 <script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
 <script>
     new TomSelect("#arrayActividadesUsuarios", {
+        plugins: ['remove_button'],
+    });
+
+    new TomSelect("#listaActividades", {
         plugins: ['remove_button'],
     });
 </script>

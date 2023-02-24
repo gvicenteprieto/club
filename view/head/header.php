@@ -59,24 +59,23 @@
                             </li>
                         </ul>
 
-                        <!-- <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <a class="nav-link text-warning mt-1" 
-                                href="/login/secciones/perfil_usuario.php">
-                                Perfiles
-                            </a>
-                        </li>
-                    </ul> -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-warning mt-1" href="/login/secciones/vista_socios.php">
+                                    SOCIOS
+                                </a>
+                            </li>
+                        </ul>
 
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
 
                         <ul class="navbar-nav me-auto mb-lg-0">
                             <li class="nav-item">
-                                <?php if ($_SESSION['usuario'] !== "root") : ?>
-                                    <i class="fa-solid fa-user text-success">
+                                <i class="fa-solid fa-user text-success">
+                                    <a href="/login/view/home/panelControl.php" style="text-decoration: none;">
                                         <b class="text-light"> <?= $_SESSION['usuario']; ?></b>
-                                    </i>
-                                <?php endif; ?>
+                                    </a>
+                                </i>
                             </li>
                         </ul>
 

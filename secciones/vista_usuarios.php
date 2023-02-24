@@ -68,27 +68,15 @@
                                                         <!-- <input type="hidden" name="dni" id="dni" value="<?php echo $response['dni']; ?>"> -->
                                                         <!-- <input type="submit" value="seleccionar" 
                                                             name="accion" class="btn btn-warning"> -->
-                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning">
+                                                        <button onclick="return confirmEdit();" type="submit" name="accion" 
+                                                            value="editar" class="btn btn-warning">
                                                             <!-- <input type="hidden" value="seleccionar" name="accion"> -->
                                                             EDITAR REGISTRO
                                                         </button>
-                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger">BORRAR REGISTRO
+                                                        <button onclick="return confirmDelete();" type="submit" name="accion" 
+                                                            value="borrar" class="btn btn-danger">BORRAR REGISTRO
                                                         </button>
                                                     </form>
-
-
-
-
-
-
-                                                    <!-- <form action="/login/secciones/vista_usuarios-edit.php" method="post">
-                                                        <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
-                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
-                                                        </button>
-                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
-                                                        </button>
-                                                    </form> -->
-
                                                 </td>
                                             </tr>
                                         <?php endforeach; ?>
@@ -99,23 +87,19 @@
                                                 <td class="text-primary fw-bold"><?php echo $usuario['usuario']; ?>
                                                     <?php
                                                     foreach ($usuario["actividades"] as $actividad) { ?>
-                                                        <!-- <select  id="activity"> -->
                                                         <br>🟠<a class="text-secondary" href="#" id="listaActividades"><?php echo $actividad['nombre_actividad']; ?> </a>
                                                         <!-- <form action="/login/secciones/vista_usuarios.php" method="post">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
                                                             <button type="submit" name="accion" value="borrarAct">❌
                                                             </button>
                                                         </form> -->
-
                                                     <?php } ?>
-                                                    <!-- </select> -->
                                                 </td>
                                                 <td><?php echo $usuario['apellidos']; ?></td>
                                                 <td><?php echo $usuario['nombres']; ?></td>
                                                 <td><?php echo $usuario['email']; ?></td>
                                                 <td >
                                                     <div class="d-flex ">
-
                                                         <form action="/login/secciones/vista_usuarios-edit.php" method="post">
                                                             <div role="group" aria-label="Button group name">
                                                                 <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
