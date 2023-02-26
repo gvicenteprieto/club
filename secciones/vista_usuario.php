@@ -76,7 +76,8 @@ if ($_SESSION['usuario']) {
 
                             <?php if ($foto) : ?>
                                 <div class="text-center">
-                                    <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
+                                    <img src="../public/img/<?php echo $foto; ?>" 
+                                    class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
                                 </div>
                             <?php endif; ?>
 
@@ -99,7 +100,8 @@ if ($_SESSION['usuario']) {
                                     <tbody>
                                         <tr>
                                             <!-- <td><?php echo $id; ?></td> -->
-                                            <!-- <td><img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo  $_SESSION['usuario']; ?>"/></td> -->
+                                            <!-- <td><img src="../public/img/<?php echo $foto; ?>" 
+                                            class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo  $_SESSION['usuario']; ?>"/></td> -->
                                             <td><?php echo $dni; ?></td>
                                             <!-- <td><?php echo $usuario; ?></td> -->
                                             <td><?php echo $apellidos; ?></td>

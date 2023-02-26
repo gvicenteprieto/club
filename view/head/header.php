@@ -38,9 +38,7 @@
                     </div>
 
 
-                <?php elseif ($_SESSION['usuario'] == "admin") :
-                    //si el usuario está logueado como administrador
-                ?>
+                <?php elseif ($_SESSION['usuario'] == "admin") : ?>
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav">
@@ -67,14 +65,22 @@
                             </li>
                         </ul>
 
+                        <!-- <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-light mt-1" href="/login/secciones/vista_socios_listado.php">
+                                    LISTA SOCIOS
+                                </a>
+                            </li>
+                        </ul> -->
+
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
 
                         <ul class="navbar-nav me-auto mb-lg-0">
-                            <li class="nav-item">
+                            <li class="nav-item">                                                                        
                                 <i class="fa-solid fa-user text-success">
-                                    <a href="/login/view/home/panelControl.php" style="text-decoration: none;">
+               
                                         <b class="text-light"> <?= $_SESSION['usuario']; ?></b>
-                                    </a>
+                                   
                                 </i>
                             </li>
                         </ul>

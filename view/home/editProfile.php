@@ -1,7 +1,5 @@
 <?php include("../head/header.php"); ?>
-
 <?php include("../../config/db.php"); 
-
 $conexionDB = database::crearInstancia();
 
 if ($_SESSION['usuario']) {
@@ -21,7 +19,6 @@ if ($_SESSION['usuario']) {
         $foto = $user['foto'];
     }
 };
-
 ?>
 
 <!-- <div class="fondo_login"> -->

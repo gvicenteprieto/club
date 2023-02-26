@@ -1,6 +1,5 @@
 <?php include('../config/db.php');
 $conexionDB = database::crearInstancia();
-
 $buscar = isset($_POST['buscar']) ? $_POST['buscar'] : "";
 $sql_search = "SELECT id, dni, usuario, apellidos, nombres, email 
                 FROM usuarios where usuario like '%" . $buscar . "%' 
@@ -11,7 +10,7 @@ $sql_search = "SELECT id, dni, usuario, apellidos, nombres, email
 
 $sql_query = $conexionDB->prepare($sql_search);
 $sql_query->execute();
-$sql_response = $sql_query->fetchAll(); ///////ver! fetch(PDO::FETCH_ASSOC); 
+$sql_response = $sql_query->fetchAll();  
 
 //validación de info de llegada:
 //usuarios
@@ -53,34 +52,28 @@ if ($accion != "") {
                     $query->bindParam(':idActividad', $actividad);
                     $query->execute();
                 };
-            }
-            header("Location:vista_usuarios.php");
+            };
         break;
-
-        case "seleccionar":
-            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
-            $query = $conexionDB->prepare($sql);
-            $query->bindParam(':id', $id);
-            $query->bindParam(':dni', $dni);
-            $query->execute();
-            $user = $query->fetch(PDO::FETCH_ASSOC);
-            $id = $user['id'];
-            $dni = $user['dni'];
-            $usuario = $user['usuario'];
-            $apellidos = $user['apellidos'];
-            $nombres = $user['nombres'];
-            $email = $user['email'];
-        break;
-
+        // case "seleccionar":
+        //     $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
+        //     $query = $conexionDB->prepare($sql);
+        //     $query->bindParam(':id', $id);
+        //     $query->bindParam(':dni', $dni);
+        //     $query->execute();
+        //     $user = $query->fetch(PDO::FETCH_ASSOC);
+        //     $id = $user['id'];
+        //     $dni = $user['dni'];
+        //     $usuario = $user['usuario'];
+        //     $apellidos = $user['apellidos'];
+        //     $nombres = $user['nombres'];
+        //     $email = $user['email'];
+        // break;
         case "borrar":
-            $sql = "DELETE FROM usuarios WHERE dni=:dni or id=:id";
+            $sql = "DELETE FROM usuarios WHERE id=:id";
             $query = $conexionDB->prepare($sql);
             $query->bindParam(':id', $id);
-            $query->bindParam(':dni', $dni);
             $query->execute();
-            header("Location:vista_usuarios.php");
         break;
-
         case "editar":
             $pass = password_hash($pass, PASSWORD_DEFAULT);
             $sql = "UPDATE usuarios 
@@ -95,7 +88,6 @@ if ($accion != "") {
             $query->bindParam(':email', $email);
             $query->execute();
         break;
-
         case "agregarAct":
             $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
             $query = $conexionDB->prepare($sql);
@@ -119,7 +111,6 @@ if ($accion != "") {
                 $query->execute();
             };
         break;
-
         case "editarAct":
             $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
             $query = $conexionDB->prepare($sql);
@@ -141,17 +132,13 @@ if ($accion != "") {
             $query->bindParam(":idUsuario", $id);
             $query->execute();
             $actividadesUsuario = $query->fetchAll(PDO::FETCH_ASSOC);
-
-            //print_r($actividadesUsuario);
-          
             foreach ($actividadesUsuario as $actividadUsuario) {
                 //echo $actividadUsuario['id'];
                 //para meter todas las actividades del usuario en un array
                 $arrayActividadesUsuarios[] = $actividadUsuario['id'];
             };
-        print_r($actividadesUsuario);
+            print_r($actividadesUsuario);
         break;
-
         case "borrarAct":
             $pass = password_hash($pass, PASSWORD_DEFAULT);
             $sql = "UPDATE usuarios 
@@ -181,26 +168,8 @@ if ($accion != "") {
                 //$arrayActividadesUsuarios=$actividades;
                 //print_r($actividades);
                 echo "Actividades " . $actividades;
-
                 //DELETE FROM usuarios_actividades WHERE `usuarios_actividades`.`id` = 80"
-            }
-            
-        break;
-
-        case "ver":
-            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
-            $query = $conexionDB->prepare($sql);
-            $query->bindParam(':id', $id);
-            $query->bindParam(':dni', $dni);
-            $query->execute();
-            $user = $query->fetch(PDO::FETCH_ASSOC);
-            $id = $user['id'];
-            $dni = $user['dni'];
-            $usuario = $user['usuario'];
-            $apellidos = $user['apellidos'];
-            $nombres = $user['nombres'];
-            $email = $user['email'];
-            header("Location:perfil_usuario.php");
+            };
         break;
     }
 }

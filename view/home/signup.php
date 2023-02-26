@@ -96,6 +96,3 @@
 
 </div>
 
-<!-- <?php
-    require_once("C://xampp3/htdocs/login/view/head/footer.php");
-?> -->

@@ -2,12 +2,15 @@
 $conexionDB = database::crearInstancia();
 
 $buscar = isset($_POST['buscar']) ? $_POST['buscar'] : "";
-$sql_search = "SELECT id, dni, usuario, apellidos, nombres, email 
-                FROM usuarios where usuario like '%" . $buscar . "%' 
-                OR dni like '%" . $buscar . "%'
-                OR apellidos like '%" . $buscar . "%'
-                OR nombres like '%" . $buscar . "%'
-                OR email like '%" . $buscar . "%'";
+$sql_search = "SELECT id, NSOCIO, DNI, APELLIDO, NOMBRE, CELULAR, LOCALIDAD, PARTIDO, EMAIL FROM socios 
+                where DNI like '%" . $buscar . "%'
+                OR NSOCIO like '%" . $buscar . "%'
+                OR APELLIDO like '%" . $buscar . "%'
+                OR NOMBRE like '%" . $buscar . "%'
+                OR CELULAR like '%" . $buscar . "%'
+                OR LOCALIDAD like '%" . $buscar . "%'
+                OR PARTIDO like '%" . $buscar . "%'
+                OR EMAIL like '%" . $buscar . "%'";
 
 $sql_query = $conexionDB->prepare($sql_search);
 $sql_query->execute();
@@ -82,7 +85,7 @@ if ($accion != "") {
                     $query->execute();
                 };
             }
-            header("Location:vista_socios.php");
+            //header("Location:vista_socios_listado.php");
             break;
 
         case "seleccionar":
@@ -101,12 +104,11 @@ if ($accion != "") {
             break;
 
         case "borrar":
-            $sql = "DELETE FROM usuarios WHERE dni=:dni or id=:id";
+            $sql = "DELETE FROM socios WHERE id=:id";
             $query = $conexionDB->prepare($sql);
             $query->bindParam(':id', $id);
-            $query->bindParam(':dni', $dni);
             $query->execute();
-            header("Location:vista_usuarios.php");
+            // header("Location:vista_socios_listado.php");
             break;
 
         case "editar":
@@ -153,7 +155,7 @@ if ($accion != "") {
             $apellidos = $user['apellidos'];
             $nombres = $user['nombres'];
             $email = $user['email'];
-            header("Location:perfil_usuario.php");
+            // header("Location:perfil_usuario.php");
             break;
     }
 }

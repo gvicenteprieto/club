@@ -2,19 +2,16 @@
 
 <?php include('../secciones/usuarios.php'); ?>
 
-<div class="container-fluid p-5">
+<div class="container p-5">
     <div class="row">
         <div class="col-12">
             <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">USUARIOS</h5>
             <div class="row">
-
-                <div class="col-md-12 mb-3">
-
-                    <form action="" method="post">
+                <div class="col-md-12">
+                    <form action="vista_usuarios.php" method="post">
                         <div class="card card-background p-1">
                             <br>
-                            <!-- <div class="card card-header bg-success text-light text-center mt-1 fw-bold"> -->
-                            <div class="btn btn-success fw-bold">
+                            <div class="btn-success bg-success card card-header fw-bold text-light  m-3">
                                Gestión de ALTA usuarios
                             </div>
                             <div class="card-body">
@@ -77,6 +74,19 @@
                             </div>
                         </div>
                     </form>
+                </div>
+
+                <div class="container text-center mt-3">
+                    <div class="row justify-content-between">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div>
+                                <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
+                                    REGRESAR
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
             </div>

@@ -1,7 +1,5 @@
 <?php include('../view/head/header.php'); ?>
-
 <?php include('../secciones/usuarios.php');
-
 $id = isset($_POST['id']) ? $_POST['id'] : "";
 if ($id) {
     $sql = "SELECT * FROM usuarios WHERE id=:id";
@@ -29,54 +27,52 @@ if ($id) {
     }
 }
 ?>
-
-<div class="container-fluid p-5">
+<div class="container p-5">
     <div class="row">
         <div class="col-12">
             <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">USUARIOS</h5>
             <div class="row">
-
-                <div class="col-md-12 mb-3">
-
+                <div class="col-md-12">
                     <form action="vista_usuarios.php" method="post">
                         <div class="card card-background p-1">
                             <br>
-                            <!-- <div class="card card-header bg-warning text-center mt-1 fw-bold"> -->
-                            <div class="btn btn-warning fw-bold">
-                                Gestión de EDICION usuarios
+                            <div class="btn-warning bg-warning card card-header fw-bold m-3">
+                                EDICION registro de usuario
                             </div>
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="dni" class="form-label text-secondary">DNI</label>
-                                    <input type="text" class="form-control" name="dni" id="dni" readonly=true value="<?php echo $dni; ?>" placeholder="Documento Nacional de Identidad">
+                                    <input type="text" class="form-control" name="dni" id="dni" readonly=true 
+                                        value="<?php echo $dni; ?>" placeholder="Documento Nacional de Identidad">
                                 </div>
                                 <div class="mb-3">
                                     <label for="usuario" class="form-label">Usuario</label>
-                                    <!-- <input type="text" class="form-control text-primary fw-bold fs-5" name="usuario" id="usuario" value="<?php echo $usuario; ?>" placeholder="Usuario"> -->
-                                    <input type="text" class="form-control text-primary fw-bold fs-5" name="usuario" id="usuario" value="<?php echo $usuario; ?>" placeholder="Usuario">
+                                    <input type="text" class="form-control text-primary fw-bold fs-5" 
+                                        name="usuario" id="usuario" value="<?php echo $usuario; ?>" placeholder="Usuario">
                                 </div>
                                 <div class="mb-3">
                                     <label for="apellidos" class="form-label text-secondary">Apellidos</label>
-                                    <input type="text" class="form-control" name="apellidos" id="apellidos" value="<?php echo $apellidos; ?>" placeholder="Apellidos">
+                                    <input type="text" class="form-control" name="apellidos" id="apellidos" 
+                                        value="<?php echo $apellidos; ?>" placeholder="Apellidos">
                                 </div>
                                 <div class="mb-3">
                                     <label for="nombres" class="form-label text-secondary">Nombres</label>
-                                    <input type="text" class="form-control" name="nombres" id="nombres" value="<?php echo $nombres; ?>" placeholder="Nombres">
+                                    <input type="text" class="form-control" name="nombres" id="nombres" 
+                                        value="<?php echo $nombres; ?>" placeholder="Nombres">
                                 </div>
                                 <div class="mb-3">
                                     <label for="email" class="form-label text-secondary">Email</label>
-                                    <input type="email" class="form-control" name="email" id="email" value="<?php echo $email; ?>" placeholder="Correo Electrónico">
+                                    <input type="email" class="form-control" name="email" id="email" 
+                                        value="<?php echo $email; ?>" placeholder="Correo Electrónico">
                                 </div>
                                 <div class="mb-3"></div>
 
                                 <?php if ($actividad) : ?>
-
                                     <div>
                                         <h5 class="fs-5 ">
                                             Actividades del usuario
                                         </h5>
                                     </div>
-
                                     <div class="table-responsive card-background">
                                         <table class="table" id="customers">
                                             <thead>
@@ -109,117 +105,17 @@ if ($id) {
                                                         foreach ($actividad as $activ) { ?>
                                                             <li class="list-group-item p-2">
                                                                 <input type="hidden" name="idAct" id="idAct" ?>
-                                                                <button type="submit" name="accion" value="borrarAct" class="btn btn-danger"> Quitar</button>
+                                                                <button type="submit" name="accion" 
+                                                                    value="borrarAct" class="btn btn-danger"> Quitar
+                                                                </button>
                                                             </li>
                                                         <?php } ?>
                                                     </td>
-                                                    <!-- <td>
-                                                        <?php
-                                                        foreach ($actividad as $activ) { ?>
-                                                            <li class="list-group-item p-2">
-                                                                <input type="hidden" name="idAct" id="idAct">
-                                                                <button type="submit" name="accion" value="editarAct" class="btn btn-success">editar</button>
-                                                            </li>
-                                                        <?php } ?>
-                                                    </td> -->
-                                                </tr>
+                                                 </tr>
                                             </tbody>
                                         </table>
                                     </div>
-
                                 <?php endif; ?>
-
-                                <!-- PRUEBAS -->
-                                <!-- <hr>
-
-                                <tbody>
-                                    <?php foreach ($actividad as $activ) { ?>
-                                        <tr>
-                                            <td>
-                                                <li class="list-group-item p-2">
-                                                    🟠<?php echo $activ['nombre_actividad']; ?>
-                                                </li>
-                                            </td>
-
-                                            <td>
-                                                <li class="list-group-item p-2">
-                                                    🟫<?php echo $activ['lugar']; ?>
-                                                </li>
-                                            </td>
-
-                                            <td>
-                                                <li class="list-group-item p-2">
-                                                    🟫<?php echo $activ ?>
-                                                </li>
-                                            </td>
-
-                                            <td>
-                                                <li class="list-group-item p-2">
-                                                    🟫<?php echo $id ?>
-                                                </li>
-                                            </td>
-
-                                            <td>
-                                                <li class="list-group-item p-2">
-                                                    <input type="hidden" name="idAct" id="idAct" ?>
-                                                    <button type="submit" name="accion" value="borrarAct" class="btn btn-danger"> Quitar</button>
-                                                </li>
-                                            </td>
-
-                                            <td>
-                                                <li class="list-group-item p-2">
-                                                    <input type="hidden" name="idAct" id="idAct">
-                                                    <button type="submit" name="accion" value="editarAct" class="btn btn-success">editar</button>
-                                                </li>
-                                            </td>
-                                        </tr>
-                                    <?php } ?>
-                                </tbody>
-
-                                <hr> -->
-                                <!-- FIN PRUEBAS -->
-
-                                <!-- <?php foreach ($usuarios as $usuario) : ?>
-                                    <tr>
-                                        <td class="text-primary fw-bold">
-                                            <h1>asdasdsadadasdasdasdasd</h1>
-                                            <?php echo $usuario['usuario']; ?>
-                                            <?php
-                                            foreach ($usuario["actividades"] as $actividad) { ?>
-                                                <br>🟠<a class="text-secondary" href="#" id="listaActividades"><?php echo $actividad['nombre_actividad']; ?> </a>
-                                            <?php } ?>
-                                        </td>
-
-                                        <td>
-                                            <div class="d-flex ">
-                                                <form action="/login/secciones/vista_usuarios-edit.php" method="post">
-                                                    <div role="group" aria-label="Button group name">
-                                                        <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
-                                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
-                                                        </button>
-                                                        <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
-                                                        </button>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <form action="/login/secciones/perfil_usuario.php" method="post">
-                                                <div role="group" aria-label="Button group name">
-                                                    <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
-                                                    <button type="submit" name="accion" value="editar" class="btn btn-secondary m-1">VER PERFIL
-                                                    </button>
-                                                </div>
-                                            </form>
-                                        </td>
-                                    </tr>
-                                <?php endforeach;  ?> -->
-
-
-
-
-
-
 
                                 <!-- ACTIVIDADES -->
                                 <div class="mb-3">
@@ -234,24 +130,19 @@ if ($id) {
                                                         endif;
                                                     endif;
                                                     ?> value="<?php echo $actividad['id']; ?>">
-
                                                 <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
-
                                             </option>
-
                                         <?php } ?>
                                     </select>
                                 </div>
-                                <!-- <div class="btn-group d-flex " role="group" aria-label="Button group name"> -->
                                 <div class="btn-group" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="agregarAct" class="btn btn-success">Agregar Actividad</button>
-                                    <!-- <button type="submit" name="accion" value="editarAct" class="btn btn-warning">Editar Actividad</button>
-                                    <button type="submit" name="accion" value="borrarAct" class="btn btn-danger">Borrar Actividad</button> -->
+                                    <button type="submit" name="accion" value="agregarAct" 
+                                        class="btn btn-success">Agregar Actividad
+                                    </button>
                                 </div>
-                                <!-- </div> -->
-
                                 <div class="btn-group d-flex mt-5" role="group" aria-label="Button group name">
-                                    <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning fw-bold">EDITAR USUARIO
+                                    <button onclick="return confirmEdit();" type="submit" name="accion" 
+                                        value="editar" class="btn btn-warning fw-bold">EDITAR USUARIO
                                     </button>
                                 </div>
                             </div>
@@ -259,7 +150,8 @@ if ($id) {
                     </form>
 
                     <div class="btn-group d-flex " role="group" aria-label="Button group name">
-                        <button class="btn btn-success" onclick='document.getElementById("dni").removeAttribute("readonly", false)'>
+                        <button class="btn btn-success" 
+                            onclick='document.getElementById("dni").removeAttribute("readonly", false)'>
                             Permitir Edición DNI
                         </button>
                         <!-- <button class="btn btn-info" 
@@ -267,7 +159,19 @@ if ($id) {
                             Impedir Edición DNI
                         </button> -->
                     </div>
+                </div>
 
+                <div class="container text-center mt-3">
+                    <div class="row justify-content-between">
+                        <div class="col-4"></div>
+                        <div class="col-4">
+                            <div>
+                                <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
+                                    REGRESAR
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

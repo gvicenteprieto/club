@@ -25,14 +25,6 @@ if ($id) {
     $query->bindParam(':idUsuario', $id);
     $query->execute();
     $actividad = $query->fetchAll();
-
-    // foreach ($actividad as $activ) {
-    //     $sqlDel="DELETE FROM usuarios_actividades WHERE usuarios_actividades.idActividad = :idActividad";
-    //     $query = $conexionDB->prepare($sqlDel);
-    //     $query ->bindParam(':idActividad', $actividad);
-    //     $query->execute();
-    //     print_r("query: ".$query);
-    // };
 }
 
 ?>
@@ -82,7 +74,8 @@ if ($id) {
                             </h5>
                             <?php if ($foto) : ?>
                                 <div class="text-center">
-                                    <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
+                                    <img src="../public/img/<?php echo $foto; ?>" 
+                                        class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -154,6 +147,29 @@ if ($id) {
                             </div>
 
                         <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="container text-center mt-3">
+                <div class="row justify-content-between">
+                    <div class="col-4">
+                        <form action="/login/secciones/vista_usuarios-edit.php" method="post">
+                            <div role="group" aria-label="Button group name">
+                                <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>">
+                                <button onclick="return confirmEdit();" type="submit" name="accion" 
+                                    value="editar" class="btn btn-warning m-2">
+                                    Edición registro de Usuario
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-4">
+                        <div>
+                            <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
+                                REGRESAR
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
