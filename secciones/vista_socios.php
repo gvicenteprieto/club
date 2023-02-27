@@ -6,13 +6,13 @@
         <div class="col-12">
             <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">SOCIOS</h5>
             <div class="row">
-                <div class="col-md-12">
+                <div class="col-12">
                     <br>
                     <div class="card card-header bg-secondary text-light fs-5">
                         Gestión de Socios
                     </div>
                     <div class="text-center row m-3">
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <button class="btn bg-success text-light mb-2 mt-2 ">
                                 <a class="nav-link text-center" href="/login/secciones/vista_socios-add.php">
                                     Agregar nuevo Socio
@@ -20,7 +20,7 @@
                             </button>
                         </div>
 
-                        <div class="col-md-6">
+                        <div class="col-6">
                             <form action="vista_socios.php" method="post">
                                 <input type="text" name="buscar" class="btn fw-bold fs-6 text-center mb-2 mt-2" 
                                     style="background-color: #a6c3de">
@@ -47,7 +47,17 @@
                                 <?php if ($buscar != "") { ?>
                                     <?php foreach ($sql_response as $response) : ?>
                                         <tr>
-                                            <td class="text-light fw-bold"><?= $response['NSOCIO']; ?></td>
+                                            <td class="text-light fw-bold"><i><?php echo $response['NSOCIO']; ?></i>
+                                                <!-- <?php
+                                                    foreach ($response["actividades"] as $actividad) { ?>
+                                                        <br>
+                                                        🟠<a class="text-secondary" href="#" id="listaActividades">
+                                                            <?php echo $actividad['nombre_actividad']; ?> 
+                                                        </a>
+                                                <?php } ?> -->
+                                            </td>
+
+
                                             <td><?= $response['APELLIDO']; ?></td>
                                             <td><?= $response['NOMBRE'];  ?></td>
                                             <td><?= $response['CELULAR'];  ?></td>
@@ -57,16 +67,17 @@
                                                 <div class="d-flex ">
                                                     <form action="/login/secciones/vista_socios-edit.php" method="post">
                                                         <div role="group" aria-label="Button group name">
-                                                            <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
+                                                            <input type="hidden" name="id" id="id" 
+                                                                value="<?php echo $response['id'];  ?>">
                                                             <button onclick="return confirmEdit();" type="submit" name="accion" 
-                                                                value="editar" class="btn btn-warning m-1">
-                                                                EDITAR
+                                                                value="editar" class="btn btn-warning m-1">EDITAR
                                                             </button>
                                                         </div>
                                                     </form>
                                                     <form action="/login/secciones/vista_socios.php" method="post">
                                                         <div role="group" aria-label="Button group name">
-                                                            <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
+                                                            <input type="hidden" name="id" id="id" 
+                                                                value="<?php echo $response['id'];  ?>">
                                                             <button onclick="return confirmDelete();" type="submit" name="accion" 
                                                                 value="borrar" class="btn btn-danger m-1">QUITAR
                                                             </button>
@@ -77,8 +88,10 @@
                                             <td>
                                                 <form action="/login/secciones/perfil_socio.php" method="post">
                                                     <div role="group" aria-label="Button group name">
-                                                        <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
-                                                        <button type="submit" name="accion" value="editar" class="btn btn-secondary m-1">VER PERFIL
+                                                        <input type="hidden" name="id" id="id" 
+                                                            value="<?php echo $response['id'];  ?>">
+                                                        <button type="submit" name="accion" value="editar" 
+                                                            class="btn btn-secondary m-1">VER PERFIL
                                                         </button>
                                                     </div>
                                                 </form>
@@ -88,7 +101,20 @@
                                 <?php } else { ?>
                                     <?php foreach ($socios as $socio) : ?>
                                         <tr>
-                                            <td class="text-light fw-bold"><?php echo $socio['NSOCIO']; ?></td>
+                                            <td class="fw-bold text-light"><i><?php echo $socio['NSOCIO']; ?></i>
+                                                <?php
+                                                    foreach ($socio["actividades"] as $actividad) { ?>
+                                                        <br>
+                                                        🟠<a class="text-secondary" href="#" id="listaActividades">
+                                                            <?php echo $actividad['nombre_actividad']; ?> 
+                                                        </a>
+                                                        <!-- <form action="/login/secciones/vista_usuarios.php" method="post">
+                                                            <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
+                                                            <button type="submit" name="accion" value="borrarAct">❌
+                                                            </button>
+                                                        </form> -->
+                                                <?php } ?>
+                                            </td>
                                             <td><?php echo $socio['APELLIDO']; ?></td>
                                             <td><?php echo $socio['NOMBRE']; ?></td>
                                             <td><?php echo $socio['CELULAR']; ?></td>
@@ -172,3 +198,4 @@
     }
 </script>
 <?php include("../view/head/footer.php"); ?>
+

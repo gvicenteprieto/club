@@ -31,12 +31,12 @@ if ($id) {
         $OBSERVACIONES = $user['OBSERVACIONES'];
         $ESTADO = $user['ESTADO'];
     };
-    // $sqlx = "SELECT * FROM actividades 
-    // WHERE id IN (SELECT idActividad FROM usuarios_actividades WHERE idUsuario = :idUsuario)";
-    // $query = $conexionDB->prepare($sqlx);
-    // $query->bindParam(':idUsuario', $id);
-    // $query->execute();
-    // $actividad = $query->fetchAll();
+    $sqlx = "SELECT * FROM actividades 
+    WHERE id IN (SELECT idActividad FROM socios_actividades WHERE idSocio = :idSocio)";
+    $query = $conexionDB->prepare($sqlx);
+    $query->bindParam(':idSocio', $id);
+    $query->execute();
+    $actividad = $query->fetchAll();
 }
 
 ?>
@@ -88,7 +88,6 @@ if ($id) {
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <!-- <th>N° SOCIO</th> -->
                                             <th>Apellido</th>
                                             <th>Nombre</th>
                                             <th>Teléfono</th>
@@ -97,14 +96,12 @@ if ($id) {
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <!-- <tr>
-                                            <td><?php echo $NSOCIO; ?></td> -->
-                                        <td><?php echo $APELLIDO; ?></td>
-                                        <td><?php echo $NOMBRE; ?></td>
-                                        <td><?php echo $CELULAR; ?></td>
-                                        <td><?php echo $EMAIL; ?></td>
-
-                                        <td><?php echo $LOCALIDAD; ?> - <?php echo $PARTIDO; ?></td>
+                                        <tr>
+                                            <td><?php echo $APELLIDO; ?></td>
+                                            <td><?php echo $NOMBRE; ?></td>
+                                            <td><?php echo $CELULAR; ?></td>
+                                            <td><?php echo $EMAIL; ?></td>
+                                            <td><?php echo $LOCALIDAD; ?> - <?php echo $PARTIDO; ?></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -218,10 +215,10 @@ if ($id) {
                             </div>
                         </div>
 
-                        <!-- <?php if ($actividad) : ?>
+                         <?php if ($actividad) : ?>
                             <div>
                                 <h5 class="fs-5 text-center">
-                                    Actividades
+                                    Actividades del Asociado
                                 </h5>
                             </div>
                             <div class="table-responsive card-background">
@@ -254,8 +251,7 @@ if ($id) {
                                     </tbody>
                                 </table>
                             </div>
-                        <?php endif; ?> -->
-
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>

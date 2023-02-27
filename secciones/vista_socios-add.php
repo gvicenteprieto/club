@@ -119,6 +119,34 @@
                                     <input type="text" class="form-control" name="ESTADO" id="ESTADO" 
                                         value="<?php echo $ESTADO; ?>" placeholder="Estado">
                                 </div>
+
+                                <!--nuevo-->
+                                <div class="mb-3"></div>
+
+<!-- ACTIVIDADES -->
+ <div class="mb-3">
+    <label for="" class="form-label">Seleccione actividad disponible para vincular al asociado: </label>
+
+    <select multiple class="form-control" name="actividades[]" id="listaActividades">
+    <!-- <option value="">Seleccione actividad:</option>  -->
+        <?php foreach($actividades as $actividad){ ?>
+            <option
+                <?php
+                    if(!empty($arrayActividades)): 
+                        if(in_array($actividad['id'],$arrayActividades)):
+                            echo "selected";
+                        endif;
+
+                    endif;  
+                ?>
+                value="<?php echo $actividad['id']; ?>">
+                <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
+            </option>
+        <?php } ?>
+        
+    </select>
+</div> 
+
                                 <div class="btn-group d-flex mt-3" role="group" aria-label="Button group name">
                                     <button type="submit" name="accion" value="agregar" 
                                         class="btn btn-success fw-bold">AGREGAR NUEVO SOCIO

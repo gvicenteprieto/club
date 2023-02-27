@@ -73,32 +73,32 @@ if ($accion != "") {
             $query->bindParam(':ESTADO', $ESTADO);
 
             $query->execute();
-            $idUser = $conexionDB->lastInsertId();
+            $idAsoc = $conexionDB->lastInsertId();
             if ($actividades) {
                 foreach ($actividades as $actividad) {
-                    $sql = "INSERT INTO usuarios_actividades (id, idUsuario, idActividad) 
-                VALUES (null, :idUsuario, :idActividad)";
+                    $sql = "INSERT INTO socios_actividades (id, idSocio, idActividad) 
+                VALUES (null, :idSocio, :idActividad)";
                     $query = $conexionDB->prepare($sql);
-                    $query->bindParam(':idUsuario', $idUser);
+                    $query->bindParam(':idSocio', $idAsoc);
                     $query->bindParam(':idActividad', $actividad);
                     $query->execute();
                 };
             };
         break;
-        case "seleccionar":
-            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
-            $query = $conexionDB->prepare($sql);
-            $query->bindParam(':id', $id);
-            $query->bindParam(':dni', $dni);
-            $query->execute();
-            $user = $query->fetch(PDO::FETCH_ASSOC);
-            $id = $user['id'];
-            $dni = $user['dni'];
-            $usuario = $user['usuario'];
-            $apellidos = $user['apellidos'];
-            $nombres = $user['nombres'];
-            $email = $user['email'];
-        break;
+        // case "seleccionar":
+        //     $sql = "SELECT * FROM socios WHERE id=:id or dni=:dni";
+        //     $query = $conexionDB->prepare($sql);
+        //     $query->bindParam(':id', $id);
+        //     $query->bindParam(':dni', $dni);
+        //     $query->execute();
+        //     $user = $query->fetch(PDO::FETCH_ASSOC);
+        //     $id = $user['id'];
+        //     $dni = $user['dni'];
+        //     $usuario = $user['usuario'];
+        //     $apellidos = $user['apellidos'];
+        //     $nombres = $user['nombres'];
+        //     $email = $user['email'];
+        // break;
         case "borrar":
             $sql = "DELETE FROM socios WHERE id=:id";
             $query = $conexionDB->prepare($sql);
@@ -153,3 +153,20 @@ if ($accion != "") {
 $sql = "SELECT * FROM socios ";
 $listaSocios = $conexionDB->query($sql);
 $socios = $listaSocios->fetchAll();
+
+
+//actividades de cada socio
+foreach ($socios as $clave => $socio) {
+    $sql = "SELECT * FROM actividades 
+    WHERE id IN (SELECT idActividad FROM socios_actividades WHERE idSocio = :idSocio)";
+    $query = $conexionDB->prepare($sql);
+    $query->bindParam(':idSocio', $socio['id']);
+    $query->execute();
+    $actividadesSocio = $query->fetchAll();
+    $socios[$clave]['actividades'] = $actividadesSocio;
+};
+
+//actividades disponibles:
+$sql = "SELECT * FROM actividades";
+$listadoActividades = $conexionDB->query($sql);
+$actividades = $listadoActividades->fetchAll();

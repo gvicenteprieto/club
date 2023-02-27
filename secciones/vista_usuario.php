@@ -1,5 +1,4 @@
 <?php include('../view/head/header.php'); ?>
-
 <?php include('../secciones/usuarios.php');
 
 if ($_SESSION['usuario']) {
@@ -26,7 +25,6 @@ if ($_SESSION['usuario']) {
     $query->execute();
     $actividad = $query->fetchAll();
 }
-
 ?>
 <style>
     #customers {
@@ -72,38 +70,27 @@ if ($_SESSION['usuario']) {
                                     <?php echo  $_SESSION['usuario']; ?>
                                 </i>
                             </h5>
-
-
                             <?php if ($foto) : ?>
                                 <div class="text-center">
                                     <img src="../public/img/<?php echo $foto; ?>" 
                                     class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
                                 </div>
                             <?php endif; ?>
-
                         </div>
-
                         <div class="card-body">
                             <div class="table-responsive card-background">
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <!-- <th scope="col">ID</th> -->
-                                            <!-- <th scope="col">Imágen</th> -->
-                                            <th scope="col">DNI</th>
-                                            <!-- <th scope="col">Usuario</th> -->
-                                            <th scope="col">Apellidos</th>
-                                            <th scope="col">Nombres</th>
-                                            <th scope="col">Email</th>
+                                            <th>DNI</th>
+                                            <th>Apellidos</th>
+                                            <th>Nombres</th>
+                                            <th>Email</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <!-- <td><?php echo $id; ?></td> -->
-                                            <!-- <td><img src="../public/img/<?php echo $foto; ?>" 
-                                            class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo  $_SESSION['usuario']; ?>"/></td> -->
                                             <td><?php echo $dni; ?></td>
-                                            <!-- <td><?php echo $usuario; ?></td> -->
                                             <td><?php echo $apellidos; ?></td>
                                             <td><?php echo $nombres; ?></td>
                                             <td><?php echo $email; ?></td>
@@ -112,15 +99,13 @@ if ($_SESSION['usuario']) {
                                 </table>
                             </div>
                         </div>
-
-                        <?php if ($actividad) : ?>
-
+                        <!-- ACTIVIDADES -->
+                        <!-- <?php if ($actividad) : ?>
                             <div>
                                 <h5 class="fs-5 text-center">
                                     Actividades
                                 </h5>
                             </div>
-
                             <div class="table-responsive card-background">
                                 <table class="table" id="customers">
                                     <thead>
@@ -151,8 +136,19 @@ if ($_SESSION['usuario']) {
                                     </tbody>
                                 </table>
                             </div>
-
-                        <?php endif; ?>
+                        <?php endif; ?> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container text-center mt-3">
+            <div class="row justify-content-between">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div>
+                        <a href="../view/home/panelControl.php" class="btn btn-secondary m-2">
+                            REGRESAR
+                        </a>
                     </div>
                 </div>
             </div>

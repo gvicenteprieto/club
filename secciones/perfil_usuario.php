@@ -1,7 +1,5 @@
 <?php include('../view/head/header.php'); ?>
-
 <?php include('../secciones/usuarios.php');
-
 
 $id = isset($_POST['id']) ? $_POST['id'] : "";
 if ($id) {
@@ -75,7 +73,8 @@ if ($id) {
                             <?php if ($foto) : ?>
                                 <div class="text-center">
                                     <img src="../public/img/<?php echo $foto; ?>" 
-                                        class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
+                                        class="img-thumbnail img-fluid rounded" width="100" 
+                                        alt="<?php echo $usuario; ?>" />
                                 </div>
                             <?php endif; ?>
                         </div>
@@ -85,9 +84,7 @@ if ($id) {
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <!-- <th scope="col">ID</th> -->
                                             <th scope="col">DNI</th>
-                                            <!-- <th scope="col">Usuario</th> -->
                                             <th scope="col">Apellidos</th>
                                             <th scope="col">Nombres</th>
                                             <th scope="col">Email</th>
@@ -95,9 +92,7 @@ if ($id) {
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <!-- <td><?php echo $id; ?></td> -->
                                             <td><?php echo $dni; ?></td>
-                                            <!-- <td><?php echo $usuario; ?></td> -->
                                             <td><?php echo $apellidos; ?></td>
                                             <td><?php echo $nombres; ?></td>
                                             <td><?php echo $email; ?></td>
@@ -106,15 +101,13 @@ if ($id) {
                                 </table>
                             </div>
                         </div>
-
-                        <?php if ($actividad) : ?>
-
+                        <!-- ACTIVIDADES -->
+                        <!-- <?php if ($actividad) : ?>
                             <div>
                                 <h5 class="fs-5 text-center">
                                     Actividades
                                 </h5>
                             </div>
-
                             <div class="table-responsive card-background">
                                 <table class="table" id="customers">
                                     <thead>
@@ -145,8 +138,7 @@ if ($id) {
                                     </tbody>
                                 </table>
                             </div>
-
-                        <?php endif; ?>
+                        <?php endif; ?> -->
                     </div>
                 </div>
             </div>

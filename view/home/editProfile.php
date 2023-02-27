@@ -30,50 +30,50 @@ if ($_SESSION['usuario']) {
                 <div class="row mt-5">
                     <div>
                         <form action="updated.php" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
-                            <div class="col-sm-3 text-center">
+                            <div class="col-3 text-center">
                                 <label for="usuario" 
                                 class="form-label m-1 fw-bold fs-5 p-2">Usuario:</label>
                             </div>
-                            <div class="mb-3 col-sm-9">
+                            <div class="mb-3 col-9">
                                 <div >
                                     <input type="text" 
-                                        class="form-control fw-bold fs-4 text-center text-success p-2" 
+                                        class="form-control fw-bold text-center text-success fs-5 p-2" 
                                         id="usuario" name="usuario" 
                                         value="<?php echo  $_SESSION['usuario']; ?>" 
                                         aria-describedby="usuario" placeholder="Usuario" 
                                         aria-label="usuario">
                                 </div>
                             </div>
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-6">
                                 <label for="dni" class="form-label text-light">DNI (sólo números):</label>
                                 <input type="text" class="form-control" id="dni" 
                                     name="dni" value="<?php echo  $dni; ?>" 
                                     aria-describedby="dni">
                             </div>
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-6">
                                 <label for="apellidos" class="form-label text-light">Apellidos:</label>
                                 <input type="text" class="form-control" id="apellidos" name="apellidos" 
                                     value="<?php echo  $apellidos; ?>" 
                                     aria-describedby="apellidos">
                             </div>
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-6">
                                 <label for="nombres" class="form-label text-light">Nombres:</label>
                                 <input type="text" class="form-control" id="nombres" name="nombres" 
                                     value="<?php echo  $nombres; ?>" 
                                     aria-describedby="nombres">
                             </div>
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-6">
                                 <label for="email" class="form-label text-light">Email:</label>
                                 <input type="email" class="form-control" id="email" name="email" 
                                     value="<?php echo  $email; ?>" 
                                     aria-describedby="emailHelp">
                             </div>
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-6">
                                 <label for="pass" class="form-label text-light">Contraseña:</label>
                                 <input type="password" class="form-control" id="pass" name="pass" 
                                 value="">
                             </div>
-                            <div class="mb-3 col-sm-6">
+                            <div class="mb-3 col-6">
                                 <label for="confirmPass" class="form-label text-light">Repita Contraseña:</label>
                                 <input type="password" class="form-control" id="confirmPass" name="confirmPass" 
                                 value="">
@@ -91,7 +91,7 @@ if ($_SESSION['usuario']) {
                                 <input type="file" class="form-control-file btn btn-warning" name="foto" id="foto" />
                             </div>
 
-                            <div class="col-sm-12 d-grid gap-2">
+                            <div class="col-12 d-grid gap-2">
                                 <button type="submit" class="btn btn-success fw-bold">
                                     Actualizar
                                 </button>
@@ -100,6 +100,18 @@ if ($_SESSION['usuario']) {
                     </div>
                 </div>
             </div>
+            <div class="container text-center mt-3">
+            <div class="row justify-content-between">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <div>
+                        <a href="./panelControl.php" class="btn btn-secondary m-2">
+                            REGRESAR
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </div>
 </div>

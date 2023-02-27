@@ -67,7 +67,8 @@ if ($id) {
                                 </div>
                                 <div class="mb-3"></div>
 
-                                <?php if ($actividad) : ?>
+                                <!-- ACTIVIDADES -->
+                                <!-- <?php if ($actividad) : ?>
                                     <div>
                                         <h5 class="fs-5 ">
                                             Actividades del usuario
@@ -115,13 +116,11 @@ if ($id) {
                                             </tbody>
                                         </table>
                                     </div>
-                                <?php endif; ?>
+                                <?php endif; ?> -->
 
-                                <!-- ACTIVIDADES -->
-                                <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="" class="form-label">Agregar Actividades:</label>
                                     <select multiple class="form-control" name="actividades[]" id="listaActividades">
-                                        <!-- <option value="">Seleccione actividad:</option> -->
                                         <?php foreach ($actividades as $actividad) { ?>
                                             <option <?php
                                                     if (!empty($arrayActividades)) :
@@ -139,7 +138,7 @@ if ($id) {
                                     <button type="submit" name="accion" value="agregarAct" 
                                         class="btn btn-success">Agregar Actividad
                                     </button>
-                                </div>
+                                </div> -->
                                 <div class="btn-group d-flex mt-5" role="group" aria-label="Button group name">
                                     <button onclick="return confirmEdit();" type="submit" name="accion" 
                                         value="editar" class="btn btn-warning fw-bold">EDITAR USUARIO
