@@ -47,7 +47,7 @@
                                 <?php if ($buscar != "") { ?>
                                     <?php foreach ($sql_response as $response) : ?>
                                         <tr>
-                                            <td class="text-light fw-bold fs-5"><?= $response['NSOCIO']; ?></td>
+                                            <td class="text-light fw-bold"><?= $response['NSOCIO']; ?></td>
                                             <td><?= $response['APELLIDO']; ?></td>
                                             <td><?= $response['NOMBRE'];  ?></td>
                                             <td><?= $response['CELULAR'];  ?></td>
@@ -88,7 +88,7 @@
                                 <?php } else { ?>
                                     <?php foreach ($socios as $socio) : ?>
                                         <tr>
-                                            <td class="text-light fw-bold fs-5"><?php echo $socio['NSOCIO']; ?></td>
+                                            <td class="text-light fw-bold"><?php echo $socio['NSOCIO']; ?></td>
                                             <td><?php echo $socio['APELLIDO']; ?></td>
                                             <td><?php echo $socio['NOMBRE']; ?></td>
                                             <td><?php echo $socio['CELULAR']; ?></td>
@@ -147,6 +147,7 @@
                     </div>
                 <?php } ?>
             </div>
+            
         </div>
     </div>
 </div>

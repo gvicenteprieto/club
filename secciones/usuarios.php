@@ -54,20 +54,6 @@ if ($accion != "") {
                 };
             };
         break;
-        // case "seleccionar":
-        //     $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
-        //     $query = $conexionDB->prepare($sql);
-        //     $query->bindParam(':id', $id);
-        //     $query->bindParam(':dni', $dni);
-        //     $query->execute();
-        //     $user = $query->fetch(PDO::FETCH_ASSOC);
-        //     $id = $user['id'];
-        //     $dni = $user['dni'];
-        //     $usuario = $user['usuario'];
-        //     $apellidos = $user['apellidos'];
-        //     $nombres = $user['nombres'];
-        //     $email = $user['email'];
-        // break;
         case "borrar":
             $sql = "DELETE FROM usuarios WHERE id=:id";
             $query = $conexionDB->prepare($sql);
@@ -171,8 +157,8 @@ if ($accion != "") {
                 //DELETE FROM usuarios_actividades WHERE `usuarios_actividades`.`id` = 80"
             };
         break;
-    }
-}
+    };
+};
 
 //mostrar todos los usuarios menos admin ni root
 $sql = "SELECT * FROM usuarios where usuario != 'admin' and usuario != 'root'";

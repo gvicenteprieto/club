@@ -11,7 +11,6 @@ $sql_search = "SELECT id, NSOCIO, DNI, APELLIDO, NOMBRE, CELULAR, LOCALIDAD, PAR
                 OR LOCALIDAD like '%" . $buscar . "%'
                 OR PARTIDO like '%" . $buscar . "%'
                 OR EMAIL like '%" . $buscar . "%'";
-
 $sql_query = $conexionDB->prepare($sql_search);
 $sql_query->execute();
 $sql_response = $sql_query->fetchAll();
@@ -84,10 +83,8 @@ if ($accion != "") {
                     $query->bindParam(':idActividad', $actividad);
                     $query->execute();
                 };
-            }
-            //header("Location:vista_socios_listado.php");
-            break;
-
+            };
+        break;
         case "seleccionar":
             $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
             $query = $conexionDB->prepare($sql);
@@ -101,16 +98,13 @@ if ($accion != "") {
             $apellidos = $user['apellidos'];
             $nombres = $user['nombres'];
             $email = $user['email'];
-            break;
-
+        break;
         case "borrar":
             $sql = "DELETE FROM socios WHERE id=:id";
             $query = $conexionDB->prepare($sql);
             $query->bindParam(':id', $id);
             $query->execute();
-            // header("Location:vista_socios_listado.php");
-            break;
-
+        break;
         case "editar":
             $sql = "UPDATE socios 
             SET FINGRESO=:FINGRESO, NSOCIO=:NSOCIO, APELLIDO=:APELLIDO, NOMBRE=:NOMBRE, CALLE=:CALLE, ALTURA=:ALTURA, ECALLE_1=:ECALLE_1, ECALLE_2=:ECALLE_2, PISO=:PISO, DEPTO=:DEPTO, PARTIDO=:PARTIDO, CPOSTAL=:CPOSTAL, LOCALIDAD=:LOCALIDAD, CELULAR=:CELULAR, DNI=:DNI, FNACIMIENTO=:FNACIMIENTO, OSOCIAL=:OSOCIAL, NAFILIADO=:NAFILIADO, EMAIL=:EMAIL, OBSERVACIONES=:OBSERVACIONES, ESTADO=:ESTADO WHERE NSOCIO=:NSOCIO";
@@ -138,10 +132,7 @@ if ($accion != "") {
             $query->bindParam(':OBSERVACIONES', $OBSERVACIONES);
             $query->bindParam(':ESTADO', $ESTADO);
             $query->execute();
-            break;
-
-        
-
+        break;
         case "ver":
             $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
             $query = $conexionDB->prepare($sql);
@@ -155,10 +146,9 @@ if ($accion != "") {
             $apellidos = $user['apellidos'];
             $nombres = $user['nombres'];
             $email = $user['email'];
-            // header("Location:perfil_usuario.php");
-            break;
-    }
-}
+        break;
+    };
+};
 
 $sql = "SELECT * FROM socios ";
 $listaSocios = $conexionDB->query($sql);
