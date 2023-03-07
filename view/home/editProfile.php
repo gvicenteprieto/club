@@ -38,7 +38,7 @@ if ($_SESSION['usuario']) {
                                 <div >
                                     <input type="text" 
                                         class="form-control fw-bold text-center text-success fs-5 p-2" 
-                                        id="usuario" name="usuario" 
+                                        id="usuario" name="usuario" readonly=true 
                                         value="<?php echo  $_SESSION['usuario']; ?>" 
                                         aria-describedby="usuario" placeholder="Usuario" 
                                         aria-label="usuario">

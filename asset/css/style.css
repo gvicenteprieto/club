@@ -53,8 +53,9 @@
 }
 
 .boton_nav-login:hover {
-  border: 2px solid #17874f;
-  color: #000;
+  /* border: 2px solid #17874f; */
+  border: 2px solid #ffffff;
+  color: #79baf7;
   font-weight: 700;
   background-color: #ffffff;
 }
@@ -67,17 +68,15 @@
 }
 
 .fondo_login {
-  background-color: #55a6f2; 
+  /* background-color: #55a6f2;  */
+  background-color: #79baf7;
   min-height: 100vh;
 }
 
 .fondo_login2 {
-  /* background-color: #55a6f2;  */
   background-color: #79baf7; 
   min-height: 100vh;
 }
-
-
 
 
 .login {

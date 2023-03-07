@@ -53,7 +53,7 @@
                                     <?php foreach ($sql_response as $response) : ?>
                                         <tr>
                                             <!-- <td><?= $response['dni']; ?></td> -->
-                                            <td><?= $response['usuario']; ?></td>
+                                            <td class="fw-bold text-light fs-6"><i><?= $response['usuario']; ?></i></td>
                                             <td><?= $response['apellidos']; ?></td>
                                             <td><?= $response['nombres'];  ?></td>
                                             <td><?= $response['email'];  ?></td>
@@ -98,13 +98,13 @@
                                         <tr>
                                             <!-- <td><?php echo $usuario['dni']; ?></td> -->
                                             <td class="fw-bold text-light fs-6"><i><?php echo $usuario['usuario']; ?></i>
-                                                <!-- <?php
+                                                 <!-- <?php
                                                     foreach ($usuario["actividades"] as $actividad) { ?>
                                                         <br>
                                                         🟠<a class="text-light" href="#" id="listaActividades">
                                                             <?php echo $actividad['nombre_actividad']; ?> 
                                                         </a>
-                                                <?php } ?> -->
+                                                <?php } ?>  -->
                                             </td>
                                             <td><?php echo $usuario['apellidos']; ?></td>
                                             <td><?php echo $usuario['nombres']; ?></td>

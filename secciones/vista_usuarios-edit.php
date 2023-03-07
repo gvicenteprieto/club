@@ -42,13 +42,15 @@ if ($id) {
                             <div class="card-body">
                                 <div class="mb-3">
                                     <label for="dni" class="form-label text-secondary">DNI</label>
-                                    <input type="text" class="form-control" name="dni" id="dni" readonly=true 
-                                        value="<?php echo $dni; ?>" placeholder="Documento Nacional de Identidad">
+                                    <input type="text" class="form-control" name="dni" id="dni" 
+                                        readonly=true value="<?php echo $dni; ?>" 
+                                        placeholder="Documento Nacional de Identidad">
                                 </div>
                                 <div class="mb-3">
                                     <label for="usuario" class="form-label">Usuario</label>
                                     <input type="text" class="form-control text-primary fw-bold fs-5" 
-                                        name="usuario" id="usuario" value="<?php echo $usuario; ?>" placeholder="Usuario">
+                                        name="usuario" id="usuario" value="<?php echo $usuario; ?>" 
+                                        placeholder="Usuario">
                                 </div>
                                 <div class="mb-3">
                                     <label for="apellidos" class="form-label text-secondary">Apellidos</label>
@@ -118,6 +120,26 @@ if ($id) {
                                     </div>
                                 <?php endif; ?> -->
 
+                                <!-- <?php if ($actividad) : ?>
+                                    <div class="mb-3">
+                                        <label for="" class="form-label">Actividades vinculadas:</label>
+                                        <select multiple class="form-control" name="actividades[]" id="arrayActividadesUsuarios">
+                                            <?php foreach ($actividadesUsuario as $actividadUsuario) { ?>
+                                                <option <?php
+                                                        if (!empty($arrayActividadesUsuarios)) :
+                                                            if (in_array($actividadUsuario['id'], $arrayActividadesUsuarios)) :
+                                                                echo "seleccionado";
+                                                            endif;
+                                                        endif;
+                                                        ?> value="<?php echo $actividadUsuario['id']; ?>">
+                                                    <?php echo $actividadUsuario['id']; ?> - <?php echo $actividadUsuario['nombre_actividad']; ?>
+
+                                                </option>
+                                            <?php } ?>
+                                        </select>
+                                    </div>
+                                <?php endif; ?> -->
+
                                 <!-- <div class="mb-3">
                                     <label for="" class="form-label">Agregar Actividades:</label>
                                     <select multiple class="form-control" name="actividades[]" id="listaActividades">
@@ -135,13 +157,12 @@ if ($id) {
                                     </select>
                                 </div>
                                 <div class="btn-group" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="agregarAct" 
-                                        class="btn btn-success">Agregar Actividad
+                                    <button type="submit" name="accion" value="agregarAct" class="btn btn-success">Agregar Actividad
                                     </button>
                                 </div> -->
                                 <div class="btn-group d-flex mt-5" role="group" aria-label="Button group name">
-                                    <button onclick="return confirmEdit();" type="submit" name="accion" 
-                                        value="editar" class="btn btn-warning fw-bold">EDITAR USUARIO
+                                    <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" 
+                                        class="btn btn-warning fw-bold">EDITAR USUARIO
                                     </button>
                                 </div>
                             </div>
@@ -149,8 +170,7 @@ if ($id) {
                     </form>
 
                     <div class="btn-group d-flex " role="group" aria-label="Button group name">
-                        <button class="btn btn-success" 
-                            onclick='document.getElementById("dni").removeAttribute("readonly", false)'>
+                        <button class="btn btn-success" onclick='document.getElementById("dni").removeAttribute("readonly", false)'>
                             Permitir Edición DNI
                         </button>
                         <!-- <button class="btn btn-info" 

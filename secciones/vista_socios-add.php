@@ -125,7 +125,15 @@
 
 <!-- ACTIVIDADES -->
  <div class="mb-3">
-    <label for="" class="form-label">Seleccione actividad disponible para vincular al asociado: </label>
+    <!-- <label for="" class="form-label">Seleccione actividad disponible para vincular al asociado: </label> -->
+
+
+    <div class="container px-2 py-2">
+                                        <h5 class="text-primary">
+                                        Seleccione actividad disponible para vincular al asociado:
+                                        </h5>
+                                        </div>
+
 
     <select multiple class="form-control" name="actividades[]" id="listaActividades">
     <!-- <option value="">Seleccione actividad:</option>  -->

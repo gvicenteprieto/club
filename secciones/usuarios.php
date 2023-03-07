@@ -54,6 +54,22 @@ if ($accion != "") {
                 };
             };
         break;
+
+        case "seleccionar":
+            //$pass=password_hash($pass, PASSWORD_DEFAULT);
+            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
+            $query = $conexionDB->prepare($sql);
+            $query->bindParam(':id', $id);
+            $query->bindParam(':dni', $dni);
+            $query->execute();
+            $user = $query->fetch(PDO::FETCH_ASSOC);
+            $id = $user['id'];
+            $dni = $user['dni'];
+            $usuario = $user['usuario'];
+            $apellidos = $user['apellidos'];
+            $nombres = $user['nombres'];
+            $email = $user['email'];
+            break;
         case "borrar":
             $sql = "DELETE FROM usuarios WHERE id=:id";
             $query = $conexionDB->prepare($sql);
@@ -126,37 +142,52 @@ if ($accion != "") {
             print_r($actividadesUsuario);
         break;
         case "borrarAct":
-            $pass = password_hash($pass, PASSWORD_DEFAULT);
-            $sql = "UPDATE usuarios 
-            SET dni=:dni, usuario=:usuario, apellidos=:apellidos, nombres=:nombres, 
-            email=:email WHERE usuario=:usuario";
+            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
             $query = $conexionDB->prepare($sql);
             $query->bindParam(':id', $id);
             $query->bindParam(':dni', $dni);
-            $query->bindParam(':usuario', $usuario);
-            $query->bindParam(':apellidos', $apellidos);
-            $query->bindParam(':nombres', $nombres);
-            $query->bindParam(':email', $email);
             $query->execute();
-            if (isset($actividades)) {
-                $sql="DELETE FROM usuarios_actividades WHERE idUsuario=:idUsuario";
-                $query = $conexionDB->prepare($sql);
-                $query->bindParam(":idUsuario", $id);
-                $query->execute();
-                // foreach ($actividades as $actividad) {
-                //     $sql = "INSERT INTO usuarios_actividades (id, idUsuario, idActividad) 
-                //     VALUES (null, :idUsuario, :idActividad)";
-                //     $query = $conexionDB->prepare($sql);
-                //     $query->bindParam(':idUsuario', $id);
-                //     $query->bindParam(':idActividad', $actividad);
-                //     $query->execute();
-                // };
-                //$arrayActividadesUsuarios=$actividades;
-                //print_r($actividades);
-                echo "Actividades " . $actividades;
-                //DELETE FROM usuarios_actividades WHERE `usuarios_actividades`.`id` = 80"
-            };
+            $user = $query->fetch(PDO::FETCH_ASSOC);
+            $id = $user['id'];
+            $dni = $user['dni'];
+            $usuario = $user['usuario'];
+            $apellidos = $user['apellidos'];
+            $nombres = $user['nombres'];
+            $email = $user['email'];
+
+
+            $sqlx = "SELECT * FROM actividades 
+            WHERE id IN (SELECT idActividad FROM usuarios_actividades WHERE idUsuario = :idUsuario)";
+            $query = $conexionDB->prepare($sqlx);
+            $query->bindParam(':idUsuario', $id);
+            $query->execute();
+            $actividad = $query->fetchAll();
+            print_r($actividad);
+
+            /*
+            $sql = "DELETE FROM usuarios WHERE id=:id";
+            $query = $conexionDB->prepare($sql);
+            $query->bindParam(':id', $id);
+            $query->execute();
+            */
         break;
+
+        case "ver":
+            $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
+            $query = $conexionDB->prepare($sql);
+            $query->bindParam(':id', $id);
+            $query->bindParam(':dni', $dni);
+            $query->execute();
+            $user = $query->fetch(PDO::FETCH_ASSOC);
+            $id = $user['id'];
+            $dni = $user['dni'];
+            $usuario = $user['usuario'];
+            $apellidos = $user['apellidos'];
+            $nombres = $user['nombres'];
+            $email = $user['email'];
+            header("Location:perfil_usuario.php");
+
+            break;
     };
 };
 

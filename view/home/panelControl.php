@@ -5,7 +5,7 @@ if (empty($_SESSION['usuario'])) {
 }
 ?>
 
-<div class="fondo_login2">
+<div class="fondo_login">
 
     <?php if ($_SESSION['usuario'] == "root") : ?>
         <div class="container p-5">
@@ -75,30 +75,22 @@ if (empty($_SESSION['usuario'])) {
 
     <?php elseif ($_SESSION['usuario'] == "admin") : ?>
         <div class="container px-4 py-5">
-            <h2 class="pb-2 border-bottom text-warning">
-                Secciones
-            </h2>
+                <h2 class="pb-2 border-bottom text-warning">
+                    Secciones
+                </h2>
             <div class="container text-center mt-5">
                 <div class="row justify-content-around">
                     <div class="col-3">
                         <div>
                             <div>
                                 <h3 class="fs-3 text-light">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Usuarios</font>
-                                    </font>
+                                    Usuarios
                                 </h3>
                                 <p>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Usuarios habilitados. </font>
-                                    </font>
+                                    Usuarios habilitados.
                                 </p>
                                 <a href="../../secciones/vista_usuarios.php" class="btn btn-success">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Ver Usuarios
-                                        </font>
-                                    </font>
+                                    Ver Usuarios
                                 </a>
                             </div>
                         </div>
@@ -107,21 +99,13 @@ if (empty($_SESSION['usuario'])) {
                         <div>
                             <div>
                                 <h3 class="fs-3 text-light">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Actividades</font>
-                                    </font>
+                                    Actividades
                                 </h3>
                                 <p>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Actividades disponibles. </font>
-                                    </font>
+                                    Actividades disponibles.
                                 </p>
                                 <a href="../../secciones/vista_actividades.php" class="btn btn-success">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Ver Actividades
-                                        </font>
-                                    </font>
+                                    Ver Actividades
                                 </a>
                             </div>
                         </div>
@@ -130,21 +114,13 @@ if (empty($_SESSION['usuario'])) {
                         <div>
                             <div>
                                 <h3 class="fs-3 text-light">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Socios</font>
-                                    </font>
+                                    Socios
                                 </h3>
                                 <p>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Listado de socios. </font>
-                                    </font>
+                                    Listado de socios.
                                 </p>
                                 <a href="../../secciones/vista_socios.php" class="btn btn-success">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Ver Socios
-                                        </font>
-                                    </font>
+                                    Ver Socios
                                 </a>
                             </div>
                         </div>
@@ -166,21 +142,13 @@ if (empty($_SESSION['usuario'])) {
                         <div>
                             <div>
                                 <h3 class="fs-3 text-light">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Actividades</font>
-                                    </font>
+                                    Actividades
                                 </h3>
                                 <p>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Actividades disponibles. </font>
-                                    </font>
+                                    Actividades disponibles.
                                 </p>
                                 <a href="../../secciones/vista_actividades.php" class="btn btn-success">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Ver Actividades
-                                        </font>
-                                    </font>
+                                    Ver Actividades
                                 </a>
                             </div>
                         </div>
@@ -189,21 +157,13 @@ if (empty($_SESSION['usuario'])) {
                         <div>
                             <div>
                                 <h3 class="fs-3 text-light">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Socios</font>
-                                    </font>
+                                    Socios
                                 </h3>
                                 <p>
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">Listado de socios. </font>
-                                    </font>
+                                    Listado de socios.
                                 </p>
                                 <a href="../../secciones/vista_socios.php" class="btn btn-success">
-                                    <font style="vertical-align: inherit;">
-                                        <font style="vertical-align: inherit;">
-                                            Ver Socios
-                                        </font>
-                                    </font>
+                                    Ver Socios
                                 </a>
                             </div>
                         </div>

@@ -20,7 +20,14 @@
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item"></li>
                         </ul>
-                        <a href="/login/view/home/login.php" class="boton_nav-login bg-success ">INGRESAR</a>
+                        <!-- <a href="/login/view/home/login.php" class="boton_nav-login bg-success mt-1">Ingresar</a> -->
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <i>
+                                    <a href="/login/view/home/login.php" class="boton_nav-login bg-success mt-1 p-2">Ingresar</a>
+                                </i>
+                            </li>
+                        </ul>
                     </div>
 
                 <?php elseif ($_SESSION['usuario'] == "admin") : ?>

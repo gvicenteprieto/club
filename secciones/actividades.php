@@ -62,3 +62,5 @@ $query->execute();
 $listaActividades = $query->fetchAll();
  //print_r($listaActividades);
  //ahora mostrarla: en lista de actividades
+
+ ?>

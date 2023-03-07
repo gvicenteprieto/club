@@ -4,7 +4,7 @@ if (!empty($_SESSION['usuario'])) {
 }
 ?>
 
-<div class="fondo_login2 p-5">
+<div class="fondo_login p-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
@@ -19,17 +19,17 @@ if (!empty($_SESSION['usuario'])) {
                     <div class="card mt-1 mb-5 login">
                         <div class="card-body ">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Usuario:</label>
+                                <label for="exampleInputEmail1" class="form-label">Nombre de Usuario:</label>
                                 <input type="text" class="form-control text-success fw-bold" 
                                     id="usuario" name="usuario" aria-describedby="usuario" placeholder="Usuario" >
-                                <small class="form-text text-muted mt-1">Escriba su usuario</small>
+                                <i><small class="form-text text-light mt-1">Escriba su usuario</small></i>
                             </div>
                             <div class="mb-3">
                                 <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
                                 <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña">
-                                <small class="form-text text-muted mt-1">Escriba su contraseña</small>
+                                <i><small class="form-text text-light">Escriba su contraseña</small></i>
                             </div>
-                            <hr>
+                            <hr class="border-bottom text-light">
                             <?php if (!empty($_GET['error'])) : ?>
 
                                 <div id="alertError" class="d-grid gap-2 btn mb-2 text-danger bg-warning" 
@@ -40,7 +40,7 @@ if (!empty($_SESSION['usuario'])) {
                             <?php endif; ?>
 
                             <div class="d-grid gap-2">
-                                <button type="submit" class="btn btn-success fw-bold">INGRESAR</button>
+                                <button type="submit" class="btn btn-success fw-bold m-1"><i>Ingresar</i></button>
                             </div>
                         </div>
                     </div>
