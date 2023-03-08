@@ -43,11 +43,9 @@
                                 <div class="mb-3"></div>
 
                                 <!-- ACTIVIDADES -->
-                                 <div class="mb-3">
+                                <!-- <div class="mb-3">
                                     <label for="" class="form-label">Seleccione actividad disponible para vincular al usuario: </label>
-
                                     <select multiple class="form-control" name="actividades[]" id="listaActividades">
-                                    <!-- <option value="">Seleccione actividad:</option>  -->
                                         <?php foreach($actividades as $actividad){ ?>
                                             <option
                                                 <?php
@@ -62,10 +60,30 @@
                                                 <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
                                             </option>
                                         <?php } ?>
-                                        
                                     </select>
-                                </div> 
+                                </div>  -->
 
+                                <!-- COMISIONES -->
+                                <!-- <div class="mb-3">
+                                    <label for="" class="form-label">Seleccione COMISIONES disponible para vincular al usuario: </label>
+                                    <select multiple class="form-control" name="comisiones[]" id="listaComisiones">
+                                        <?php foreach($comisiones as $comision){ ?>
+                                            <option
+                                                <?php
+                                                    if(!empty($arrayComisiones)): 
+                                                        if(in_array($comision['id'],$arrayComisiones)):
+                                                            echo "selected";
+                                                        endif;
+
+                                                    endif;  
+                                                ?>
+                                                value="<?php echo $comision['id']; ?>">
+                                                <?php echo $comision['id']; ?> - <?php echo $comision['nombre_comision']; ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>  -->
+                                
                                 <div class="btn-group d-flex " role="group" aria-label="Button group name">
                                     <button type="submit" name="accion" value="agregar" 
                                         class="btn btn-success fw-bold">AGREGAR NUEVO USUARIO
@@ -99,6 +117,8 @@
     new TomSelect("#listaActividades",{
 		plugins: ['remove_button'],
 	});
-	
+    new TomSelect("#listaAComisiones",{
+		plugins: ['remove_button'],
+	});
 </script> 
 <?php include("../view/head/footer.php"); ?>

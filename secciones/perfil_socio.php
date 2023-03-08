@@ -37,6 +37,13 @@ if ($id) {
     $query->bindParam(':idSocio', $id);
     $query->execute();
     $actividad = $query->fetchAll();
+
+    $sqly = "SELECT * FROM comisiones 
+    WHERE id IN (SELECT idComision FROM socios_comisiones WHERE idSocio = :idSocio)";
+    $query = $conexionDB->prepare($sqly);
+    $query->bindParam(':idSocio', $id);
+    $query->execute();
+    $comision = $query->fetchAll();
 }
 
 ?>
@@ -199,11 +206,11 @@ if ($id) {
                         </div>
 
                         <div class="container">
+                            <!-- ACTIVIDADES -->
                             <?php if ($actividad) : ?>
-
                                 <div class="container px-2 py-2 mt-2">
                                     <h5 class="text-primary">
-                                        Actividades Vinculadas al Socio
+                                        Actividades vinculadas:
                                     </h5>
                                 </div>
                                 <div class="table-responsive card-background">
@@ -233,19 +240,54 @@ if ($id) {
                                                         </li>
                                                     <?php } ?>
                                                 </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            <?php endif; ?>
 
-                                                <!-- <td>
-                                                    <form action="/login/secciones/vista_socios-edit.php" method="post">
-                                                        <div role="group" aria-label="Button group name">
-                                                            <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>">
-                                                            <button onclick="return confirmEdit();" type="submit" name="accion" 
-                                                                value="seleccionar" class="btn btn-danger m-2">
-                                                                Edición registro de Socio -REVISAR!!
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                                </td> -->
-
+                            <!-- COMISIONES -->
+                            <?php if ($comision) : ?>
+                                <div class="container px-2 py-2 mt-2">
+                                    <h5 class="text-success">
+                                        Comisiones vinculadas:
+                                    </h5>
+                                </div>
+                                <div class="table-responsive card-background">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th class="bg-secondary text-warning">COMISION</th>
+                                                <th class="bg-secondary text-warning">LUGAR DE DESARROLLO</th>
+                                                <th class="bg-secondary text-warning">DIA REUNION</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <?php
+                                                    foreach ($comision as $comis) { ?>
+                                                        <li class="list-group-item p-2">
+                                                            🟠<?php echo $comis['nombre_comision']; ?>
+                                                        </li>
+                                                    <?php } ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    foreach ($comision as $comis) { ?>
+                                                        <li class="list-group-item p-2">
+                                                            🟫<?php echo $comis['lugar']; ?>
+                                                        </li>
+                                                    <?php } ?>
+                                                </td>
+                                                <td>
+                                                    <?php
+                                                    foreach ($comision as $comis) { ?>
+                                                        <li class="list-group-item p-2">
+                                                            🟫<?php echo $comis['dia']; ?>
+                                                        </li>
+                                                    <?php } ?>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>

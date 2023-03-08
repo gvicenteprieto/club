@@ -54,6 +54,15 @@
                                 </a>
                             </li>
                         </ul>
+
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link text-warning mt-1" href="/login/secciones/vista_comisiones.php">
+                                    COMISIONES
+                                </a>
+                            </li>
+                        </ul> 
+
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
 
                         <ul class="navbar-nav">

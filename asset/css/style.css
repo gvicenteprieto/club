@@ -97,6 +97,7 @@
   margin-bottom: 10px;
 }
 
+
 .icono,
 .icono_login {
   font-size: 25px;
@@ -165,4 +166,12 @@
   width: 90%;
   height: 650px;
   margin: 0 auto;
+}
+
+.link-social {
+ color: #5dbefb;
+}
+
+.secciones {
+  color: #e4c723;
 }

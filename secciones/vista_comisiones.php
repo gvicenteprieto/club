@@ -1,17 +1,17 @@
 <?php include('../view/head/header.php'); ?>
-<?php include('../secciones/actividades.php');  ?>
+<?php include('../secciones/comisiones.php');  ?>
 
 <div class="container p-5">
     <div class="row">
         <div class="col-12">
-            <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">ACTIVIDADES</h5>
+            <h5 class="p-2 text-center text-success card bg-light mb-3 fw-bold">COMISIONES</h5>
             <div class="row">
                 <div class="col-5 mb-3">
                     <form action="" method="post">
                         <div class="card card-background p-1">
                             <br>
                             <div class="card card-header bg-secondary text-light fs-5 m-3">
-                                Gestión de Actividades
+                                Gestión de Comisiones
                             </div>
                             <div class="card-body">
 
@@ -21,15 +21,28 @@
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="nombre_actividad" class="form-label">Nombre</label>
-                                    <input type="text" class="form-control text-primary fw-bold" name="nombre_actividad" id="nombre_actividad" 
-                                        value="<?php echo $nombre_actividad; ?>" placeholder="Nombre Actividad">
+                                    <label for="nombre_comision" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control text-success fw-bold" name="nombre_comision" id="nombre_comision" value="<?php echo $nombre_comision; ?>" placeholder="Nombre Comisión">
                                 </div>
 
                                 <div class="mb-3">
-                                    <label for="lugar_actividad" class="form-label">Lugar</label>
-                                    <input type="text" class="form-control" name="lugar" id="lugar" 
-                                        value="<?php echo $lugar; ?>" placeholder="Lugar donde se practica">
+                                    <label for="lugar_comision" class="form-label">Lugar</label>
+                                    <input type="text" class="form-control" name="lugar" id="lugar" value="<?php echo $lugar; ?>" placeholder="Lugar de encuentro">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="dia" class="form-label">Día</label>
+                                    <input type="text" class="form-control" name="dia" id="dia" value="<?php echo $dia; ?>" placeholder="Día de reuión">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="horaInicio" class="form-label">Hora de Inicio</label>
+                                    <input type="time" class="form-control" name="horaInicio" id="horaInicio" value="<?php echo $horaInicio; ?>" placeholder="Hora de Inicio">
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="lugar_comision" class="form-label">Hora de Finalización</label>
+                                    <input type="time" class="form-control" name="horaFin" id="horaFin" value="<?php echo $horaFin; ?>" placeholder="Hora de Finalización">
                                 </div>
 
                                 <div class="btn-group d-flex " role="group" aria-label="Button group name">
@@ -49,11 +62,11 @@
                     <div class="card card-background p-1">
                         <br>
                         <div class="card card-header bg-secondary text-light fs-5 m-3">
-                            Listado de Actividades
+                            Listado de Comisiones
                         </div>
 
                         <div class="text-center mb-2">
-                            <form action="vista_actividades.php" method="post">
+                            <form action="vista_comisiones.php" method="post">
                                 <input type="text" name="buscar" class="btn fw-bold fs-6" style="background-color: #a6c3de">
                                 <input type="submit" value="Buscar" class="btn btn-primary">
                             </form>
@@ -64,10 +77,12 @@
                             <table class="table ">
                                 <thead>
                                     <tr>
-                                        <th class="text-center">Actividad</th>
-                                        <th class="">Nombre</th>
+                                        <!-- <th class="text-center">Comisión</th> -->
+                                        <th class="">Comisión</th>
                                         <th class="">Lugar</th>
-                                        <th class="">Edición</th>
+                                        <th class="">Día</th>
+                                        <th class="">Inicio</th>
+                                        <th class="">Fin</th>
                                     </tr>
                                 </thead>
 
@@ -78,9 +93,12 @@
                                         <?php foreach ($sql_response as $response) : ?>
 
                                             <tr>
-                                                <td class="text-center"><?= $response['id']; ?></td>
-                                                <td class="text-primary fw-bold"><?= $response['nombre_actividad']; ?></td>
+                                                <!-- <td class="text-center"><?= $response['id']; ?></td> -->
+                                                <td class="text-success fw-bold"><?= $response['nombre_comision']; ?></td>
                                                 <td><?= $response['lugar']; ?></td>
+                                                <td><?= $response['dia']; ?></td>
+                                                <td><?= $response['horaInicio']; ?></td>
+                                                <td><?= $response['horaFin']; ?></td>
                                                 <td>
                                                     <form action="" method="post">
                                                         <input type="hidden" name="id" id="id" class="text-center" value="<?php echo $response['id']; ?>">
@@ -93,16 +111,17 @@
 
                                     <?php } else { ?>
 
-
-                                        <!-- 0. 1. foreach para recorrer el listado y poder mostrar cda axctividad -->
-                                        <?php foreach ($listaActividades as $actividad) { ?>
+                                        <?php foreach ($listaComisiones as $comision) { ?>
                                             <tr>
-                                                <td class="text-center"><?php echo $actividad['id']; ?></td>
-                                                <td class=" text-primary fw-bold "><?php echo $actividad['nombre_actividad']; ?></td>
-                                                <td><?php echo $actividad['lugar']; ?></td>
+                                                <!-- <td class="text-center"><?php echo $comision['id']; ?></td> -->
+                                                <td class=" text-success fw-bold "><?php echo $comision['nombre_comision']; ?></td>
+                                                <td><?php echo $comision['lugar']; ?></td>
+                                                <td><?php echo $comision['dia']; ?></td>
+                                                <td><?php echo $comision['horaInicio']; ?></td>
+                                                <td><?php echo $comision['horaFin']; ?></td>
                                                 <td>
                                                     <form action="" method="post">
-                                                        <input type="hidden" name="id" id="id" value="<?php echo $actividad['id']; ?>">
+                                                        <input type="hidden" name="id" id="id" value="<?php echo $comision['id']; ?>">
                                                         <input type="submit" value="seleccionar" name="accion" class="btn btn-secondary">
                                                     </form>
                                                 </td>
@@ -117,7 +136,7 @@
                                         <div class="col-4"></div>
                                         <div class="col-4">
                                             <div>
-                                                <a href="./vista_actividades.php" class="btn btn-success m-2">
+                                                <a href="./vista_comisiones.php" class="btn btn-success m-2">
                                                     REGRESAR
                                                 </a>
                                             </div>
@@ -141,7 +160,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>

@@ -144,8 +144,6 @@
                                     <input type="text" class="form-control" name="ESTADO" id="ESTADO" value="<?php echo $ESTADO; ?>" placeholder="Estado">
                                 </div>
 
-
-
                                 <!-- ACTIVIDADES -->
                                 <!-- <?php if ($actividadSocio) : ?>
                                     <div>
@@ -223,42 +221,10 @@
                                     </div>
                                 <?php endif; ?> -->
 
-                                <br>
-                                <!-- INICIO PRUEBAS 1-->
-                                <!-- ACTIVIDADES del SOCIO version 2 -->
-                                <!-- <p>inicio prueba</p>
-
-                             
-                                    <div class="mb-3">
-                                        <label for="" class="form-label text-primary">Actividades del Socio:</label>
-
-
-                                        <select multiple class="form-control" name="actividades[]" id="arrayActividadesSocios">
-
-                                            <?php foreach ($actividadesSocio as $actividadSocio) { ?>
-                                                <option <?php
-                                                        if (!empty($arrayActividadesSocios)) :
-                                                            if (in_array($actividadSocio['id'], $arrayActividadesSocios)) :
-                                                                echo "selected";
-                                                            endif;
-                                                        endif;
-                                                        ?> value="<?php echo $actividadSocio['id']; ?>">
-                                                    <?php echo $actividadSocio['id']; ?> - <?php echo $actividadSocio['nombre_actividad']; ?>
-
-                                                </option>
-                                            <?php } ?>
-
-                                        </select>
-                                    </div>
-                               
-
-                                <p>fin prueba</p> -->
-
                                 <div class="mb-3">
-
                                     <div class="container px-2 py-2">
-                                        <h5 class="text-success">
-                                            Vincular Actividades
+                                        <h5 class="text-primary">
+                                            Actividades
                                         </h5>
                                     </div>
                                     <select multiple class="form-control" name="actividades[]" id="arrayActividadesSocios">
@@ -278,24 +244,18 @@
                                     </select>
                                 </div>
 
-
-
                                 <div role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="agregarAct" class="btn btn-success">Agregar Actividad
+                                    <button type="submit" name="accion" value="agregarAct" class="btn btn-primary">Agregar Actividad
                                     </button>
                                 </div>
 
                                 <div class="mt-3">
-
                                     <div class="container px-2 py-2 mt-2">
-                                        <h5 class="text-primary">
+                                        <h6 class="text-primary">
                                             Actividades Vinculadas al Socio
-                                        </h5>
+                                        </h6>
                                     </div>
-
-
                                     <select multiple class="form-control" name="actividades[]" id="listaActividades">
-
                                         <?php foreach ($actividades as $actividad) { ?>
                                             <option <?php
                                                     if (!empty($arregloActividades)) :
@@ -309,35 +269,72 @@
 
                                             </option>
                                         <?php } ?>
-
                                     </select>
                                 </div>
 
-                                <!-- <div class="btn-group d-flex mt-3" role="group" aria-label="Button group name">
-                                    <form action="/login/secciones/vista_socios-edit.php" method="post">
-                                        <div class="btn-group d-flex mt-3" role="group" aria-label="Button group name">
-                                            <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>">
-                                            <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning fw-bold m-1">EDITAR SOCIO
-                                            </button>
-                                        </div>
-                                    </form>
-                                </div> -->
+                                <div class="container">
+                                <br><hr >
+                                </div>
 
 
+                                <!-- COMISIONES -->
 
+                                <div class="mb-3">
+                                    <div class="container px-2 py-2">
+                                        <h5 class="text-success">
+                                            Comisiones
+                                        </h5>
+                                    </div>
+                                    <select multiple class="form-control" name="comisiones[]" id="arrayComisionesSocios">
+                                        <?php foreach ($comisiones as $comision) { ?>
+                                            <option <?php
+                                                    if (!empty($arrayComisiones)) :
+                                                        if (in_array($comision['id'], $arrayComisiones)) :
+                                                            echo "selected";
+                                                        endif;
+                                                    endif;
+                                                    ?> value="<?php echo $comision['id']; ?>">
+                                                <?php echo $comision['id']; ?> - <?php echo $comision['nombre_comision']; ?>
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+
+                                <div role="group" aria-label="Button group name">
+                                    <button type="submit" name="accion" value="agregarAct" class="btn btn-success">Agregar Comision
+                                    </button>
+                                </div>
+
+                                <div class="mt-3">
+                                    <div class="container px-2 py-2 mt-2">
+                                        <h6 class="text-success">
+                                            Comisiones Vinculadas al Socio
+                                        </h6>
+                                    </div>
+                                    <select multiple class="form-control" name="comisiones[]" id="listaComisiones">
+                                        <?php foreach ($comisiones as $comision) { ?>
+                                            <option <?php
+                                                    if (!empty($arregloComisiones)) :
+                                                        if (in_array($comision['id'], $arregloComisiones)) :
+                                                            echo 'selected';
+                                                        endif;
+                                                    endif;
+                                                    ?> value="<?php echo $comision['id']; ?>">
+
+                                                <?php echo $comision['id']; ?> - <?php echo $comision['nombre_comision']; ?>
+
+                                            </option>
+                                        <?php } ?>
+                                    </select>
+                                </div>
+                                
                                 <div class="text-center mt-3" >
                                     <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>">
                                     <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning fw-bold">EDITAR SOCIO
                                     </button>
                                 </div>
-
-                                <!-- <div class="btn-group d-flex mt-3" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="agregar" class="btn btn-success fw-bold">AGREGAR NUEVO SOCIO
-                                    </button>
-                                </div> -->
                             </div>
                         </div>
-
                     </form>
 
                 </div>
@@ -365,11 +362,16 @@
         plugins: ['remove_button'],
     });
 
-    // new TomSelect("#arregloActividades", {
-    //     plugins: ['remove_button'],
-    // });
+
+    new TomSelect("#arrayComisionesSocios", {
+        plugins: ['remove_button'],
+    });
 
     new TomSelect("#listaActividades", {
+        plugins: ['remove_button'],
+    });
+
+    new TomSelect("#listaComisiones", {
         plugins: ['remove_button'],
     });
 </script>

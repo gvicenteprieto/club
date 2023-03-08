@@ -40,7 +40,7 @@
                                     <th>Nombre</th>
                                     <th>Teléfono</th>
                                     <th>Email</th>
-                                    <th>Localidad/Barrio - Partido</th>
+                                    <th>Localidad - Partido</th>
                                     <th>Edición Registro Socio</th>
                                     <th>Perfiles</th>
                                 </tr>
@@ -84,16 +84,6 @@
                                                 </div>
                                             </td>
                                             <td>
-                                                <!-- <form action="/login/secciones/perfil_socio.php" method="post">
-                                                    <div role="group" aria-label="Button group name">
-                                                        <input type="hidden" name="id" id="id" 
-                                                            value="<?php echo $response['id'];  ?>">
-                                                        <button type="submit" name="accion" value="editar" 
-                                                            class="btn btn-secondary m-1">VER PERFIL
-                                                        </button>
-                                                    </div>
-                                                </form> -->
-
                                                 <form action="/login/secciones/perfil_socio.php" method="post">
                                                     <div role="group" aria-label="Button group name">
                                                         <input type="hidden" name="id" id="id" value="<?php echo $socio['id'];  ?>">
@@ -102,7 +92,6 @@
                                                         </button>
                                                     </div>
                                                 </form>
-
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -117,11 +106,26 @@
                                                         <?php echo $actividad['nombre_actividad']; ?>
                                                     </a>
                                                     <!-- <form action="/login/secciones/vista_socios.php" method="post">
-                                                            <input type="hidden" name="id" id="id" value="<?php echo $socio['id'];  ?>">
+                                                            <input type="type" name="id" id="id" value="<?php echo $actividad['id'];  ?>">
                                                              <button type="submit" name="accion" value="borrarAct">❌ 
                                                             </button>
                                                         </form> -->
                                                 <?php } ?>
+
+                                                <?php
+                                                foreach ($socio["comisiones"] as $comision) { ?>
+                                                    <br>
+                                                    ❇️<a class="text-success fw-bold" href="#" id="listaComisiones">
+                                                        <?php echo $comision['nombre_comision']; ?>
+                                                    </a>
+                                                    <!-- <form action="/login/secciones/vista_socios.php" method="post">
+                                                            <input type="type" name="id" id="id" value="<?php echo $actividad['id'];  ?>">
+                                                             <button type="submit" name="accion" value="borrarAct">❌ 
+                                                            </button>
+                                                        </form> -->
+                                                <?php } ?>
+
+
                                             </td>
                                             <td class=""><?php echo $socio['APELLIDO']; ?></td>
                                             <td><?php echo $socio['NOMBRE']; ?></td>

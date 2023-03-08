@@ -6,4 +6,5 @@
         </a>
     </div>
 </div>
+
 <?php include("./view/head/footer.php"); ?>

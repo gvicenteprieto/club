@@ -75,7 +75,10 @@ if (empty($_SESSION['usuario'])) {
 
     <?php elseif ($_SESSION['usuario'] == "admin") : ?>
         <div class="container px-4 py-5">
-                <h2 class="pb-2 border-bottom text-warning">
+                <!-- <h2 class="pb-2 border-bottom text-warning">
+                    Secciones
+                </h2> -->
+                <h2 class="pb-2 border-bottom secciones">
                     Secciones
                 </h2>
             <div class="container text-center mt-5">
@@ -121,6 +124,21 @@ if (empty($_SESSION['usuario'])) {
                                 </p>
                                 <a href="../../secciones/vista_socios.php" class="btn btn-success">
                                     Ver Socios
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-3">
+                        <div>
+                            <div>
+                                <h3 class="fs-3 text-light">
+                                    Comisiones
+                                </h3>
+                                <p>
+                                    Listado de comisiones.
+                                </p>
+                                <a href="../../secciones/vista_comisiones.php" class="btn btn-success">
+                                    Ver Comisiones
                                 </a>
                             </div>
                         </div>
