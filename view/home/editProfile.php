@@ -1,5 +1,5 @@
 <?php include("../head/header.php"); ?>
-<?php include("../../config/db.php"); 
+<?php include("../../config/db.php");
 $conexionDB = database::crearInstancia();
 
 if ($_SESSION['usuario']) {
@@ -30,11 +30,32 @@ if ($_SESSION['usuario']) {
                 <div class="row mt-5">
                     <div>
                         <form action="updated.php" method="post" enctype="multipart/form-data" class="row g-3" autocomplete="off">
-                            <div class="col-3 text-center">
+
+                            <div class="row">
+                                <div class="col-4 text-center">
+                                    <label for="usuario" class="form-label m-1 fw-bold fs-5 p-2">Usuario:</label>
+                                </div>
+                                <div class="mb-3 col-4">
+                                    <!-- <div>
+                                        <input type="text" class="form-control fw-bold text-center bg-secondary text-warning fs-5" 
+                                        id="usuario" name="usuario" readonly=true value="<?php echo  $_SESSION['usuario']; ?>" aria-describedby="usuario" placeholder="Usuario" aria-label="usuario">
+                                    </div> -->
+                                    <div class="bg-secondary text-warning text-center card fw-bold">
+                                    <h5 class="mt-2">
+                                        <i>
+                                            <?php echo  $_SESSION['usuario']; ?>
+                                        </i>
+                                    </h5>
+                                </div>
+                                </div>
+                                <div class="col-4 text-center"></div>
+
+                            </div>
+                            <!-- <div class="col-3 text-center">
                                 <label for="usuario" 
                                 class="form-label m-1 fw-bold fs-5 p-2">Usuario:</label>
                             </div>
-                            <div class="mb-3 col-9">
+                            <div class="mb-3 col-3">
                                 <div >
                                     <input type="text" 
                                         class="form-control fw-bold text-center text-success fs-5 p-2" 
@@ -43,45 +64,50 @@ if ($_SESSION['usuario']) {
                                         aria-describedby="usuario" placeholder="Usuario" 
                                         aria-label="usuario">
                                 </div>
-                            </div>
-                            <div class="mb-3 col-6">
+                            </div> -->
+                            <!-- <div class="row">
+                                <div class="col-5"></div>
+                                <div class="col-2 bg-secondary text-warning text-center card fw-bold">
+                                    <h5 class="mt-2">
+                                        <i>
+                                            <?php echo  $_SESSION['usuario']; ?>
+                                        </i>
+                                    </h5>
+                                </div>
+                                <div class="col-5"></div>
+                                <?php if ($foto) : ?>
+                                    <div class="text-center mt-3">
+                                        <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
+                                    </div>
+                                <?php endif; ?>
+                            </div> -->
+                            <div class="mb-3 col-2">
                                 <label for="dni" class="form-label text-light">DNI (sólo números):</label>
-                                <input type="text" class="form-control" id="dni" 
-                                    name="dni" value="<?php echo  $dni; ?>" 
-                                    aria-describedby="dni">
+                                <input type="text" class="form-control" id="dni" name="dni" value="<?php echo  $dni; ?>" aria-describedby="dni">
                             </div>
-                            <div class="mb-3 col-6">
+                            <div class="mb-3 col-2">
                                 <label for="apellidos" class="form-label text-light">Apellidos:</label>
-                                <input type="text" class="form-control" id="apellidos" name="apellidos" 
-                                    value="<?php echo  $apellidos; ?>" 
-                                    aria-describedby="apellidos">
+                                <input type="text" class="form-control" id="apellidos" name="apellidos" value="<?php echo  $apellidos; ?>" aria-describedby="apellidos">
                             </div>
-                            <div class="mb-3 col-6">
+                            <div class="mb-3 col-2">
                                 <label for="nombres" class="form-label text-light">Nombres:</label>
-                                <input type="text" class="form-control" id="nombres" name="nombres" 
-                                    value="<?php echo  $nombres; ?>" 
-                                    aria-describedby="nombres">
+                                <input type="text" class="form-control" id="nombres" name="nombres" value="<?php echo  $nombres; ?>" aria-describedby="nombres">
                             </div>
-                            <div class="mb-3 col-6">
+                            <div class="mb-3 col-2">
                                 <label for="email" class="form-label text-light">Email:</label>
-                                <input type="email" class="form-control" id="email" name="email" 
-                                    value="<?php echo  $email; ?>" 
-                                    aria-describedby="emailHelp">
+                                <input type="email" class="form-control" id="email" name="email" value="<?php echo  $email; ?>" aria-describedby="emailHelp">
                             </div>
-                            <div class="mb-3 col-6">
+                            <div class="mb-3 col-2">
                                 <label for="pass" class="form-label text-light">Contraseña:</label>
-                                <input type="password" class="form-control" id="pass" name="pass" 
-                                value="">
+                                <input type="password" class="form-control" id="pass" name="pass" required value="">
                             </div>
-                            <div class="mb-3 col-6">
+                            <div class="mb-3 col-2">
                                 <label for="confirmPass" class="form-label text-light">Repita Contraseña:</label>
-                                <input type="password" class="form-control" id="confirmPass" name="confirmPass" 
-                                value="">
+                                <input type="password" class="form-control" id="confirmPass" name="confirmPass" required value="">
                             </div>
                             <hr class="text-light">
                             <?php if (!empty($_GET['error'])) : ?>
-                                <div id="alertError" class="d-grid gap-2 btn mb-2 text-danger bg-warning" 
-                                style="font-weight: bold; text-align: center; margin: auto" role="alert">
+                                <div id="alertError" class="d-grid gap-2 btn mb-2 text-danger bg-warning" style="font-weight: bold; text-align: center; margin: auto" role="alert">
                                     <?= !empty($_GET['error']) ? ($_GET['error']) : "" ?>
                                 </div>
                             <?php endif; ?>
@@ -96,22 +122,34 @@ if ($_SESSION['usuario']) {
                                     Actualizar
                                 </button>
                             </div>
+
+                            <!-- <div class="row mt-3">
+                                <div class="col-3"></div>
+                                <div class="col-6 d-grid gap-2">
+                                    <button type="submit" class="btn btn-success fw-bold">
+                                        Actualizar
+                                    </button>
+                                </div>
+                                <div class="col-3"></div>
+                            </div> -->
+
+
                         </form>
                     </div>
                 </div>
             </div>
             <div class="container text-center mt-3">
-            <div class="row justify-content-between">
-                <div class="col-4"></div>
-                <div class="col-4">
-                    <div>
-                        <a href="./panelControl.php" class="btn btn-secondary m-2">
-                            REGRESAR
-                        </a>
+                <div class="row justify-content-between">
+                    <div class="col-4"></div>
+                    <div class="col-4">
+                        <div>
+                            <a href="./panelControl.php" class="btn btn-secondary m-2">
+                                REGRESAR
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         </div>
     </div>
 </div>

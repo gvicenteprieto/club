@@ -14,79 +14,37 @@
                             <div class="btn-success bg-success card card-header fw-bold text-light  m-3">
                                Gestión de ALTA usuarios
                             </div>
-                            <div class="card-body">
-                                <div class="mb-3">
+                            <div class="card-body row">
+                                <div class="mb-3 col-3">
+                                    <label for="usuario" class="form-label">Usuario</label>
+                                    <input type="text" class="form-control text-primary" 
+                                        name="usuario" id="usuario" required placeholder="Usuario">
+                                </div>
+                                <div class="mb-3 col-3">
                                     <label for="dni" class="form-label text-secondary">DNI</label>
                                     <input type="text" class="form-control" name="dni" id="dni" 
-                                        value="<?php echo $dni; ?>" placeholder="Documento Nacional de Identidad">
+                                        value="<?php echo $dni; ?>" required placeholder="Documento Nacional de Identidad">
                                 </div>
-                                <div class="mb-3">
-                                    <label for="usuario" class="form-label">Usuario</label>
-                                    <input type="text" class="form-control text-primary fw-bold fs-5" 
-                                        name="usuario" id="usuario"  placeholder="Usuario">
-                                </div>
-                                <div class="mb-3">
+                                <div class="mb-3 col-3">
                                     <label for="apellidos" class="form-label text-secondary">Apellidos</label>
                                     <input type="text" class="form-control" name="apellidos" id="apellidos" 
-                                        value="<?php echo $apellidos; ?>" placeholder="Apellidos">
+                                        value="<?php echo $apellidos; ?>" required placeholder="Apellidos">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 col-3">
                                     <label for="nombres" class="form-label text-secondary">Nombres</label>
                                     <input type="text" class="form-control" name="nombres" id="nombres" 
-                                        value="<?php echo $nombres; ?>" placeholder="Nombres">
+                                        value="<?php echo $nombres; ?>" required placeholder="Nombres">
                                 </div>
-                                <div class="mb-3">
+                                <div class="mb-3 col-12">
                                     <label for="email" class="form-label text-secondary">Email</label>
                                     <input type="email" class="form-control" name="email" id="email" 
-                                        value="<?php echo $email; ?>" placeholder="Correo Electrónico">
+                                        value="<?php echo $email; ?>" required placeholder="Correo Electrónico">
                                 </div>
-                                <div class="mb-3"></div>
-
-                                <!-- ACTIVIDADES -->
-                                <!-- <div class="mb-3">
-                                    <label for="" class="form-label">Seleccione actividad disponible para vincular al usuario: </label>
-                                    <select multiple class="form-control" name="actividades[]" id="listaActividades">
-                                        <?php foreach($actividades as $actividad){ ?>
-                                            <option
-                                                <?php
-                                                    if(!empty($arrayActividades)): 
-                                                        if(in_array($actividad['id'],$arrayActividades)):
-                                                            echo "selected";
-                                                        endif;
-
-                                                    endif;  
-                                                ?>
-                                                value="<?php echo $actividad['id']; ?>">
-                                                <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>  -->
-
-                                <!-- COMISIONES -->
-                                <!-- <div class="mb-3">
-                                    <label for="" class="form-label">Seleccione COMISIONES disponible para vincular al usuario: </label>
-                                    <select multiple class="form-control" name="comisiones[]" id="listaComisiones">
-                                        <?php foreach($comisiones as $comision){ ?>
-                                            <option
-                                                <?php
-                                                    if(!empty($arrayComisiones)): 
-                                                        if(in_array($comision['id'],$arrayComisiones)):
-                                                            echo "selected";
-                                                        endif;
-
-                                                    endif;  
-                                                ?>
-                                                value="<?php echo $comision['id']; ?>">
-                                                <?php echo $comision['id']; ?> - <?php echo $comision['nombre_comision']; ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>  -->
-                                
-                                <div class="btn-group d-flex " role="group" aria-label="Button group name">
+                                <div class="mb-3 col-3"></div>
+                                <div class="mb-3 col-3"></div>
+                                <div class="col-6 btn-group d-flex mt-3" role="group" aria-label="Button group name">
                                     <button type="submit" name="accion" value="agregar" 
-                                        class="btn btn-success fw-bold">AGREGAR NUEVO USUARIO
+                                        class="btn btn-success fw-bold">AGREGAR
                                     </button>
                                 </div>
                             </div>

@@ -3,14 +3,13 @@ if (!empty($_SESSION['usuario'])) {
     header("Location:panelControl.php");
 }
 ?>
-
 <div class="fondo_login p-5">
     <div class="container">
         <div class="row">
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <br>
-                <div class="icono p-2 text-center text-success card bg-light mb-3 mt-5">
+                <div class="icono p-2 text-center text-success card bg-light mb-3 mt-4">
                     <a href="/login/view/home/login.php">
                         <i class="fa-regular fa-futbol icono_login"> CLUB SOCIAL</i>
                     </a>
@@ -36,9 +35,7 @@ if (!empty($_SESSION['usuario'])) {
                                     style="font-weight: bold; text-align: center; margin: auto" role="alert">
                                     <?= !empty($_GET['error']) ? ($_GET['error']) : "" ?>
                                 </div>
-
                             <?php endif; ?>
-
                             <div class="d-grid gap-2">
                                 <button type="submit" class="btn btn-success fw-bold m-1"><i>Ingresar</i></button>
                             </div>

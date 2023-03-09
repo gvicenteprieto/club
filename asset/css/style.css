@@ -69,12 +69,13 @@
 
 .fondo_login {
   /* background-color: #55a6f2;  */
-  background-color: #79baf7;
+  background-color: #5dbefb;
   min-height: 100vh;
 }
 
 .fondo_login2 {
-  background-color: #79baf7; 
+  /* background-color: #79baf7;  */
+  background-color: #5dbefb; 
   min-height: 100vh;
 }
 
@@ -173,5 +174,5 @@
 }
 
 .secciones {
-  color: #e4c723;
+  color: #b8a018ef;
 }

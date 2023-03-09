@@ -44,7 +44,7 @@
                                         <th>Nombres</th>
                                         <th>Email</th>
                                         <th>Edición Registro Usuario</th>
-                                        <th>Perfil de Usuario</th>
+                                        <th>Perfiles</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -61,7 +61,8 @@
                                                         <form action="/login/secciones/vista_usuarios-edit.php" method="post">
                                                             <div role="group" aria-label="Button group name">
                                                                 <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
-                                                                <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
+                                                                <button onclick="return confirmEdit();" type="submit" name="accion" 
+                                                                value="editar" class="btn btn-warning m-1">EDITAR
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -69,7 +70,8 @@
                                                         <form action="/login/secciones/vista_usuarios.php" method="post">
                                                             <div role="group" aria-label="Button group name">
                                                                 <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
-                                                                <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
+                                                                <button onclick="return confirmDelete();" type="submit" name="accion" 
+                                                                value="borrar" class="btn btn-danger m-1">QUITAR
                                                                 </button>
                                                             </div>
                                                         </form>
@@ -79,8 +81,10 @@
                                                     <form action="/login/secciones/perfil_usuario.php" method="post">
                                                         <div role="group" aria-label="Button group name">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
-                                                            <button type="submit" name="accion" value="editar" class="btn btn-secondary m-1">VER PERFIL
-                                                            <i class="fa fa-eye text-info"> </i>
+                                                            <button type="submit" name="accion" value="editar" class="btn btn-light m-1">
+                                                                <!-- VER PERFIL -->
+                                                            <!-- <i class="fa fa-eye text-info"> </i> -->
+                                                            <div>👁️‍🗨️</div>
                                                             </button>
                                                         </div>
                                                     </form>
@@ -112,7 +116,6 @@
                                                                 </button>
                                                             </div>
                                                         </form>
-
                                                         <form action="/login/secciones/vista_usuarios.php" method="post">
                                                             <div role="group" aria-label="Button group name">
                                                                 <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
@@ -126,9 +129,11 @@
                                                     <form action="/login/secciones/perfil_usuario.php" method="post">
                                                         <div role="group" aria-label="Button group name">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $usuario['id'];  ?>">
-                                                            <button type="submit" name="accion" value="editar" class="btn btn-secondary m-1">VER PERFIL
-                                                                <i class="fa fa-eye text-info"> </i>
+                                                            <button type="submit" name="accion" value="editar" class="btn btn-light m-1">
+                                                                <!-- <i class="fa fa-eye text-info"> </i> -->
+                                                                <div>👁️‍🗨️</div>
                                                             </button>
+                                                            
                                                         </div>
                                                     </form>
                                                 </td>

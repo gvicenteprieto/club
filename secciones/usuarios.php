@@ -54,7 +54,6 @@ if ($accion != "") {
                 };
             };
         break;
-
         case "seleccionar":
             //$pass=password_hash($pass, PASSWORD_DEFAULT);
             $sql = "SELECT * FROM usuarios WHERE id=:id or dni=:dni";
@@ -211,3 +210,4 @@ foreach ($usuarios as $clave => $usuario) {
 $sql = "SELECT * FROM actividades";
 $listadoActividades = $conexionDB->query($sql);
 $actividades = $listadoActividades->fetchAll();
+?>

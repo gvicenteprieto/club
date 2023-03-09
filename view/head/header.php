@@ -2,7 +2,7 @@
 
 <div class="fondo_menu">
     <div>
-        <nav class="navbar navbar-expand-lg bg-dark  navbar-dark">
+        <nav class="navbar navbar-expand-lg login navbar-dark">
             <div class="container-fluid m-2">
                 <div class="p-1 mt-2 text-center text-success">
                     <a href="/login/view/home/panelControl.php">
@@ -14,13 +14,13 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <?php   //si el usuario no está logueado:
-                if (empty($_SESSION['usuario'])) : ?>
+                <?php   
+                    //si el usuario no está logueado:
+                    if (empty($_SESSION['usuario'])) : ?>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                             <li class="nav-item"></li>
                         </ul>
-                        <!-- <a href="/login/view/home/login.php" class="boton_nav-login bg-success mt-1">Ingresar</a> -->
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <i>
@@ -31,7 +31,6 @@
                     </div>
 
                 <?php elseif ($_SESSION['usuario'] == "admin") : ?>
-
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav">
                             <li class="nav-item">
@@ -54,7 +53,6 @@
                                 </a>
                             </li>
                         </ul>
-
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <a class="nav-link text-warning mt-1" href="/login/secciones/vista_comisiones.php">
@@ -62,9 +60,7 @@
                                 </a>
                             </li>
                         </ul> 
-
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
-
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <i class="fa-solid fa-user text-success"></i>
@@ -73,13 +69,12 @@
                                 </i>
                             </li>
                         </ul>
-
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
-
+                        <br>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <i>
-                                    <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger  mt-1">Cerrar Sesión</a>
+                                    <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger mt-1">Cerrar Sesión</a>
                                 </i>
                             </li>
                         </ul>
@@ -127,9 +122,7 @@
                                 </a>
                             </li>
                         </ul>
-
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
-
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <i class="fa-solid fa-user text-success"></i>
@@ -138,9 +131,8 @@
                                 </i>
                             </li>
                         </ul>
-
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
-
+                    <br>
                         <ul class="navbar-nav">
                             <li class="nav-item">
                                 <i>
@@ -148,7 +140,6 @@
                                 </i>
                             </li>
                         </ul>
-
                     </div>
                 <?php endif ?>
             </div>

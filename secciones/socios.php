@@ -15,31 +15,11 @@ $sql_query = $conexionDB->prepare($sql_search);
 $sql_query->execute();
 $sql_response = $sql_query->fetchAll();
 
-// print_r($sql_response);
-// echo "<br><br>";
-
-
-// $sql_search = "SELECT * FROM socios";
-// $listaSocios = $conexionDB->query($sql_search);
-// $sql_response = $listaSocios->fetchAll();
-// // print_r($socios);
-
-// //actividades de cada socio
-// foreach ($response as $clave => $response) {
-//     $sql = "SELECT * FROM actividades 
-//     WHERE id IN (SELECT idActividad FROM socios_actividades WHERE idSocio = :idSocio)";
-//     $query = $conexionDB->prepare($sql);
-//     $query->bindParam(':idSocio', $socio['id']);
-//     $query->execute();
-//     $actividadesSocio = $query->fetchAll();
-//     $response[$clave]['actividades'] = $actividadesSocio;
-// };
-
 //validación de info de llegada:
 //socios
 $id = isset($_POST['id']) ? $_POST['id'] : "";
 $FINGRESO = isset($_POST['FINGRESO']) ? $_POST['FINGRESO'] : "";
-$NSOCIO = isset($_POST['NSOCIO']) ? $_POST['NSOCIO'] : "";
+$NSOCIO = isset($_POST['DNI']) ? $_POST['DNI'] : "";
 $APELLIDO = isset($_POST['APELLIDO']) ? $_POST['APELLIDO'] : "";
 $NOMBRE = isset($_POST['NOMBRE']) ? $_POST['NOMBRE'] : "";
 $CALLE = isset($_POST['CALLE']) ? $_POST['CALLE'] : "";
@@ -64,7 +44,6 @@ $actividades = isset($_POST['actividades']) ? $_POST['actividades'] : "";
 $comisiones = isset($_POST['comisiones']) ? $_POST['comisiones'] : "";
 $accion = isset($_POST['accion']) ? $_POST['accion'] : "";
 $idAct = isset($_POST['idAct']) ? $_POST['idAct'] : "";
-//print_r($_POST['accion']);
 
 if ($accion != "") {
     switch ($accion) {
@@ -107,7 +86,6 @@ if ($accion != "") {
                     $query->execute();
                 };
             };
-            // comsiones
             if ($comisiones) {
                 foreach ($comisiones as $comision) {
                     $sql = "INSERT INTO socios_comisiones (id, idSocio, idComision) 
@@ -118,7 +96,6 @@ if ($accion != "") {
                     $query->execute();
                 };
             };
-
             break;
         case "seleccionar":
             $sql = "SELECT * FROM socios WHERE id=:id";
@@ -160,7 +137,7 @@ if ($accion != "") {
             foreach ($actividadesSocio as $actividad) {
                 $arregloActividades[] = $actividad['id'];
             }
-            //comisiones
+
             $sql = "SELECT comisiones.id FROM socios_comisiones 
             INNER JOIN comisiones ON comisiones.id=socios_comisiones.idComision 
             WHERE socios_comisiones.idSocio=:idSocio";
@@ -172,7 +149,6 @@ if ($accion != "") {
             foreach ($comisionesSocio as $comision) {
                 $arregloComisiones[] = $comision['id'];
             }
-
             break;
         case "borrar":
             $sql = "DELETE FROM socios WHERE id=:id";
@@ -185,7 +161,7 @@ if ($accion != "") {
             SET FINGRESO=:FINGRESO, NSOCIO=:NSOCIO, APELLIDO=:APELLIDO, NOMBRE=:NOMBRE, CALLE=:CALLE, ALTURA=:ALTURA, ECALLE_1=:ECALLE_1, 
             ECALLE_2=:ECALLE_2, PISO=:PISO, DEPTO=:DEPTO, PARTIDO=:PARTIDO, CPOSTAL=:CPOSTAL, LOCALIDAD=:LOCALIDAD, CELULAR=:CELULAR, DNI=:DNI, 
             FNACIMIENTO=:FNACIMIENTO, OSOCIAL=:OSOCIAL, NAFILIADO=:NAFILIADO, EMAIL=:EMAIL, OBSERVACIONES=:OBSERVACIONES, ESTADO=:ESTADO 
-            WHERE NSOCIO=:NSOCIO";
+            WHERE DNI=:DNI";
             $query = $conexionDB->prepare($sql);
             $query->bindParam(':id', $id);
             $query->bindParam(':FINGRESO', $FINGRESO);
@@ -229,26 +205,24 @@ if ($accion != "") {
                     $arregloActividades = $actividades;
                 }
             };
-
-
-                        //verificando existan comisiones para actualziar
-                        if (isset($comisiones)) {
-                            $sql = "DELETE FROM socios_comisiones WHERE idSocio=:idSocio";
-                            $query = $conexionDB->prepare($sql);
-                            $query->bindParam(':idSocio', $id);
-                            $query->execute();
-                            if ($comisiones) {
-                                foreach ($comisiones as $comision) {
-                                    $sql = "INSERT INTO socios_comisiones (id, idSocio, idComision) 
+            //verificando existan comisiones para actualziar
+            if (isset($comisiones)) {
+                $sql = "DELETE FROM socios_comisiones WHERE idSocio=:idSocio";
+                $query = $conexionDB->prepare($sql);
+                $query->bindParam(':idSocio', $id);
+                $query->execute();
+                if ($comisiones) {
+                    foreach ($comisiones as $comision) {
+                        $sql = "INSERT INTO socios_comisiones (id, idSocio, idComision) 
                                     VALUES (null, :idSocio, :idComision)";
-                                    $query = $conexionDB->prepare($sql);
-                                    $query->bindParam(':idSocio', $id);
-                                    $query->bindParam(':idComision', $comision);
-                                    $query->execute();
-                                };
-                                $arregloComisiones = $comisiones;
-                            }
-                        };
+                        $query = $conexionDB->prepare($sql);
+                        $query->bindParam(':idSocio', $id);
+                        $query->bindParam(':idComision', $comision);
+                        $query->execute();
+                    };
+                    $arregloComisiones = $comisiones;
+                }
+            };
             break;
         case "agregarAct":
             $sql = "SELECT * FROM socios WHERE id=:id or NSOCIO=:NSOCIO";
@@ -287,34 +261,26 @@ if ($accion != "") {
                 $query->bindParam(':idActividad', $actividad);
                 $query->execute();
             };
-
-            foreach ($comisiones as $comision) {
-                $sql = "INSERT INTO socios_comisiones (id, idSocio, idComision) 
-                VALUES (null, :idSocio, :idComision)";
-                $query = $conexionDB->prepare($sql);
-                $query->bindParam(':idSocio', $id);
-                $query->bindParam(':idComision', $comision);
-                $query->execute();
+            if ($comisiones) {
+                foreach ($comisiones as $comision) {
+                    $sql = "INSERT INTO socios_comisiones (id, idSocio, idComision) 
+                        VALUES (null, :idSocio, :idComision)";
+                    $query = $conexionDB->prepare($sql);
+                    $query->bindParam(':idSocio', $id);
+                    $query->bindParam(':idComision', $comision);
+                    $query->execute();
+                };
             };
             break;
 
         case "borrarActividad":
             echo "acción >borrarActividad  <br>";
-
             if ($idAct) {
                 echo "<br> apellido: ";
                 echo $APELLIDO;
                 echo "<br> id actividad ";
                 echo $idAct;
             };
-
-            echo "<br> <br> fuera del if: ";
-            echo "<br> apellido: ";
-            echo $APELLIDO;
-            echo "<br> id actividad ";
-            echo $idAct;
-
-            echo "<br> fin de acción >borrarActividad  <br>";
             break;
     };
 };
@@ -334,7 +300,6 @@ foreach ($socios as $clave => $socio) {
     $socios[$clave]['actividades'] = $actividadesSocio;
 };
 
-
 //comisiones de cada socio
 foreach ($socios as $clave => $socio) {
     $sql = "SELECT * FROM comisiones 
@@ -346,17 +311,12 @@ foreach ($socios as $clave => $socio) {
     $socios[$clave]['comisiones'] = $comisionesSocio;
 };
 
-
 //actividades disponibles:
 $sql = "SELECT * FROM actividades";
 $listadoActividades = $conexionDB->query($sql);
 $actividades = $listadoActividades->fetchAll();
 
-
-//actividades disponibles:
+//comisiones disponibles:
 $sql = "SELECT * FROM comisiones";
 $listadoComisiones = $conexionDB->query($sql);
 $comisiones = $listadoComisiones->fetchAll();
-
-
-?>

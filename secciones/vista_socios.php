@@ -1,8 +1,5 @@
 <?php include('../view/head/header.php'); ?>
-<?php include('../secciones/socios.php');
-
-
-?>
+<?php include('../secciones/socios.php'); ?>
 
 <div class="container-fluid p-5 fondo_login">
     <div class="row">
@@ -22,15 +19,14 @@
                                 </a>
                             </button>
                         </div>
-
                         <div class="col-6">
                             <form action="vista_socios.php" method="post">
-                                <input type="text" name="buscar" class="btn fw-bold fs-6 text-center mb-2 mt-2" style="background-color: #a6c3de">
+                                <input type="text" name="buscar" class="btn fw-bold fs-6 text-center mb-2 mt-2" 
+                                    style="background-color: #a6c3de">
                                 <input type="submit" value="Buscar Socio" class="btn btn-primary">
                             </form>
                         </div>
                     </div>
-
                     <div class="table-responsive card-body card-background ">
                         <table class="table">
                             <thead>
@@ -58,8 +54,6 @@
                                                         </a>
                                                 <?php } ?> -->
                                             </td>
-
-
                                             <td><?= $response['APELLIDO']; ?></td>
                                             <td><?= $response['NOMBRE'];  ?></td>
                                             <td><?= $response['CELULAR'];  ?></td>
@@ -70,14 +64,16 @@
                                                     <form action="/login/secciones/vista_socios-edit.php" method="post">
                                                         <div role="group" aria-label="Button group name">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
-                                                            <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-1">EDITAR
+                                                            <button onclick="return confirmEdit();" type="submit" 
+                                                                name="accion" value="editar" class="btn btn-warning m-1">EDITAR
                                                             </button>
                                                         </div>
                                                     </form>
                                                     <form action="/login/secciones/vista_socios.php" method="post">
                                                         <div role="group" aria-label="Button group name">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
-                                                            <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
+                                                            <button onclick="return confirmDelete();" type="submit" 
+                                                                name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
                                                             </button>
                                                         </div>
                                                     </form>
@@ -86,9 +82,11 @@
                                             <td>
                                                 <form action="/login/secciones/perfil_socio.php" method="post">
                                                     <div role="group" aria-label="Button group name">
-                                                        <input type="hidden" name="id" id="id" value="<?php echo $socio['id'];  ?>">
-                                                        <button type="submit" class="btn btn-secondary m-1">VER
-                                                        <i class="fa fa-eye text-info"> </i>
+                                                        <input type="hidden" name="id" id="id" value="<?php echo $response['id'];  ?>">
+                                                        <button type="submit" class="btn btn-light m-1">
+                                                            <!-- VER -->
+                                                        <!-- <i class="fa fa-eye text-info"> </i> -->
+                                                        <div>👁️‍🗨️</div>
                                                         </button>
                                                     </div>
                                                 </form>
@@ -105,27 +103,14 @@
                                                     🔸<a class="text-secondary" href="#" id="listaActividades">
                                                         <?php echo $actividad['nombre_actividad']; ?>
                                                     </a>
-                                                    <!-- <form action="/login/secciones/vista_socios.php" method="post">
-                                                            <input type="type" name="id" id="id" value="<?php echo $actividad['id'];  ?>">
-                                                             <button type="submit" name="accion" value="borrarAct">❌ 
-                                                            </button>
-                                                        </form> -->
                                                 <?php } ?>
-
                                                 <?php
                                                 foreach ($socio["comisiones"] as $comision) { ?>
                                                     <br>
                                                     ❇️<a class="text-success fw-bold" href="#" id="listaComisiones">
                                                         <?php echo $comision['nombre_comision']; ?>
                                                     </a>
-                                                    <!-- <form action="/login/secciones/vista_socios.php" method="post">
-                                                            <input type="type" name="id" id="id" value="<?php echo $actividad['id'];  ?>">
-                                                             <button type="submit" name="accion" value="borrarAct">❌ 
-                                                            </button>
-                                                        </form> -->
                                                 <?php } ?>
-
-
                                             </td>
                                             <td class=""><?php echo $socio['APELLIDO']; ?></td>
                                             <td><?php echo $socio['NOMBRE']; ?></td>
@@ -137,14 +122,16 @@
                                                     <form action="/login/secciones/vista_socios-edit.php" method="post">
                                                         <div role="group" aria-label="Button group name">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $socio['id'];  ?>">
-                                                            <button onclick="return confirmEdit();" type="submit" name="accion" value="seleccionar" class="btn btn-warning m-1">EDITAR
+                                                            <button onclick="return confirmEdit();" type="submit" name="accion" 
+                                                                value="seleccionar" class="btn btn-warning m-1">EDITAR
                                                             </button>
                                                         </div>
                                                     </form>
                                                     <form action="/login/secciones/vista_socios.php" method="post">
                                                         <div role="group" aria-label="Button group name">
                                                             <input type="hidden" name="id" id="id" value="<?php echo $socio['id'];  ?>">
-                                                            <button onclick="return confirmDelete();" type="submit" name="accion" value="borrar" class="btn btn-danger m-1">QUITAR
+                                                            <button onclick="return confirmDelete();" type="submit" name="accion" 
+                                                                value="borrar" class="btn btn-danger m-1">QUITAR
                                                             </button>
                                                         </div>
                                                     </form>
@@ -154,8 +141,9 @@
                                                 <form action="/login/secciones/perfil_socio.php" method="post">
                                                     <div role="group" aria-label="Button group name">
                                                         <input type="hidden" name="id" id="id" value="<?php echo $socio['id'];  ?>">
-                                                        <button type="submit" class="btn btn-secondary m-1">
-                                                            <i class="fa fa-eye text-light"> </i>
+                                                        <button type="submit" class="btn btn-light m-1">
+                                                            <!-- <i class="fa fa-eye text-light"> </i>👁️‍🗨️ -->
+                                                            <div>👁️‍🗨️</div>
                                                         </button>
                                                     </div>
                                                 </form>
@@ -167,7 +155,6 @@
                         </table>
                     </div>
                 </div>
-
                 <?php if ($buscar != "") { ?>
                     <div class="container text-center mt-3">
                         <div class="row justify-content-between">
@@ -183,7 +170,6 @@
                     </div>
                 <?php } ?>
             </div>
-
         </div>
     </div>
 </div>
@@ -197,7 +183,6 @@
             return false;
         }
     }
-
     function confirmEdit() {
         let confirmar = confirm("¿Desea editar éste socio?");
         if (confirmar) {

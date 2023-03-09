@@ -75,12 +75,9 @@ if (empty($_SESSION['usuario'])) {
 
     <?php elseif ($_SESSION['usuario'] == "admin") : ?>
         <div class="container px-4 py-5">
-                <!-- <h2 class="pb-2 border-bottom text-warning">
-                    Secciones
-                </h2> -->
-                <h2 class="pb-2 border-bottom secciones">
-                    Secciones
-                </h2>
+            <h3 class="pb-2 border-bottom text-warning">
+                Secciones
+            </h3>
             <div class="container text-center mt-5">
                 <div class="row justify-content-around">
                     <div class="col-3">
@@ -93,7 +90,7 @@ if (empty($_SESSION['usuario'])) {
                                     Usuarios habilitados.
                                 </p>
                                 <a href="../../secciones/vista_usuarios.php" class="btn btn-success">
-                                    Ver Usuarios
+                                    Ver Usuarios 
                                 </a>
                             </div>
                         </div>
@@ -148,14 +145,12 @@ if (empty($_SESSION['usuario'])) {
         </div>
 
     <?php elseif ($_SESSION['usuario'] !== "root") : ?>
-
         <div class="container px-4 py-5">
-            <h2 class="pb-2 border-bottom text-warning">
+            <h3 class="pb-2 border-bottom text-warning">
                 Secciones
-            </h2>
+             </h3>
             <div class="container text-center mt-5">
                 <div class="row justify-content-around">
-
                     <div class="col-3">
                         <div>
                             <div>
@@ -189,7 +184,6 @@ if (empty($_SESSION['usuario'])) {
                 </div>
             </div>
         </div>
-
     <?php endif; ?>
 
 </div>
