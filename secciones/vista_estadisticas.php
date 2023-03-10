@@ -75,191 +75,199 @@ if (empty($_SESSION['usuario'])) {
                     <div class="d-grid gap-2 mb-2 mt-3 p-3">
                         <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
                     </div>
-                    <!-- <div class="row col-12"> -->
-                    <?php if ($sociosDirectiva != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Comisión Directiva: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosDirectiva; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
 
-                    <?php if ($sociosDeportes != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Comisión Deportes: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosDeportes; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
+                    <div class="row col-12">
 
-                    <?php if ($sociosPrensa != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Comisión Prensa: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosPrensa; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
+                        <div class="row col-6">
 
-                    <?php if ($sociosCultura != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Comisión Cultura: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosCultura; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
+                            <?php if ($sociosDirectiva != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Comisión Directiva: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2 ">
+                                            <i >
+                                                <?php echo $sociosDirectiva; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosDeportes != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Comisión Deportes: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosDeportes; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosPrensa != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Comisión Prensa: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosPrensa; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosCultura != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Comisión Cultura: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosCultura; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
                         </div>
-                    <?php }  ?>
-                    <!-- </div> -->
+                        <!-- <div class="d-grid gap-2 mb-2 mt-3 p-3">
+                                    <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
+                                </div> -->
+                        <div class="row col-6">
+                            <?php if ($sociosFutbol != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Fútbol: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosFutbol; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosRugby != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Rugby: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosRugby; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosHockey != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Hockey: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosHockey; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosTaekwondo != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Taekwondo: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosTaekwondo; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosTenis != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Tenis: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosTenis; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosGimnasio != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Gimnasio: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosGimnasio; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosPadel != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Pádel: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosPadel; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+
+                            <?php if ($sociosPadel != 0) { ?>
+                                <!-- <div class="row col-12 mt-3 mb-3"> -->
+                                    <div class="col-5 p-2 text-end ">Socios en Actividad Ajedrez: </div>
+                                    <div class="col-1"></div>
+                                    <div class="col-5 bg-secondary text-warning text-center card fw-bold">
+                                        <h5 class="mt-2">
+                                            <i>
+                                                <?php echo $sociosAjedrez; ?>
+                                            </i>
+                                        </h5>
+                                    </div>
+                                    <div class="col-1"></div>
+                                <!-- </div> -->
+                            <?php }  ?>
+                        </div>
+                    </div>
                     <div class="d-grid gap-2 mb-2 mt-3 p-3">
                         <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
                     </div>
-
-                    <?php if ($sociosFutbol != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Fútbol: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosFutbol; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosRugby != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Rugby: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosRugby; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosHockey != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Hockey: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosHockey; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosTaekwondo != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Taekwondo: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosTaekwondo; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosTenis != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Tenis: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosTenis; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosGimnasio != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Gimnasio: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosGimnasio; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosPadel != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Pádel: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosPadel; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
-                    <?php if ($sociosPadel != 0) { ?>
-                        <div class="row col-12 mt-3 mb-3">
-                            <div class="col-5 p-2 text-end ">Socios en Actividad Ajedrez: </div>
-                            <div class="col-1"></div>
-                            <div class="col-5 bg-secondary text-warning text-center card fw-bold">
-                                <h5 class="mt-2">
-                                    <i>
-                                        <?php echo $sociosAjedrez; ?>
-                                    </i>
-                                </h5>
-                            </div>
-                            <div class="col-1"></div>
-                        </div>
-                    <?php }  ?>
-
                     <div class="container text-center mt-3">
                         <div class="row justify-content-between">
                             <div class="col-4"></div>
