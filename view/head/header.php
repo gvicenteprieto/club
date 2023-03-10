@@ -23,9 +23,7 @@
                         </ul>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <i>
-                                    <a href="/login/view/home/login.php" class="boton_nav-login bg-success mt-1 p-2">Ingresar</a>
-                                </i>
+                                <a href="/login/view/home/login.php" class="boton_nav-login bg-success mt-1 p-2">Ingresar</a>
                             </li>
                         </ul>
                     </div>
@@ -62,6 +60,14 @@
                         </ul> 
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
                         <ul class="navbar-nav">
+                            <li class="nav-item animate__animated animate__backInRight">
+                                <a class="nav-link mt-1" href="/login/secciones/vista_estadisticas.php" style="color: #a6c3de">
+                                    Estadísticas
+                                </a>
+                            </li>
+                        </ul> 
+                        <ul class="navbar-nav me-auto mb-lg-0"></ul>
+                        <ul class="navbar-nav">
                             <li class="nav-item">
                                 <i class="fa-solid fa-user text-success"></i>
                                 <i>
@@ -73,9 +79,7 @@
                         <br>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <i>
-                                    <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger mt-1">Cerrar Sesión</a>
-                                </i>
+                                <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger mt-1">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -87,9 +91,7 @@
                         <ul class="navbar-nav me-auto mb-lg-0"></ul>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <i>
-                                    <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger  mt-1">Cerrar Sesión</a>
-                                </i>
+                                <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger  mt-1">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
@@ -135,9 +137,7 @@
                     <br>
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <i>
-                                    <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger  mt-1">Cerrar Sesión</a>
-                                </i>
+                                <a href="/login/view/home/logout.php" class="boton_nav-login bg-danger mt-1">Cerrar Sesión</a>
                             </li>
                         </ul>
                     </div>
