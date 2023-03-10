@@ -6,10 +6,10 @@ if (!empty($_SESSION['usuario'])) {
 <div class="fondo_login p-5">
     <div class="container">
         <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
+            <div class="col-3 col-md-4 "></div>
+            <div class="col-6 col-md-4 ">
                 <br>
-                <div class="icono p-2 text-center text-success card bg-light mb-3 mt-4">
+                <div class="icono p-2 text-center text-success card bg-light mb-3 mt-5">
                     <a href="/login/view/home/login.php">
                         <i class="fa-regular fa-futbol icono_login"> CLUB SOCIAL</i>
                     </a>
@@ -18,15 +18,18 @@ if (!empty($_SESSION['usuario'])) {
                     <div class="card mt-1 mb-5 login">
                         <div class="card-body ">
                             <div class="mb-3">
-                                <label for="exampleInputEmail1" class="form-label">Nombre de Usuario:</label>
-                                <input type="text" class="form-control text-success fw-bold" 
-                                    id="usuario" name="usuario" aria-describedby="usuario" placeholder="Usuario" >
-                                <i><small class="form-text text-light mt-1">Escriba su usuario</small></i>
+                                <label for="exampleInputEmail1" class="form-label">
+                                    <i class="form-text text-light mt-1">Escriba su Usuario:</i>
+                                </label>
+                                <input type="text" class="form-control bg-primary-subtle" 
+                                    id="usuario" name="usuario" aria-describedby="usuario" placeholder="Usuario">
                             </div>
                             <div class="mb-3">
-                                <label for="exampleInputPassword1" class="form-label">Contraseña:</label>
-                                <input type="password" class="form-control" id="pass" name="pass" placeholder="Contraseña">
-                                <i><small class="form-text text-light">Escriba su contraseña</small></i>
+                                <label for="exampleInputPassword1" class="form-label">
+                                <i class="form-text text-light mt-1">Escriba su Contraseña</i>
+                                </label>
+                                <input type="password" class="form-control bg-primary-subtle text-light-emphasis" 
+                                    id="pass" name="pass" placeholder="Contraseña">
                             </div>
                             <hr class="border-bottom text-light">
                             <?php if (!empty($_GET['error'])) : ?>

@@ -3,9 +3,9 @@
 <?php include('../secciones/usuarios.php');
 
 //comentar para comenzar a crear admin + root
-// if (empty($_SESSION['usuario'])) {
-//     header("Location:../index.php");
-// }
+if (empty($_SESSION['usuario'])) {
+    header("Location:../index.php");
+}
 ?>
 
 <?php if ($_SESSION['usuario'] == "admin") : ?>

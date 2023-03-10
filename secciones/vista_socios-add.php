@@ -1,4 +1,9 @@
 <?php include('../view/head/header.php'); ?>
+<?php
+if (empty($_SESSION['usuario'])) {
+     header("Location:../view/home/panelControl.php");
+ }
+?>
 <?php include('../secciones/socios.php');  ?>
 <div class="container p-5">
     <div class="row">

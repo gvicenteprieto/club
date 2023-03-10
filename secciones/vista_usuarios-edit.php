@@ -1,4 +1,9 @@
 <?php include('../view/head/header.php'); ?>
+<?php
+if (empty($_SESSION['usuario'])) {
+    header("Location:../view/home/panelControl.php");
+}
+?>
 <?php include('../secciones/usuarios.php');
 $id = isset($_POST['id']) ? $_POST['id'] : "";
 if ($id) {
@@ -29,60 +34,51 @@ if ($id) {
                             <div class="btn-warning bg-warning card card-header fw-bold m-3">
                                 EDICION registro de usuario
                             </div>
-                            <div class="row">
-                                <div class="col-3"></div>
+                            <div class="row col-12">
+                                <div class="col-10 text-end p-2 text-secondary fw-bold">Nombre de Usuario: </div>
 
-                                <div class="col-6 bg-secondary text-warning text-center card fw-bold">
+                                <div class="col-1 bg-secondary text-warning text-center card fw-bold">
                                     <h5 class="mt-2">
-                                        <?php echo "Usuario "; ?>
                                         <i>
                                             <?php echo $usuario; ?>
                                         </i>
                                     </h5>
                                 </div>
-                                <div class="col-3"></div>
+                                <div class="col-1"></div>
                             </div>
                             <div class="card-body row">
-                                <input type="hidden" class="form-control text-primary fw-bold fs-5" 
-                                    name="id" id="id" value="<?php echo $id; ?>" >
-                                <div class="mb-3 col-6">
+                                <input type="hidden" class="form-control text-primary fw-bold fs-5" name="id" id="id" value="<?php echo $id; ?>">
+                                <div class="mb-3 col-3">
                                     <label for="dni" class="form-label text-secondary">DNI: </label>
-                                    <input type="text" class="form-control bg-primary-subtle text-primary-emphasis" name="dni" id="dni" 
-                                        readonly=true value="<?php echo $dni; ?>" 
-                                        placeholder="Documento Nacional de Identidad">
+                                    <input type="text" class="form-control bg-primary-subtle text-primary-emphasis" 
+                                        name="dni" id="dni" readonly=true value="<?php echo $dni; ?>" placeholder="Documento Nacional de Identidad">
                                 </div>
-                                <input type="hidden" class="form-control text-primary fw-bold fs-5" 
-                                    name="usuario" id="usuario" value="<?php echo $usuario; ?>" >
-                                <div class="mb-3 col-6">
+                                <input type="hidden" class="form-control text-primary fw-bold fs-5" name="usuario" 
+                                    id="usuario" value="<?php echo $usuario; ?>">
+                                <div class="mb-3 col-3">
                                     <label for="apellidos" class="form-label text-secondary">Apellidos:</label>
-                                    <input type="text" class="form-control bg-primary-subtle text-primary-emphasis" name="apellidos" id="apellidos" 
-                                        value="<?php echo $apellidos; ?>" placeholder="Apellidos">
+                                    <input type="text" class="form-control bg-primary-subtle text-primary-emphasis" 
+                                        name="apellidos" id="apellidos" value="<?php echo $apellidos; ?>" placeholder="Apellidos">
                                 </div>
-                                <div class="mb-3 col-6">
+                                <div class="mb-3 col-3">
                                     <label for="nombres" class="form-label text-secondary">Nombres:</label>
-                                    <input type="text" class="form-control bg-primary-subtle text-primary-emphasis" name="nombres" id="nombres" 
-                                        value="<?php echo $nombres; ?>" placeholder="Nombres">
+                                    <input type="text" class="form-control bg-primary-subtle text-primary-emphasis" 
+                                        name="nombres" id="nombres" value="<?php echo $nombres; ?>" placeholder="Nombres">
                                 </div>
-                                <div class="mb-3 col-6">
+                                <div class="mb-3 col-3">
                                     <label for="email" class="form-label text-secondary">Email:</label>
-                                    <input type="email" class="form-control bg-primary-subtle text-primary-emphasis" name="email" id="email" 
-                                        value="<?php echo $email; ?>" placeholder="Correo Electrónico">
+                                    <input type="email" class="form-control bg-primary-subtle text-primary-emphasis" 
+                                        name="email" id="email" value="<?php echo $email; ?>" placeholder="Correo Electrónico">
                                 </div>
-                                <div class="mb-3"></div>
-                                <!-- <div class="btn-group d-flex" role="group" aria-label="Button group name">
+
+                            </div>
+                            <div class="container row">
+                                <div class="col-8"></div>
+                                <div class="col-4 bg-warning text-warning text-center card fw-bold">
+                                    <!-- <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>"> -->
                                     <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" 
                                         class="btn btn-warning fw-bold">EDITAR USUARIO
                                     </button>
-                                </div> -->
-                                <div class="row mt-3">
-                                    <div class="col-3"></div>
-                                    <div class="col-6 bg-warning text-warning text-center card fw-bold">
-                                        <!-- <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>"> -->
-                                        <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" 
-                                            class="btn btn-warning fw-bold">EDITAR USUARIO
-                                        </button>
-                                    </div>
-                                    <div class="col-3"></div>
                                 </div>
                             </div>
                         </div>
@@ -93,15 +89,13 @@ if ($id) {
                         </button>
                     </div>
                 </div>
-                <div class="container text-center mt-3">
-                    <div class="row justify-content-between">
-                        <div class="col-4"></div>
-                        <div class="col-4">
-                            <div>
-                                <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
-                                    REGRESAR
-                                </a>
-                            </div>
+                <div class="container row text-center mt-3">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <div>
+                            <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
+                                REGRESAR
+                            </a>
                         </div>
                     </div>
                 </div>

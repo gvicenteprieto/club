@@ -1,6 +1,9 @@
 <?php include('../view/head/header.php'); ?>
-<?php include('../secciones/socios.php'); ?>
-
+<?php include('../secciones/socios.php'); 
+if (empty($_SESSION['usuario'])) {
+    header("Location:../index.php");
+ }
+ ?>
 <div class="container-fluid p-5 fondo_login">
     <div class="row">
         <div class="col-12">
@@ -27,7 +30,7 @@
                             </form>
                         </div>
                     </div>
-                    <div class="table-responsive card-body card-background ">
+                    <div class="table-responsive card-body card-background">
                         <table class="table">
                             <thead>
                                 <tr>

@@ -1,5 +1,10 @@
 <?php include('../view/head/header.php'); ?>
-<?php include('../secciones/actividades.php');  ?>
+<?php include('../secciones/actividades.php');  
+
+if (empty($_SESSION['usuario'])) {
+    header("Location:../index.php");
+}
+?>
 <div class="container p-5">
     <div class="row">
         <div class="col-12">

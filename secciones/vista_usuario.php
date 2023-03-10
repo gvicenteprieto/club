@@ -1,6 +1,10 @@
 <?php include('../view/head/header.php'); ?>
+<?php
+if (empty($_SESSION['usuario'])) {
+    header("Location:../view/home/panelControl.php");
+}
+?>
 <?php include('../secciones/usuarios.php');
-
 if ($_SESSION['usuario']) {
     $usuario = $_SESSION['usuario'];
     $sql = "SELECT * FROM usuarios WHERE usuario = :usuario";
@@ -34,22 +38,28 @@ if ($_SESSION['usuario']) {
             </h5>
             <div class="row">
                 <div>
-                    <div class="card p-3">
-                        <div class="row">
-                            <div class="col-5"></div>
+                    <div class="p-3">
+                        <div class="row col-12">
+                            <div class="col-10 text-end p-2 text-secondary fw-bold">Nombre de Usuario: </div>
                             <div class="col-2 bg-secondary text-warning text-center card fw-bold">
                                 <h5 class="mt-2">
                                     <i>
-                                        <?php echo  $_SESSION['usuario']; ?>
+                                        <?php echo $usuario; ?>
                                     </i>
                                 </h5>
                             </div>
-                            <div class="col-5"></div>
-                            <?php if ($foto) : ?>
-                                <div class="text-center mt-3">
-                                    <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
-                                </div>
-                            <?php endif; ?>
+                        </div>
+                        <div class="row col-12">
+                            <div class="col-10 text-end p-2 text-secondary fw-bold"></div>
+
+                            <div class="col-2  text-warning text-center fw-bold">
+                                <?php if ($foto) : ?>
+                                    <div class="text-center m-1">
+                                        <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" 
+                                            width="100" alt="<?php echo $usuario; ?>" />
+                                    </div>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive card-background">
@@ -77,16 +87,12 @@ if ($_SESSION['usuario']) {
                 </div>
             </div>
         </div>
-        <div class="container text-center mt-3">
-            <div class="row justify-content-between">
-                <div class="col-4"></div>
-                <div class="col-4">
-                    <div>
-                        <a href="../view/home/panelControl.php" class="btn btn-secondary m-2">
-                            REGRESAR
-                        </a>
-                    </div>
-                </div>
+        <div class="row col-12">
+            <div class="col-10 text-end p-2 text-secondary fw-bold"></div>
+            <div class="col-2  text-warning text-center fw-bold">
+                <a href="../view/home/panelControl.php" class="btn btn-secondary m-2">
+                    REGRESAR
+                </a>
             </div>
         </div>
     </div>

@@ -6,8 +6,8 @@
   </div> -->
   <hr>
   <div class="container">
-    <div class="col-12">
-      <div class="row">
+    <div class="row col-12">
+
         <div class="col-4">
           <div class="mt-2">
             <div class="text-center text-success mt-5">
@@ -24,13 +24,17 @@
             <p><i>proyecto colaborativo del tren al barrio</i></p>
           </div>
         </div>
+
         <div class="col-2"></div>
+
         <div class="col-2">
           <h6 class="mt-5" style="color: #5dbefb;">idea y realización</h6>
           <span>Trenes Argentinos Capital Humano </span><br>
           <span style="color: #5dbefb;">SubGerencia de Tecnologías y Sistemas de Información</span><br>
         </div>
+
         <div class="col-2"></div>
+
         <div class="col-2 mb-5">
           <h6 class="mt-5" style="color: #5dbefb;">contacto</h6>
           <span> Teléfonos: (+54-11) 2120-9070 /71/72/73/74/75 </span><br>
@@ -42,7 +46,7 @@
           <a href="https://twitter.com/TrenesArCH" target="_blank" class="link-social p-1"><i class="fab fa-twitter"></i></a>
         </div>
         <!-- <div class="col-2"></div> -->
-      </div>
+     
     </div>
   </div>
 </nav>

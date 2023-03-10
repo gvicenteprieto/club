@@ -1,4 +1,9 @@
 <?php include('../view/head/header.php'); ?>
+<?php
+if (empty($_SESSION['usuario'])) {
+    header("Location:../view/home/panelControl.php");
+}
+?>
 <?php include('../secciones/usuarios.php');
 $id = isset($_POST['id']) ? $_POST['id'] : "";
 if ($id) {
@@ -32,9 +37,9 @@ if ($id) {
             </h5>
             <div class="row">
                 <div>
-                    <div class="card p-3">
-                        <div class="row">
-                            <div class="col-5"></div>
+                    <div class="p-3">
+                        <div class="row col-12">
+                            <div class="col-10 text-end p-2 text-secondary fw-bold">Nombre de Usuario: </div>
                             <div class="col-2 bg-secondary text-warning text-center card fw-bold">
                                 <h5 class="mt-2">
                                     <i>
@@ -42,61 +47,64 @@ if ($id) {
                                     </i>
                                 </h5>
                             </div>
-                            <div class="col-5"></div>
-                            <?php if ($foto) : ?>
-                                <div class="text-center mt-3">
-                                    <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
-                                </div>
-                            <?php endif; ?>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive card-background">
-                                <table class="table">
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">DNI</th>
-                                            <th scope="col">Apellidos</th>
-                                            <th scope="col">Nombres</th>
-                                            <th scope="col">Email</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td><?php echo $dni; ?></td>
-                                            <td><?php echo $apellidos; ?></td>
-                                            <td><?php echo $nombres; ?></td>
-                                            <td><?php echo $email; ?></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                        <div class="row col-12">
+                            <div class="col-10 text-end p-2 text-secondary fw-bold"></div>
+                            <div class="col-2  text-warning text-center fw-bold">
+                                <?php if ($foto) : ?>
+                                    <div class="text-center m-1">
+                                        <img src="../public/img/<?php echo $foto; ?>" class="img-thumbnail img-fluid rounded" width="100" alt="<?php echo $usuario; ?>" />
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container text-center mt-3">
-                <div class="row justify-content-between">
-                    <div class="col-4">
-                        <form action="/login/secciones/vista_usuarios-edit.php" method="post">
-                            <div role="group" aria-label="Button group name">
-                                <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>">
-                                <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-2">
-                                    Edición registro de Usuario
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-4">
-                        <div>
-                            <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
-                                REGRESAR
-                            </a>
+                        <div class="table-responsive card-body card-background">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>DNI</th>
+                                        <th>Apellidos</th>
+                                        <th>Nombres</th>
+                                        <th>Email</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><?php echo $dni; ?></td>
+                                        <td><?php echo $apellidos; ?></td>
+                                        <td><?php echo $nombres; ?></td>
+                                        <td><?php echo $email; ?></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="container text-center mt-3">
+            <div class="row justify-content-between">
+                <div class="col-4">
+                    <form action="/login/secciones/vista_usuarios-edit.php" method="post">
+                        <div role="group" aria-label="Button group name">
+                            <input type="hidden" name="id" id="id" value="<?php echo $id;  ?>">
+                            <button onclick="return confirmEdit();" type="submit" name="accion" value="editar" class="btn btn-warning m-2">
+                                Edición registro de Usuario
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-4">
+                    <div>
+                        <a href="./vista_usuarios.php" class="btn btn-secondary m-2">
+                            REGRESAR
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+</div>
 </div>
 
 <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
