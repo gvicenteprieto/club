@@ -34,7 +34,7 @@ if ($id) {
                             <div class="btn-warning bg-warning card card-header fw-bold m-3">
                                 EDICION registro de usuario
                             </div>
-                            <div class="row col-12">
+                            <div class="row col-12 animate__animated animate__pulse">
                                 <div class="col-10 text-end p-2 text-secondary fw-bold">Nombre de Usuario: </div>
 
                                 <div class="col-1 bg-secondary text-warning text-center card fw-bold">

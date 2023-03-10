@@ -5,7 +5,8 @@ if (!empty($_SESSION['usuario'])) {
 ?>
 <div class="fondo_login p-5">
     <div class="container">
-        <div class="row">
+    <!-- <div class="row animate__animated animate__zoomIn"> -->
+        <div class="row animate__animated animate__fadeInDown">
             <div class="col-3 col-md-4 "></div>
             <div class="col-6 col-md-4 ">
                 <br>

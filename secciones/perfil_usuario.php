@@ -38,7 +38,7 @@ if ($id) {
             <div class="row">
                 <div>
                     <div class="p-3">
-                        <div class="row col-12">
+                        <div class="row col-12 animate__animated animate__pulse">
                             <div class="col-10 text-end p-2 text-secondary fw-bold">Nombre de Usuario: </div>
                             <div class="col-2 bg-secondary text-warning text-center card fw-bold">
                                 <h5 class="mt-2">

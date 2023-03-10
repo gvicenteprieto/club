@@ -132,53 +132,63 @@ if (empty($_SESSION['usuario'])) {
                                 <div class="d-grid gap-2 mb-2 mt-3 p-3">
                                     <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
                                 </div>
-                                <!-- ACTIVIDADES -->
-                                <div class="mb-3">
-                                    <div class="container px-2 py-2">
-                                        <h5 class="text-primary">
-                                            Seleccione ACTIVIDAD disponible para vincular al asociado:
-                                        </h5>
-                                    </div>
-                                    <select multiple class="form-control" name="actividades[]" id="listaActividades">
-                                        <?php foreach ($actividades as $actividad) { ?>
-                                            <option <?php
-                                                    if (!empty($arrayActividades)) :
-                                                        if (in_array($actividad['id'], $arrayActividades)) :
-                                                            echo "selected";
-                                                        endif;
 
-                                                    endif;
-                                                    ?> value="<?php echo $actividad['id']; ?>">
-                                                <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <!-- COMISIONES -->
-                                <div class="mb-3">
-                                    <div class="container px-2 py-2">
-                                        <h5 class="text-success">
-                                            Seleccione COMISION disponible para vincular al asociado:
-                                        </h5>
-                                    </div>
-                                    <select multiple class="form-control" name="comisiones[]" id="listaComisiones">
-                                        <?php foreach ($comisiones as $comision) { ?>
-                                            <option <?php
-                                                    if (!empty($arrayComisiones)) :
-                                                        if (in_array($comision['id'], $arrayComisiones)) :
-                                                            echo "selected";
-                                                        endif;
+                                <div class="row col-12">
+                                    <div class="col-6">
+                                        <!-- ACTIVIDADES -->
+                                        <div class="mb-3">
+                                            <div class="container px-2 py-2">
+                                                <h5 class="text-primary">
+                                                    Seleccione Actividad para vincular al asociado:
+                                                </h5>
+                                            </div>
+                                            <select multiple class="form-control" name="actividades[]" id="listaActividades">
+                                                <?php foreach ($actividades as $actividad) { ?>
+                                                    <option <?php
+                                                            if (!empty($arrayActividades)) :
+                                                                if (in_array($actividad['id'], $arrayActividades)) :
+                                                                    echo "selected";
+                                                                endif;
 
-                                                    endif;
-                                                    ?> value="<?php echo $comision['id']; ?>">
-                                                <?php echo $comision['id']; ?> - <?php echo $comision['nombre_comision']; ?>
-                                            </option>
-                                        <?php } ?>
-                                    </select>
-                                </div>
-                                <div class="btn-group d-flex mt-3" role="group" aria-label="Button group name">
-                                    <button type="submit" name="accion" value="agregar" class="btn btn-success fw-bold">AGREGAR NUEVO SOCIO
-                                    </button>
+                                                            endif;
+                                                            ?> value="<?php echo $actividad['id']; ?>">
+                                                        <?php echo $actividad['id']; ?> - <?php echo $actividad['nombre_actividad']; ?>
+                                                    </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                    <!-- COMISIONES -->
+                                        <div class="mb-3">
+                                            <div class="container px-2 py-2">
+                                                <h5 class="text-success">
+                                                    Seleccione Comisión para vincular al asociado:
+                                                </h5>
+                                            </div>
+                                            <select multiple class="form-control" name="comisiones[]" id="listaComisiones">
+                                                <?php foreach ($comisiones as $comision) { ?>
+                                                    <option <?php
+                                                            if (!empty($arrayComisiones)) :
+                                                                if (in_array($comision['id'], $arrayComisiones)) :
+                                                                    echo "selected";
+                                                                endif;
+
+                                                            endif;
+                                                            ?> value="<?php echo $comision['id']; ?>">
+                                                        <?php echo $comision['id']; ?> - <?php echo $comision['nombre_comision']; ?>
+                                                    </option>
+                                                <?php } ?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="d-grid gap-2 mb-2 mt-3 p-3">
+                                        <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
+                                    </div>
+                                    <div class="btn-group d-flex mt-3" role="group" aria-label="Button group name">
+                                        <button type="submit" name="accion" value="agregar" class="btn btn-success fw-bold">AGREGAR NUEVO SOCIO
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

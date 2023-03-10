@@ -4,6 +4,19 @@ if (empty($_SESSION['usuario'])) {
 }
 ?>
 
+<!-- <style> 
+.divx {
+  width: 200px;
+  height: 100px;
+  background: green;
+  transition: width 2s;
+}
+
+.divx:hover {
+  width: 300px;
+}
+</style> -->
+
 <div class="fondo_login">
     <?php if ($_SESSION['usuario'] == "root") : ?>
         <div class="container p-5">
@@ -83,16 +96,18 @@ if (empty($_SESSION['usuario'])) {
 
     <?php elseif ($_SESSION['usuario'] == "admin") : ?>
         <div class="container px-4 py-5">
-            <h3 class="pb-1 border-bottom text-warning">
+        <!-- <h1 class="animate__animated animate__bounce">An animated element</h1> -->
+        
+            <h2 class="pb-1 border-bottom text-warning animate__animated animate__backInDown mt-3">
                 Secciones
-            </h3>
+            </h2>
             <div class="grid mt-5">
                 <div class="row justify-content-around">
-                    <div class="row col-12">
+                    <div class="row col-12 animate__animated animate__fadeInDownBig">
                         <div class="col-1"></div>
                         <div class="col-6">
-                            <div>
-                                <div>
+                            <div >
+                                <div >
                                     <h3 class="fs-3 text-light">
                                         Usuarios
                                     </h3>
@@ -105,7 +120,6 @@ if (empty($_SESSION['usuario'])) {
                                 </div>
                             </div>
                         </div>
-
                         <div class="col-1"></div>
                         <div class="col-4">
                             <div>
@@ -124,8 +138,7 @@ if (empty($_SESSION['usuario'])) {
                         </div>
                     </div>
                     <div class="row col-12 m-5"></div>
-                    <div class="row col-12">
-
+                    <div class="row col-12 animate__animated animate__zoomInDown">
                         <div class="col-1"></div>
                         <div class="col-6">
                             <div>
@@ -165,12 +178,12 @@ if (empty($_SESSION['usuario'])) {
 
     <?php elseif ($_SESSION['usuario'] !== "root") : ?>
         <div class="container px-4 py-5">
-            <h3 class="pb-1 border-bottom text-warning">
+            <h2 class="pb-1 border-bottom text-warning animate__animated animate__backInDown mt-3">
                 Secciones
-            </h3>
+            </h2>
             <div class="grid mt-5">
                 <div class="row">
-                    <div class="container row col-12">
+                    <div class="container row col-12 animate__animated animate__zoomInDown">
                         <div class="col-1"></div>
                         <div class="col-3">
                             <div>
