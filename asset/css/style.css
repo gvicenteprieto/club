@@ -16,18 +16,40 @@
 
 .fondo_menu {
   background-color: #6badee;
-
 }
 
 .boton_nav-login {
   color: white;
-  /* border: 1px solid #ffffff; */
   margin-left: -7.5px;
   text-decoration: none;
   padding: 7px 7px;
   border-radius: 6px;
   transition: 0.2s;
   background-color: #17874f;
+}
+
+
+.boton_nav-estad {
+  color:  #a6c3de;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.boton_nav-estad:hover {
+  color: #ffffff;
+  font-size: medium;
+  font-weight: 700;
+}
+
+
+.boton_nav-secc {
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.boton_nav-secc:hover {
+  font-size: medium;
+  font-weight: 700;
 }
 
 .user{
@@ -60,6 +82,8 @@
   background-color: #ffffff;
 }
 
+
+
 .boton_nav-signup:hover {
   border: 2px solid #0d6dff;
   color: #000;
@@ -68,8 +92,8 @@
 }
 
 .fondo_login {
-  /* background-color: #55a6f2;  */
-  background-color: #5dbefb;
+  /* background-color: #5dbefb; */
+  background-color: #6badee;
   min-height: 100vh;
 }
 
@@ -87,6 +111,15 @@
   padding: 15px;
   border-radius: 6px;
   background-color: #332f2f;
+}
+
+.headerMenu {
+  color: white;
+  margin: auto;
+  border: 1px solid #808080;
+  padding: 15px;
+  border-radius: 6px;
+  background-color: #000000;
 }
 
 .icono,
@@ -107,8 +140,8 @@
 }
 
 .icono_footer {
-  font-size: 15px;
-  margin-bottom: 10px;
+  font-size: 20px;
+  margin-bottom: 20px;
   color: #5dbefb;
 }
 

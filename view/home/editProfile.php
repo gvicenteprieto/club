@@ -24,9 +24,7 @@ if ($_SESSION['usuario']) {
     }
 };
 ?>
-
-<!-- <div class="fondo_login"> -->
-<div class="fondo_login2">
+<div class="fondo_login">
     <div class="container p-5">
         <div class="row">
             <div class="col-12">
@@ -37,7 +35,7 @@ if ($_SESSION['usuario']) {
                             <div class="row col-12">
                                 <div class="col-10 text-end p-2 text-secondary fw-bold">Nombre de Usuario: </div>
 
-                                <div class="col-2 bg-secondary text-warning text-center card fw-bold">
+                                <div class="col-2 bg-secondary text-warning text-center card fw-bold animate__animated animate__pulse">
                                     <h5 class="mt-2">
                                         <i>
                                             <?php echo $usuario; ?>

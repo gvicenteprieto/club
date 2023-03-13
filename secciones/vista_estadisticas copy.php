@@ -77,32 +77,30 @@ if (empty($_SESSION['usuario'])) {
                             <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
                         </div>
 
-
                         <div class="row col-12">
 
                             <div class="row col-6">
 
-                              
+                                <?php if ($sociosDirectiva != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
-                                        
-                                        <div class="col-5 p-2 text-end mt-3 mb-3">Socios en Comisión Directiva: </div>
+                                        <div class="col-5 p-2 text-end ">Socios en Comisión Directiva: </div>
                                         <div class="col-1"></div>
-                                        <div class="col-5 text-success text-center card fw-bold align-middle mt-3 mb-3" style="align-items: center;">
-                                            <h5 class="mt-2">
-                                                <i>
+                                        <div class="col-5 text-success text-center card fw-bold">
+                                            <h5 class="mt-2 ">
+                                                <i >
                                                     <?php echo $sociosDirectiva; ?>
                                                 </i>
                                             </h5>
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                              
+                                <?php }  ?>
 
-                                
+                                <?php if ($sociosDeportes != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
-                                        <div class="col-5 p-2 text-end mt-3 mb-3">Socios en Comisión Deportes: </div>
+                                        <div class="col-5 p-2 text-end ">Socios en Comisión Deportes: </div>
                                         <div class="col-1"></div>
-                                        <div class="col-5 text-success text-center card fw-bold mt-3 mb-3">
+                                        <div class="col-5 text-success text-center card fw-bold">
                                             <h5 class="mt-2">
                                                 <i>
                                                     <?php echo $sociosDeportes; ?>
@@ -111,13 +109,13 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                             
+                                <?php }  ?>
 
-                              
+                                <?php if ($sociosPrensa != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
-                                        <div class="col-5 p-2 text-end mt-3 mb-3">Socios en Comisión Prensa: </div>
+                                        <div class="col-5 p-2 text-end ">Socios en Comisión Prensa: </div>
                                         <div class="col-1"></div>
-                                        <div class="col-5 text-success text-center card fw-bold mt-3 mb-3">
+                                        <div class="col-5 text-success text-center card fw-bold">
                                             <h5 class="mt-2">
                                                 <i>
                                                     <?php echo $sociosPrensa; ?>
@@ -126,13 +124,13 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                               
+                                <?php }  ?>
 
-                               
+                                <?php if ($sociosCultura != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
-                                        <div class="col-5 p-2 text-end mt-3 mb-3">Socios en Comisión Cultura: </div>
+                                        <div class="col-5 p-2 text-end ">Socios en Comisión Cultura: </div>
                                         <div class="col-1"></div>
-                                        <div class="col-5 text-success text-center card fw-bold mt-3 mb-3">
+                                        <div class="col-5 text-success text-center card fw-bold">
                                             <h5 class="mt-2">
                                                 <i>
                                                     <?php echo $sociosCultura; ?>
@@ -141,13 +139,13 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                           
+                                <?php }  ?>
                             </div>
                             <!-- <div class="d-grid gap-2 mb-2 mt-3 p-3">
                                         <div class="bg-secondary-subtle border border-secondary rounded-3"></div>
                                     </div> -->
                             <div class="row col-6">
-                           
+                                <?php if ($sociosFutbol != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Fútbol: </div>
                                         <div class="col-1"></div>
@@ -160,9 +158,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                              
+                                <?php }  ?>
 
-                                
+                                <?php if ($sociosRugby != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Rugby: </div>
                                         <div class="col-1"></div>
@@ -175,8 +173,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                          
+                                <?php }  ?>
 
+                                <?php if ($sociosHockey != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Hockey: </div>
                                         <div class="col-1"></div>
@@ -189,9 +188,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                              
+                                <?php }  ?>
 
-                               
+                                <?php if ($sociosTaekwondo != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Taekwondo: </div>
                                         <div class="col-1"></div>
@@ -204,8 +203,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                              
-                            
+                                <?php }  ?>
+
+                                <?php if ($sociosTenis != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Tenis: </div>
                                         <div class="col-1"></div>
@@ -218,9 +218,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                          
+                                <?php }  ?>
 
-                          
+                                <?php if ($sociosGimnasio != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Gimnasio: </div>
                                         <div class="col-1"></div>
@@ -233,9 +233,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                            
+                                <?php }  ?>
 
-                              
+                                <?php if ($sociosPadel != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Pádel: </div>
                                         <div class="col-1"></div>
@@ -248,8 +248,9 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                           
+                                <?php }  ?>
 
+                                <?php if ($sociosPadel != 0) { ?>
                                     <!-- <div class="row col-12 mt-3 mb-3"> -->
                                         <div class="col-5 p-2 text-end ">Socios en Actividad Ajedrez: </div>
                                         <div class="col-1"></div>
@@ -262,7 +263,7 @@ if (empty($_SESSION['usuario'])) {
                                         </div>
                                         <div class="col-1"></div>
                                     <!-- </div> -->
-                              
+                                <?php }  ?>
                             </div>
                         </div>
                         <div class="d-grid gap-2 mb-2 mt-3 p-3">
